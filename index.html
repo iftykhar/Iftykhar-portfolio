@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Hero Section -->
+  <!-- <section class="relative bg-amber-500 text-white h-screen flex items-center justify-center">
+    <div class="text-center px-6">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Iftykhar Alam</h1>
+      <p class="text-lg md:text-xl mb-6">Aspiring Laravel Developer</p>
+      <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-100">
+        Learn More
+      </a>
+    </div>
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+      <a href="#about" class="text-white text-sm hover:text-blue-300">
+        Scroll Down ⬇️
+      </a>
+    </div>
+  </section> -->
+  
+  <!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url('./image/bg-cycle.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <div class="text-center text-white px-6">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Iftykhar Alam</h1>
+        <p class="text-lg md:text-xl mb-6">Aspiring Laravel Developer</p>
+        <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-100">
+          Learn More
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+      <a href="#about" class="text-white text-sm hover:text-blue-300">
+        Scroll Down ⬇️
+      </a>
+    </div>
+  </section>
+  
+
+  <!-- About Me Section -->
+    <section id="about" class="bg-white py-16 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+      <!-- Profile Image -->
+      <div class="text-center md:text-left">
+        <img src="./image/PIC_IFTEKHAR-removebg-preview.png" alt="Profile Picture" 
+             class="rounded-full w-40 h-40 mx-auto md:mx-0 border-4 border-blue-600">
+      </div>
+  
+      <!-- About Text -->
+      <div>
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+          Hello! I'm Iftykhar Alam, an aspiring Laravel developer passionate about creating efficient 
+          and scalable web applications. My journey in web development is driven by a love for solving 
+          complex problems and building functional, user-friendly designs.
+        </p>
+        <a href="#projects" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500">
+          View My Projects
+        </a>
+      </div>
+    </div>
+    </section>
+    
+
+    <!-- Experience Section -->
+<section id="experience" class="bg-white py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">Experience</h2>
+    <div class="space-y-6">
+      <!-- Job 1 -->
+      <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-2">Office Administrator/Accountant (Remote)</h3>
+        <p class="text-gray-600 italic">Refuel Forecourts Limited Company, Manchester, UK (Nov 2023 – Apr 2024)</p>
+        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
+          <li>Managed daily administration tasks, including handling reports, monitoring prices, and coordinating with the UK team.</li>
+          <li>Oversaw salary sheets and expenditures, ensuring accuracy in remote financial management.</li>
+          <li>Led the team in managing administrative duties and accounting functions, ensuring smooth workflows and meeting deadlines.</li>
+          <li>Effectively communicated with the Manchester-based team through virtual meetings and digital collaboration tools.</li>
+          <li>Ensured smooth coordination between the Dhaka office and the Manchester-based team, improving communication efficiency.</li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+<section id="projects" class="bg-gray-50 py-16 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">My Projects</h2>
+      <!-- Projects Grid -->
+      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project cards will be inserted here dynamically -->
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    const projectsData = [
+    {
+        "id":1,
+        "title":"dictator-portfolio",
+        "description":"A short Static view of website about Dictator",
+        "link":"https://iftykhar.github.io/dictator-portfolio/",
+        "pic": "./image/project1.jpeg"
+    },
+    {
+        "id":2,
+        "title":"calculator",
+        "description":"A Calculator by j-query",
+        "link":"https://iftykhar.github.io/calculator/",
+        "pic": "./image/project2.jpeg"
+    },
+    {
+        "id":3,
+        "title":"Html-work",
+        "description":"A project based on HTML and CSS from a PSD",
+        "link":"https://iftykhar.github.io/Html-work/",
+        "pic": "./image/project3.jpeg"
+    },
+    {
+        "id":4,
+        "title":"Feedback-Application",
+        "description":"Anyone can register in this app and get a 'Unique shareable link' to collect feedback from others. The user can see the given feedback on his/her Dashboard",
+        "link":"https://github.com/iftykhar/Feedback-Application",
+        "pic": "./image/project4.jpeg"
+    },
+    {
+        "id":5,
+        "title":"Dreamify",
+        "description":"Dremify is a Laravel-powered, text-focused platform designed to inspire and share curated collections of written content. Similar to pinkary.com",
+        "link":"https://github.com/iftykhar/Dreamify",
+        "pic": "./image/project-5.png"
+    },
+    {
+        "id":6,
+        "title":"Action List",
+        "description":"Action-List offers an intuitive interface for adding, editing, viewing, and deleting tasks. Features: Create new tasks View tasks in a list Update existing tasks Delete unnecessary tasks Basic form validation ",
+        "link":"https://github.com/iftykhar/Action-list",
+       "pic": "./image/project-6.png"
+    }
+    ];
+  
+    const projectsGrid = document.getElementById('projects-grid');
+  
+    projectsData.forEach(project => {
+      const projectCard = `
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="${project.pic}" alt="${project.title}" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+            <p class="text-gray-700 mb-4">${project.description}</p>
+            <a href="${project.link}" target="_blank" class="text-blue-600 font-semibold hover:underline">
+              View Project
+            </a>
+          </div>
+        </div>
+      `;
+      projectsGrid.innerHTML += projectCard;
+    });
+  </script>
+  
+  
+<!-- Skills/Technologies Section -->
+<section id="skills" class="bg-white py-16 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Skills & Technologies</h2>
+      
+      <!-- Skills Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+        
+        <!-- Skill 1 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/HTML.png" alt="HTML Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">HTML</p>
+        </div>
+        
+        <!-- Skill 2 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/CSS.png" alt="CSS Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">CSS</p>
+        </div>
+        
+        <!-- Skill 3 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/javascript-logo.png" alt="JavaScript Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">JavaScript</p>
+        </div>
+        
+        <!-- Skill 4 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/Laravel.png" alt="Laravel Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">Laravel</p>
+        </div>
+        
+        <!-- Skill 5 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/php.png" alt="PHP Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">PHP</p>
+        </div>
+        
+        <!-- Skill 6 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/Tailwind_CSS_Logo.png" alt="TailwindCSS Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">TailwindCSS</p>
+        </div>
+        
+        <!-- Skill 7 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/git.png" alt="Git Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">Git</p>
+        </div>
+        
+        <!-- Skill 8 -->
+        <div class="flex flex-col items-center">
+          <img src="./image/mysql.png" alt="MySQL Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">MySQL</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="./image/github.png" alt="Github Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">GitHub</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="./image/sqlite.png" alt="SQLite Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">SQLite</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="./image/ms-office.png" alt="MS Office Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">MS Office</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="./image/excel.png" alt="Excel Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">Excel</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+<!-- Contact Section -->
+<section id="contact" class="bg-amber-500 py-16 px-6 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Contact Me</h2>
+  
+      <!-- Contact Form -->
+      <form action="#" method="POST" class="space-y-6">
+        <div>
+          <label for="name" class="block text-lg font-semibold mb-2">Your Name</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+  
+        <div>
+          <label for="email" class="block text-lg font-semibold mb-2">Your Email</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+  
+        <div>
+          <label for="message" class="block text-lg font-semibold mb-2">Your Message</label>
+          <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+        </div>
+  
+        <button type="submit" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Send Message</button>
+      </form>
+    </div>
+  </section>
+<!-- Footer Section -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-sm mb-4">&copy; 2024 Iftykhar Alam. All Rights Reserved.</p>
+      <div class="space-x-4">
+        <a href="https://github.com/iftykhar" target="_blank" class="hover:text-blue-400">GitHub</a>
+        <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" class="hover:text-blue-400">LinkedIn</a>
+        <a href="s.m.ifty49l@gmail.com" class="hover:text-blue-400">Email</a>
+      </div>
+    </div>
+  </footer>
+        
+  
+
+</body>
+</html>
