@@ -26,7 +26,7 @@ This portfolio showcases my proficiency in the following technologies:
 
 If you’d like to get in touch with me for project inquiries or potential collaborations, feel free to reach out via the following methods:
 
-- **Email**: [s.m.ifty49l@gmail.com](mailto:s.m.ifty49l@gmail.com)
+- **Email**: [s.m.ifty49@gmail.com](mailto:s.m.ifty49@gmail.com)
 - **GitHub**: [https://github.com/iftykhar](https://github.com/iftykhar)
 - **LinkedIn**: [https://www.linkedin.com/in/iftykhar-alam/](https://www.linkedin.com/in/iftykhar-alam/)
 
