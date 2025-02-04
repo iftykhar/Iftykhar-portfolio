@@ -39,7 +39,7 @@
       <div class="text-center text-white px-6 fade-in">
         <h1 class="text-4xl md:text-6xl font-bold mb-4 slide-up">Iftykhar Alam</h1>
         <p class="text-lg md:text-xl mb-6 slide-up">Aspiring Web Developer</p>
-         <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-100 scroll-link">
+         <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-100 animate-bounce inline-block scroll-link">
           Learn More
         </a>
       </div>
@@ -103,10 +103,11 @@
     },
     {
         "id":2,
-        "title":"calculator",
-        "description":"A Calculator by j-query",
-        "link":"https://iftykhar.github.io/calculator/",
-        "pic": "./image/project2.jpeg"
+        "title":"Logistica",
+        "description":`Developed server-side rendering capabilities and dynamic routing to enhance user
+        experience`,
+        "link":"https://github.com/iftykhar/logistica",
+        "pic": "./image/logistica.png"
     },
     {
         "id":3,
@@ -131,10 +132,17 @@
     },
     {
         "id":6,
-        "title":"Action List",
+        "title":"Action List(On Progress)",
         "description":"Action-List offers an intuitive interface for adding, editing, viewing, and deleting tasks. Features: Create new tasks View tasks in a list Update existing tasks Delete unnecessary tasks Basic form validation ",
         "link":"https://github.com/iftykhar/Action-list",
        "pic": "./image/project-6.png"
+    },
+    {
+        "id":7,
+        "title":"E-Commerce(On Progress)",
+        "description":"ADeveloping a responsive e-commerce platform using React ",
+        "link":"https://ecommerce-react-nine-peach.vercel.app/",
+       "pic": "./image/ecommerce.png"
     }
     ];
 
@@ -146,7 +154,7 @@
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">${project.title}</h3>
             <p class="text-gray-700 mb-4">${project.description}</p>
-            <a href="${project.link}" target="_blank" class="text-blue-600 rounded font-semibold hover:underline">View Project</a>
+            <a href="${project.link}" target="_blank" class="text-blue-600 rounded font-semibold  hover:underline">View Project</a>
           </div>
         </div>`;
       projectsGrid.innerHTML += projectCard;
