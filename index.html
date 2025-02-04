@@ -5,107 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Basic fade-in effect */
+    .fade-in { opacity: 0; animation: fadeIn 2.5s forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Smooth slide-up effect */
+    .slide-up { opacity: 0; transform: translateY(20px); animation: slideUp 3.5s forwards; }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-
   <!-- Hero Section -->
-<section class="relative bg-cover bg-center h-screen" style="background-image: url('./image/bg-cycle.jpg');">
+  <section class="relative bg-cover bg-center h-screen" style="background-image: url('image/building.jpg');">
     <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div class="text-center text-white px-6">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">Iftykhar Alam</h1>
-        <p class="text-lg md:text-xl mb-6">Aspiring Laravel Developer</p>
-        <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-100  scroll-link">
+      <div class="text-center text-white px-6 fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 slide-up">Iftykhar Alam</h1>
+        <p class="text-lg md:text-xl mb-6 slide-up">Aspiring Web Developer</p>
+        <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-100">
           Learn More
         </a>
       </div>
     </div>
-    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-      <a href="#about" class="text-white text-sm hover:text-blue-300 scroll-link">
-        Scroll Down ⬇️
-      </a>
-    </div>
   </section>
-  
 
   <!-- About Me Section -->
   <section id="about" class="bg-white py-16 px-6">
     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
       <!-- Profile Image -->
       <div class="text-center md:text-left">
-        <img src="./image/PIC_IFTEKHAR-removebg-preview.png" alt="Profile Picture"
-          class="rounded-full w-40 h-40 mx-auto md:mx-0 border-4 border-blue-600">
+        <img src="image/profile-pic.jpg" alt="Profile Picture" class="rounded-full w-60 h-60 mx-auto md:mx-0 border-4 border-blue-600">
       </div>
-  
+
       <!-- About Text -->
       <div>
         <h2 class="text-3xl font-bold mb-4">About Me</h2>
         <p class="text-lg text-gray-700 leading-relaxed mb-6">
-          Hello! I'm Iftykhar Alam, an aspiring Laravel developer passionate about creating efficient
-          and scalable web applications. My journey in web development is driven by a love for solving
-          complex problems and building functional, user-friendly designs.
+            Hello! I'm Iftykhar Alam, an aspiring Web developer passionate about creating efficient
+            and scalable web applications. My journey in web development is driven by a love for solving
+            complex problems and building functional, user-friendly designs.
         </p>
-        
         <div class="flex flex-wrap gap-4">
-          <!-- <a href="#projects" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 w-full sm:w-auto transition duration-300 ease-in-out">
-            View My Projects
-          </a> -->
-          <a href="#projects" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 w-full sm:w-auto transition duration-3000 ease-in-out scroll-link">
-            View My Projects
-          </a>
-          
-          <a href="https://github.com/iftykhar" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 w-full sm:w-auto">
+          <a href="https://github.com/iftykhar" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500">
             Github
           </a>
           <a href="https://drive.google.com/file/d/1e5siBFf3Rqj3rnlqngwroPykVxaM22zl/view?usp=drive_link" 
-             class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 w-full sm:w-auto">
+             class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500">
             Resume
           </a>
-          <a href="#hobbies" 
-             class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 w-full sm:w-auto scroll-link">
-            Hobbies
-          </a>
+          
         </div>
       </div>
     </div>
   </section>
-  
 
-    <!-- Experience Section -->
-<section id="experience" class="bg-gradient-to-r from-teal-400 to-indigo-500  py-16 px-6">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-8">Experience</h2>
-    <div class="space-y-6">
-      <!-- Job 1 -->
-      <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-bold mb-2">Office Administrator/Accountant (Remote)</h3>
-        <p class="text-gray-600 italic">Refuel Forecourts Limited Company, Manchester, UK (Nov 2023 – Apr 2024)</p>
-        <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
-          <li>Managed daily administration tasks, including handling reports, monitoring prices, and coordinating with the UK team.</li>
-          <li>Oversaw salary sheets and expenditures, ensuring accuracy in remote financial management.</li>
-          <li>Led the team in managing administrative duties and accounting functions, ensuring smooth workflows and meeting deadlines.</li>
-          <li>Effectively communicated with the Manchester-based team through virtual meetings and digital collaboration tools.</li>
-          <li>Ensured smooth coordination between the Dhaka office and the Manchester-based team, improving communication efficiency.</li>
-        
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Projects Section -->
-<section id="projects" class="bg-gradient-to-r from-blue-100 to-gray-200 py-16 px-6">
+  <!-- Projects Section -->
+  <section id="projects" class="bg-gradient-to-r from-blue-100 to-gray-200 py-16 px-6">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-8">My Projects</h2>
-      <!-- Projects Grid -->
-      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project cards will be inserted here dynamically -->
-      </div>
+      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </div>
   </section>
-  
+
   <script>
+    // const projectsData = [
+    //   { "title": "Dictator Portfolio", "description": "A static website", "link": "https://dictator-portfolio.vercel.app/", "pic": "image/project1.jpeg" },
+    //   { "title": "Calculator", "description": "A calculator using jQuery", "link": "https://iftykhar.github.io/calculator/", "pic": "image/project2.jpeg" },
+    //   { "title": "HTML Work", "description": "A project based on HTML/CSS", "link": "https://iftykhar.github.io/Html-work/", "pic": "image/project3.jpeg" },
+    // ];
     const projectsData = [
     {
         "id":1,
@@ -150,9 +124,8 @@
        "pic": "./image/project-6.png"
     }
     ];
-  
+
     const projectsGrid = document.getElementById('projects-grid');
-  
     projectsData.forEach(project => {
       const projectCard = `
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -160,18 +133,13 @@
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">${project.title}</h3>
             <p class="text-gray-700 mb-4">${project.description}</p>
-            <a href="${project.link}" target="_blank" class='text-blue-600 rounded font-semibold hover:underline'>
-              View Project
-            </a>
+            <a href="${project.link}" target="_blank" class="text-blue-600 rounded font-semibold hover:underline">View Project</a>
           </div>
-        </div>
-      `;
+        </div>`;
       projectsGrid.innerHTML += projectCard;
     });
   </script>
-  
-  
-<!-- Skills/Technologies Section -->
+
 <section id="skills" class="bg-gradient-to-r from-teal-400 to-skyblue-500  py-16 px-6">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-8">Skills & Technologies</h2>
@@ -195,6 +163,11 @@
         <div class="flex flex-col items-center">
           <img src="./image/javascript-logo.png" alt="JavaScript Icon" class="w-16 h-16 mb-4">
           <p class="text-lg font-semibold">JavaScript</p>
+        </div>
+        
+        <div class="flex flex-col items-center">
+          <img src="./image/react-logo.png" alt="react Icon" class="w-16 h-16 mb-4">
+          <p class="text-lg font-semibold">React</p>
         </div>
         
         <!-- Skill 4 -->
@@ -238,114 +211,14 @@
           <img src="./image/ms-office.png" alt="MS Office Icon" class="w-16 h-16 mb-4">
           <p class="text-lg font-semibold">MS Office</p>
         </div>
-        <div class="flex flex-col items-center">
+        <!-- <div class="flex flex-col items-center">
           <img src="./image/excel.png" alt="Excel Icon" class="w-16 h-16 mb-4">
           <p class="text-lg font-semibold">Excel</p>
-        </div>
+        </div> -->
         
       </div>
     </div>
   </section>
 
-   <!-- Hobbies Section -->
-   <section id="hobbies" class="py-16 px-6 bg-gray-200">
-    <h2 class="text-3xl font-bold text-center mb-8">Hobbies</h2>
-    <p class="text-lg text-center mb-12">Here are a few things I enjoy in my free time:</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/books.jpg" alt="Reading Books" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Reading</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/photo.jpg" alt="Photography" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Photography</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/buffalos.jpg" alt="Traveling to New Places" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Traveling</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/cycle01.jpg" alt="Cycling" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Cycling</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/coding.jpg" alt="Coding Fun Projects" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Coding</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/meme.jpg" alt="Meme Projects" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Making Memes</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/leakess.jpg" alt="Lakeside Leisure" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Lakeside Leisure</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg">
-        <img src="./image/Gardening.jpg" alt="Gardening" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Gardening</h3>
-      </div>
-    </div>
-  </section>
-
-<!-- Contact Section -->
-<section id="contact" class="bg-gradient-to-r from-teal-400 to-blue-500  py-16 px-6 text-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8">Contact Me</h2>
-  
-      <!-- Contact Form -->
-      <form action="#" method="POST" class="space-y-6">
-        <div>
-          <label for="name" class="block text-lg font-semibold mb-2">Your Name</label>
-          <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
-        </div>
-  
-        <div>
-          <label for="email" class="block text-lg font-semibold mb-2">Your Email</label>
-          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
-        </div>
-  
-        <div>
-          <label for="message" class="block text-lg font-semibold mb-2">Your Message</label>
-          <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
-        </div>
-  
-        <button type="submit" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-
-
-  
-<!-- Footer Section -->
-<footer class="bg-gray-800 text-white py-6">
-    <div class="max-w-6xl mx-auto text-center">
-      <p class="text-sm mb-4">&copy; 2024 Iftykhar Alam. All Rights Reserved.</p>
-      <div class="space-x-4">
-        <a href="https://github.com/iftykhar" target="_blank" class="hover:text-blue-400">GitHub</a>
-        <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" class="hover:text-blue-400">LinkedIn</a>
-        <a href="s.m.ifty49@gmail.com" class="hover:text-blue-400">Email</a>
-      </div>
-    </div>
-  </footer>
-        
-  <script>
-   
-    document.querySelectorAll('.scroll-link').forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            const targetId = this.getAttribute('href').substring(1); 
-            const targetSection = document.getElementById(targetId);
-
-           
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        });
-    });
-</script>
-
-  
 </body>
 </html>
