@@ -63,14 +63,14 @@
             complex problems and building functional, user-friendly designs.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="https://github.com/iftykhar" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 zoom-in">
+          <a href="https://github.com/iftykhar" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition delay-250 duration-300 ease-in-out hover:scale-[125%]">
             Github
           </a>
-          <a href="https://www.linkedin.com/in/iftykhar-alam/" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 zoom-in">
+          <a href="https://www.linkedin.com/in/iftykhar-alam/" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition delay-250 duration-300 ease-in-out hover:scale-[125%]">
             LinkedIn
           </a>
           <a href="https://drive.google.com/file/d/1e5siBFf3Rqj3rnlqngwroPykVxaM22zl/view?usp=drive_link" 
-             class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 zoom-in">
+             class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition delay-250 duration-300 ease-in-out hover:scale-[125%]">
             Resume
           </a>
           
@@ -149,12 +149,12 @@
     const projectsGrid = document.getElementById('projects-grid');
     projectsData.forEach(project => {
       const projectCard = `
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden ">
           <img src="${project.pic}" alt="${project.title}" class="w-full h-48 object-cover">
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">${project.title}</h3>
             <p class="text-gray-700 mb-4">${project.description}</p>
-            <a href="${project.link}" target="_blank" class="text-blue-600 rounded font-semibold  hover:underline">View Project</a>
+            <a href="${project.link}" target="_blank" class="text-blue-600 rounded font-semibold px-2 py-2  hover:underline">View Project</a>
           </div>
         </div>`;
       projectsGrid.innerHTML += projectCard;
@@ -170,66 +170,66 @@
         
         <!-- Skill 1 -->
         <div class="flex flex-col items-center">
-          <img src="./image/HTML.png" alt="HTML Icon" class="w-16 h-16 mb-4">
+          <img src="./image/HTML.png" alt="HTML Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">HTML</p>
         </div>
         
         <!-- Skill 2 -->
         <div class="flex flex-col items-center">
-          <img src="./image/CSS.png" alt="CSS Icon" class="w-16 h-16 mb-4">
+          <img src="./image/CSS.png" alt="CSS Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">CSS</p>
         </div>
         
         <!-- Skill 3 -->
         <div class="flex flex-col items-center">
-          <img src="./image/javascript-logo.png" alt="JavaScript Icon" class="w-16 h-16 mb-4">
+          <img src="./image/javascript-logo.png" alt="JavaScript Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">JavaScript</p>
         </div>
         
         <div class="flex flex-col items-center">
-          <img src="./image/react-logo.png" alt="react Icon" class="w-16 h-16 mb-4">
+          <img src="./image/react-logo.png" alt="react Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">React</p>
         </div>
         
         <!-- Skill 4 -->
         <div class="flex flex-col items-center">
-          <img src="./image/Laravel.png" alt="Laravel Icon" class="w-16 h-16 mb-4">
+          <img src="./image/Laravel.png" alt="Laravel Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">Laravel</p>
         </div>
         
         <!-- Skill 5 -->
         <div class="flex flex-col items-center">
-          <img src="./image/php.png" alt="PHP Icon" class="w-16 h-16 mb-4">
+          <img src="./image/php.png" alt="PHP Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">PHP</p>
         </div>
         
         <!-- Skill 6 -->
         <div class="flex flex-col items-center">
-          <img src="./image/Tailwind_CSS_Logo.png" alt="TailwindCSS Icon" class="w-16 h-16 mb-4">
+          <img src="./image/Tailwind_CSS_Logo.png" alt="TailwindCSS Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">TailwindCSS</p>
         </div>
         
         <!-- Skill 7 -->
         <div class="flex flex-col items-center">
-          <img src="./image/git.png" alt="Git Icon" class="w-16 h-16 mb-4">
+          <img src="./image/git.png" alt="Git Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">Git</p>
         </div>
         
         <!-- Skill 8 -->
         <div class="flex flex-col items-center">
-          <img src="./image/mysql.png" alt="MySQL Icon" class="w-16 h-16 mb-4">
+          <img src="./image/mysql.png" alt="MySQL Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">MySQL</p>
         </div>
         <div class="flex flex-col items-center">
-          <img src="./image/github.png" alt="Github Icon" class="w-16 h-16 mb-4">
+          <img src="./image/github.png" alt="Github Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">GitHub</p>
         </div>
         <div class="flex flex-col items-center">
-          <img src="./image/sqlite.png" alt="SQLite Icon" class="w-16 h-16 mb-4">
+          <img src="./image/sqlite.png" alt="SQLite Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">SQLite</p>
         </div>
         <div class="flex flex-col items-center">
-          <img src="./image/ms-office.png" alt="MS Office Icon" class="w-16 h-16 mb-4">
+          <img src="./image/ms-office.png" alt="MS Office Icon" class="w-16 h-16 mb-4   ">
           <p class="text-lg font-semibold">MS Office</p>
         </div>
         <!-- <div class="flex flex-col items-center">
@@ -245,35 +245,35 @@
     <h2 class="text-3xl font-bold text-center mb-8">Hobbies</h2>
     <p class="text-lg text-center mb-12">Here are a few things I enjoy in my free time:</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg  transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/books.jpg" alt="Reading Books" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Reading</h3>
       </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/photo.jpg" alt="Photography" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Photography</h3>
       </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/buffalos.jpg" alt="Traveling to New Places" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Traveling</h3>
       </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/cycle01.jpg" alt="Cycling" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Cycling</h3>
       </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/coding.jpg" alt="Coding Fun Projects" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Coding</h3>
       </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/meme.jpg" alt="Meme Projects" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Making Memes</h3>
       </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/leakess.jpg" alt="Lakeside Leisure" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Lakeside Leisure</h3>
       </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg zoom-in">
+      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
         <img src="./image/Gardening.jpg" alt="Gardening" class="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 class="text-xl font-semibold">Gardening</h3>
       </div>
