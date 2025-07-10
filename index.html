@@ -300,6 +300,46 @@
       </div>
     </div>
   </section>
+  <section id="contact" class="bg-indigo-300 py-16 px-6 max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold mb-8 text-center">Contact Me</h2>
+  <form 
+    action="https://formspree.io/f/mrbknqal" 
+    method="POST"
+    class="space-y-6"
+  >
+    <input 
+      type="text" 
+      name="name" 
+      placeholder="Your Name" 
+      required 
+      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Your Email" 
+      required 
+      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+
+    <textarea 
+      name="message" 
+      placeholder="Your Message" 
+      required 
+      rows="5" 
+      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    ></textarea>
+
+    <button 
+      type="submit" 
+      class="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition animate-bounce"
+    >
+      Send Message
+    </button>
+  </form>
+  </section>
+
 
   <footer class="bg-gray-800 text-white py-6">
     <div class="max-w-6xl mx-auto text-center">
@@ -311,6 +351,30 @@
       </div>
     </div>
   </footer>
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        alert("Thanks! Your message has been sent.");
+        form.reset();
+      } else {
+        alert("Oops! There was a problem.");
+      }
+    }).catch(() => {
+      alert("Oops! Something went wrong.");
+    });
+  });
+</script>
+
 <script>
     document.documentElement.classList.add('group'); // Ensures animations work on page load
 
