@@ -1,401 +1,410 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Basic fade-in effect */
-    .fade-in { opacity: 0; animation: fadeIn 2.5s forwards; }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Smooth slide-up effect */
-    .slide-up { opacity: 0; transform: translateY(20px); animation: slideUp 3.5s forwards; }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  
-    /* Zoom-in effect */
-    .zoom-in {
-      transform: scale(0.9);
-      transition: transform 0.5s ease-in-out;
-    }
-  
-    .zoom-in:hover {
-      transform: scale(1.05);
-    }
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="S M Iftykhar Ul Alam — Frontend Developer portfolio showcasing web projects, skills, and creative work."/>
+<title>  S M Iftykhar Ul Alam | Frontend Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-variant":"#353534","tertiary":"#4cd7f6","on-surface":"#e5e2e1",
+        "secondary-fixed":"#f0dbff","error":"#ffb4ab","secondary-fixed-dim":"#ddb7ff",
+        "on-primary-container":"#0d0096","surface-tint":"#c0c1ff",
+        "tertiary-container":"#009eb9","primary-fixed":"#e1e0ff",
+        "on-background":"#e5e2e1","surface-bright":"#3a3939",
+        "on-secondary-container":"#d6a9ff","primary-container":"#8083ff",
+        "surface-container":"#201f1f","on-tertiary-container":"#002f38",
+        "secondary-container":"#6f00be","background":"#131313",
+        "on-primary-fixed":"#07006c","on-error":"#690005",
+        "tertiary-fixed":"#acedff","on-primary":"#1000a9",
+        "surface-container-low":"#1c1b1b","surface-container-highest":"#353534",
+        "on-tertiary":"#003640","inverse-surface":"#e5e2e1",
+        "surface-dim":"#131313","outline-variant":"#464554",
+        "tertiary-fixed-dim":"#4cd7f6","inverse-on-surface":"#313030",
+        "on-secondary":"#490080","surface":"#131313",
+        "surface-container-high":"#2a2a2a","primary-fixed-dim":"#c0c1ff",
+        "inverse-primary":"#494bd6","primary":"#c0c1ff",
+        "outline":"#908fa0","surface-container-lowest":"#0e0e0e",
+        "error-container":"#93000a","on-surface-variant":"#c7c4d7",
+        "secondary":"#ddb7ff"
+      },
+      fontFamily: { "headline":["Plus Jakarta Sans"], "body":["Inter"], "label":["Inter"] },
+      borderRadius: {"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"9999px"},
+    },
+  },
+}
+</script>
+<style>
+body { background:#131313; color:#e5e2e1; font-family:'Inter',sans-serif; overflow-x:hidden; }
+.font-headline { font-family:'Plus Jakarta Sans',sans-serif; }
+.glass-nav { background:rgba(19,19,19,0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
+.hero-gradient { background:radial-gradient(circle at 50% 50%,rgba(99,102,241,0.15) 0%,rgba(168,85,247,0.1) 25%,transparent 70%); }
+.text-gradient { background:linear-gradient(135deg,#6366F1,#A855F7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.border-gradient { border:1.5px solid transparent; background-image:linear-gradient(#131313,#131313),linear-gradient(135deg,#6366F1,#A855F7); background-origin:border-box; background-clip:padding-box,border-box; }
+.material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+.fade-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+.stagger-1 { transition-delay:0.1s; } .stagger-2 { transition-delay:0.2s; }
+.stagger-3 { transition-delay:0.3s; } .stagger-4 { transition-delay:0.4s; }
+.stagger-5 { transition-delay:0.5s; } .stagger-6 { transition-delay:0.6s; }
+@keyframes float { 0%,100%{transform:translate(0,0)} 33%{transform:translate(30px,-20px)} 66%{transform:translate(-20px,15px)} }
+@keyframes pulse-glow { 0%,100%{opacity:0.15} 50%{opacity:0.3} }
+.orb { position:absolute; border-radius:50%; filter:blur(120px); animation:float 20s ease-in-out infinite; pointer-events:none; }
+canvas#particles { position:absolute; inset:0; pointer-events:none; }
+.nav-link { position:relative; }
+.nav-link::after { content:''; position:absolute; bottom:-4px; left:50%; width:0; height:2px; background:linear-gradient(90deg,#6366F1,#A855F7); transition:width 0.3s, left 0.3s; }
+.nav-link:hover::after, .nav-link.active::after { width:100%; left:0; }
+#mobile-menu { transform:translateX(100%); transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+#mobile-menu.open { transform:translateX(0); }
+.hobby-card img { filter:grayscale(80%); transition:filter 0.6s, transform 0.6s; }
+.hobby-card:hover img { filter:grayscale(0%); transform:scale(1.08); }
+input[type="text"], input[type="email"], textarea {
+  background:transparent; border:none; border-bottom:2px solid #908fa0; border-radius:0;
+  color:#e5e2e1; padding:12px 0; width:100%; font-family:'Inter'; transition:border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  outline:none; border-bottom-color:#6366F1; box-shadow:0 4px 12px rgba(99,102,241,0.15);
+}
+textarea { resize:vertical; min-height:120px; }
+details summary::-webkit-details-marker { display:none; }
+::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:#131313; }
+::-webkit-scrollbar-thumb { background:#353534; border-radius:4px; }
+::-webkit-scrollbar-thumb:hover { background:#464554; }
+</style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
-  <!-- Hero Section -->
-  <section class="relative bg-cover bg-center h-screen " style="background-image: url('image/cycling-1.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div class="text-center text-white px-6 fade-in">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 slide-up">Iftykhar Alam</h1>
-        <p class="text-lg md:text-xl mb-6 slide-up">Aspiring Web Developer</p>
-         <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-100 animate-bounce inline-block scroll-link ">
-          Learn More
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Me Section -->
-  <section id="about" class="bg-white py-16 px-6">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-      <!-- Profile Image -->
-      <div class="text-center md:text-left">
-        <img src="image/profile-pic.jpg" alt="Profile Picture" class="rounded-full w-60 h-60 mx-auto md:mx-0 border-4 border-blue-600 animate-bounce">
-      </div>
-
-      <!-- About Text -->
-      <div>
-        <h2 class="text-3xl font-bold mb-4">About Me</h2>
-        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            Hello! I'm Iftykhar Alam, an aspiring Web developer passionate about creating efficient
-            and scalable web applications. My journey in web development is driven by a love for solving
-            complex problems and building functional, user-friendly designs.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="https://github.com/iftykhar" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition delay-250 duration-300 ease-in-out hover:scale-[125%] animate-bounce">
-            Github
-          </a>
-          <a href="https://www.linkedin.com/in/iftykhar-alam/" class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition delay-250 duration-300 ease-in-out hover:scale-[125%] animate-bounce">
-            LinkedIn
-          </a>
-          <a href="https://drive.google.com/file/d/1e5siBFf3Rqj3rnlqngwroPykVxaM22zl/view?usp=drive_link" 
-             class="bg-amber-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition delay-250 duration-300 ease-in-out hover:scale-[125%] animate-bounce">
-            Resume
-          </a>
-          
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="bg-gradient-to-r from-blue-100 to-gray-200 py-16 px-6">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8">My Projects</h2>
-      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-    </div>
-  </section>
-
-  <script>
-    // const projectsData = [
-    //   { "title": "Dictator Portfolio", "description": "A static website", "link": "https://dictator-portfolio.vercel.app/", "pic": "image/project1.jpeg" },
-    //   { "title": "Calculator", "description": "A calculator using jQuery", "link": "https://iftykhar.github.io/calculator/", "pic": "image/project2.jpeg" },
-    //   { "title": "HTML Work", "description": "A project based on HTML/CSS", "link": "https://iftykhar.github.io/Html-work/", "pic": "image/project3.jpeg" },
-    // ];
-    const projectsData = [
-    {
-        "id":0,
-        "title":"memory-match game",
-        "description":"It's A game of Memorising and Matching . Used basic Typescript and tailwindCSS . ",
-        "link":"https://memory-match-weld.vercel.app/",
-        "pic": "./image/game3.png" 
-    },
-    {
-        "id":1,
-        "title":"dictator-portfolio",
-        "description":"A short Static view of website about Dictator",
-        "link":"https://dictator-portfolio.vercel.app/",
-        "pic": "./image/project1.jpeg"
-    },
-    {
-        "id":2,
-        "title":"Logistica",
-        "description":`Developed server-side rendering capabilities and dynamic routing to enhance user
-        experience`,
-        "link":"https://github.com/iftykhar/logistica",
-        "pic": "./image/logistica.png"
-    },
-    {
-        "id":3,
-        "title":"Quote Giver",
-        "description":"Minimalist daily quote generator with dynamic input using pure JavaScript. ",
-        "link":"https://quotegiver.tiiny.site/",
-        "pic": "./image/quote.jpg"
-    },
-    {
-        "id":4,
-        "title":"Feedback-Application",
-        "description":"Anyone can register in this app and get a 'Unique shareable link' to collect feedback from others. The user can see the given feedback on his/her Dashboard",
-        "link":"https://github.com/iftykhar/Feedback-Application",
-        "pic": "./image/project4.jpeg"
-    },
-    {
-        "id":5,
-        "title":"Dreamify",
-        "description":"Dremify is a Laravel-powered, text-focused platform designed to inspire and share curated collections of written content. Similar to pinkary.com",
-        "link":"https://github.com/iftykhar/Dreamify",
-        "pic": "./image/project-5.png"
-    },
-    {
-      "id":6,
-        "title":"Superlighting (Contribution In Progress)",
-        "description":"Dynamic product catalog featuring advanced filtering options and an intuitive cart experience",
-        "link":"https://superlightingbd.vercel.app/",
-       "pic": "./image/Superlighting.png"
-    },
-    {
-        "id":7,
-        "title":"E-Commerce",
-        "description":"ADeveloping a responsive e-commerce platform using React ",
-        "link":"https://e-commerce-hekto.vercel.app/",
-       "pic": "./image/ecommerce.png"
-    },
-    {
-      "id":8,
-      "title":"Slothui",
-      "description":"A landing page built with HTML, CSS and JS  ",
-      "link":"https://slothui-jet.vercel.app/",
-      "pic": "./image/Slothui.png"
-    },
-    {
-      "id":9,
-      "title":"Weather APP",
-      "description":"A weather app that provides current weather information for any location using the OpenWeatherMap API.",
-      "link":"https://weather-client-iota.vercel.app/",
-      "pic": "./image/weather-client-dsk.png"
-    }
-    ];
-
-    const projectsGrid = document.getElementById('projects-grid');
-    projectsData.forEach(project => {
-      const projectCard = `
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden ">
-          <img src="${project.pic}" alt="${project.title}" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-            <p class="text-gray-700 mb-4">${project.description}</p>
-            <a href="${project.link}" target="_blank" class="text-blue-600 rounded font-semibold px-2 py-2  hover:underline">View Project</a>
-          </div>
-        </div>`;
-      projectsGrid.innerHTML += projectCard;
-    });
-  </script>
-
-<section id="skills" class="bg-gradient-to-r from-teal-400 to-skyblue-500  py-16 px-6">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8">Skills & Technologies</h2>
-      
-      <!-- Skills Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-        
-        <!-- Skill 1 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/HTML.png" alt="HTML Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">HTML</p>
-        </div>
-        
-        <!-- Skill 2 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/CSS.png" alt="CSS Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">CSS</p>
-        </div>
-        
-        <!-- Skill 3 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/javascript-logo.png" alt="JavaScript Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">JavaScript</p>
-        </div>
-        
-        <div class="flex flex-col items-center">
-          <img src="./image/react-logo.png" alt="react Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">React</p>
-        </div>
-        
-        <!-- Skill 4 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/Laravel.png" alt="Laravel Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">Laravel</p>
-        </div>
-        
-        <!-- Skill 5 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/php.png" alt="PHP Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">PHP</p>
-        </div>
-        
-        <!-- Skill 6 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/Tailwind_CSS_Logo.png" alt="TailwindCSS Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">TailwindCSS</p>
-        </div>
-        
-        <!-- Skill 7 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/git.png" alt="Git Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">Git</p>
-        </div>
-        
-        <!-- Skill 8 -->
-        <div class="flex flex-col items-center">
-          <img src="./image/mysql.png" alt="MySQL Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">MySQL</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="./image/github.png" alt="Github Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">GitHub</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="./image/sqlite.png" alt="SQLite Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">SQLite</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="./image/ms-office.png" alt="MS Office Icon" class="w-16 h-16 mb-4  animate-bounce ">
-          <p class="text-lg font-semibold">MS Office</p>
-        </div>
-        <!-- <div class="flex flex-col items-center">
-          <img src="./image/excel.png" alt="Excel Icon" class="w-16 h-16 mb-4">
-          <p class="text-lg font-semibold">Excel</p>
-        </div> -->
-        
-      </div>
-    </div>
-  </section>
-
-  <section id="hobbies" class="py-16 px-6 bg-gray-200">
-    <h2 class="text-3xl font-bold text-center mb-8">Hobbies</h2>
-    <p class="text-lg text-center mb-12">Here are a few things I enjoy in my free time:</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg  transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/books.jpg" alt="Reading Books" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Reading</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/photo.jpg" alt="Photography" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Photography</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/buffalos.jpg" alt="Traveling to New Places" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Traveling</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/cycle01.jpg" alt="Cycling" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Cycling</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/coding.jpg" alt="Coding Fun Projects" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Coding</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/meme.jpg" alt="Meme Projects" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Making Memes</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/leakess.jpg" alt="Lakeside Leisure" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Lakeside Leisure</h3>
-      </div>
-      <div class="hobby-card text-center bg-white p-6 rounded-lg shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-[110%]">
-        <img src="./image/Gardening.jpg" alt="Gardening" class="w-full h-48 object-cover rounded-lg mb-4" />
-        <h3 class="text-xl font-semibold">Gardening</h3>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="bg-indigo-300 py-16 px-6 max-w-4xl mx-auto">
-  <h2 class="text-3xl font-bold mb-8 text-center">Contact Me</h2>
-  <form 
-    action="https://formspree.io/f/mrbknqal" 
-    method="POST"
-    class="space-y-6"
-  >
-    <input 
-      type="text" 
-      name="name" 
-      placeholder="Your Name" 
-      required 
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-
-    <input 
-      type="email" 
-      name="email" 
-      placeholder="Your Email" 
-      required 
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-
-    <textarea 
-      name="message" 
-      placeholder="Your Message" 
-      required 
-      rows="5" 
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-    ></textarea>
-
-    <button 
-      type="submit" 
-      class="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition animate-bounce"
-    >
-      Send Message
+<!-- Navbar -->
+<nav id="navbar" class="fixed top-0 w-full z-50 glass-nav shadow-2xl shadow-black/40 transition-all duration-500">
+<div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
+  <a href="#" class="text-lg font-bold tracking-tighter text-on-surface font-headline">Iftykhar<span class="text-gradient">.</span></a>
+  <div class="hidden md:flex items-center gap-8">
+    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#about">About</a>
+    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#skills">Skills</a>
+    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#projects">Projects</a>
+    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#hobbies">Hobbies</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="#contact" class="hidden sm:inline-flex bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-6 py-2.5 rounded-xl font-headline font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#6366F1]/20">Contact Me</a>
+    <button id="menu-toggle" class="md:hidden text-on-surface">
+      <span class="material-symbols-outlined text-2xl">menu</span>
     </button>
-  </form>
-  </section>
+  </div>
+</div>
+</nav>
 
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 z-[60] bg-surface-container-high/95 backdrop-blur-xl p-8 flex flex-col gap-6 shadow-2xl">
+<button id="menu-close" class="self-end text-on-surface"><span class="material-symbols-outlined text-2xl">close</span></button>
+<a class="text-on-surface font-headline font-bold text-lg" href="#about" onclick="closeMobileMenu()">About</a>
+<a class="text-on-surface font-headline font-bold text-lg" href="#skills" onclick="closeMobileMenu()">Skills</a>
+<a class="text-on-surface font-headline font-bold text-lg" href="#projects" onclick="closeMobileMenu()">Projects</a>
+<a class="text-on-surface font-headline font-bold text-lg" href="#hobbies" onclick="closeMobileMenu()">Hobbies</a>
+<a class="text-on-surface font-headline font-bold text-lg" href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+<div id="menu-overlay" class="fixed inset-0 z-[55] bg-black/60 hidden" onclick="closeMobileMenu()"></div>
 
-  <footer class="bg-gray-800 text-white py-6">
-    <div class="max-w-6xl mx-auto text-center">
-      <p class="text-sm mb-4">&copy; 2024 Iftykhar Alam. All Rights Reserved.</p>
-      <div class="space-x-4">
-        <a href="https://github.com/iftykhar" target="_blank" class="hover:text-blue-400">GitHub</a>
-        <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" class="hover:text-blue-400">LinkedIn</a>
-        <a href="s.m.ifty49@gmail.com" class="hover:text-blue-400">Email</a>
+<!-- Hero -->
+<section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
+<canvas id="particles"></canvas>
+<div class="hero-gradient absolute inset-0 pointer-events-none"></div>
+<div class="orb w-96 h-96 bg-[#6366F1] top-1/4 -left-20" style="animation-delay:-5s;opacity:0.12"></div>
+<div class="orb w-80 h-80 bg-[#A855F7] bottom-1/4 -right-20" style="animation-delay:-10s;opacity:0.1"></div>
+<div class="relative z-10 max-w-4xl space-y-8">
+  <span class="inline-block px-4 py-1.5 rounded-full bg-surface-container-high text-tertiary text-[0.7rem] font-label font-medium tracking-[0.2em] uppercase fade-up">Available for new projects</span>
+  <h1 class="text-5xl sm:text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-on-surface leading-[0.9] fade-up stagger-1">
+    S M Iftykhar <br/> <span class="text-gradient">Ul Alam</span>
+  </h1>
+  <p class="text-lg sm:text-xl md:text-2xl font-headline text-on-surface-variant max-w-2xl mx-auto leading-relaxed fade-up stagger-2">
+    Frontend Developer &amp; Explorer. Passionate about crafting pixel-perfect, high-performance web experiences.
+  </p>
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4 fade-up stagger-3">
+    <a class="px-8 py-4 bg-gradient-to-r from-primary-container to-secondary-container rounded-xl font-headline font-bold text-white shadow-xl shadow-[#6366F1]/20 hover:scale-105 transition-transform" href="#projects">View Projects</a>
+    <a class="px-8 py-4 border-gradient rounded-xl font-headline font-bold text-on-surface hover:scale-105 transition-transform" href="#contact">Contact Me</a>
+  </div>
+  <div class="flex items-center justify-center gap-8 pt-10 text-on-surface-variant fade-up stagger-4">
+    <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank">
+      <span class="material-symbols-outlined text-[20px]">link</span>
+      <span class="font-label text-xs tracking-widest uppercase">LinkedIn</span>
+    </a>
+    <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://github.com/iftykhar" target="_blank">
+      <span class="material-symbols-outlined text-[20px]">code</span>
+      <span class="font-label text-xs tracking-widest uppercase">GitHub</span>
+    </a>
+    <a class="hover:text-primary transition-colors flex items-center gap-2" href="mailto:s.m.ifty49@gmail.com">
+      <span class="material-symbols-outlined text-[20px]">mail</span>
+      <span class="font-label text-xs tracking-widest uppercase">Email</span>
+    </a>
+  </div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+  <span class="material-symbols-outlined text-3xl">expand_more</span>
+</div>
+</section>
+
+<!-- About -->
+<section class="py-32 md:py-40 px-6 md:px-8 max-w-7xl mx-auto overflow-hidden" id="about">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+  <div class="relative order-2 md:order-1 fade-up">
+    <div class="absolute -top-10 -left-10 w-64 h-64 bg-[#6366F1]/20 blur-[80px] rounded-full pointer-events-none"></div>
+    <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/50">
+      <img class="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="./image/iftykhar.png" alt="S M Iftykhar Ul Alam"/>
+    </div>
+    <div class="absolute -bottom-6 -right-6 p-5 bg-surface-container shadow-2xl rounded-xl hidden md:block">
+      <div class="text-3xl font-headline font-bold text-gradient">10+</div>
+      <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant">Projects<br/>Delivered</div>
+    </div>
+  </div>
+  <div class="order-1 md:order-2 space-y-7 fade-up stagger-2">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold leading-tight">Building <span class="text-primary">Human-Centric</span> Experiences</h2>
+    <p class="text-lg text-on-surface-variant font-body leading-relaxed">
+      Hello! I'm S M Iftykhar Ul Alam, a Frontend Developer passionate about creating efficient and scalable web applications. My journey is driven by a love for solving complex problems and building functional, user-friendly designs.
+    </p>
+    <p class="text-on-surface-variant font-body leading-relaxed">
+      Beyond the code, I'm an explorer — always searching for the next breakthrough in performance, accessibility, and user interaction. I believe every pixel should serve a purpose and every interaction should feel seamless.
+    </p>
+    <div class="grid grid-cols-2 gap-8 pt-2">
+      <div>
+        <div class="text-tertiary font-headline font-bold mb-1">Strategy</div>
+        <p class="text-sm text-on-surface-variant">System design, architecture planning, and UI/UX research.</p>
+      </div>
+      <div>
+        <div class="text-tertiary font-headline font-bold mb-1">Execution</div>
+        <p class="text-sm text-on-surface-variant">High-fidelity development, performance tuning, and animation.</p>
       </div>
     </div>
-  </footer>
-<script>
-  const form = document.querySelector("form");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch(form.action, {
-      method: "POST",
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        alert("Thanks! Your message has been sent.");
-        form.reset();
-      } else {
-        alert("Oops! There was a problem.");
-      }
-    }).catch(() => {
-      alert("Oops! Something went wrong.");
-    });
-  });
-</script>
+    <a href="https://drive.google.com/file/d/1e5siBFf3Rqj3rnlqngwroPykVxaM22zl/view?usp=drive_link" target="_blank" class="inline-flex items-center gap-2 text-tertiary font-headline font-bold hover:underline underline-offset-4 decoration-2 pt-2">
+      <span class="material-symbols-outlined text-[20px]">download</span> Download Resume
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- Tech Arsenal -->
+<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="skills">
+<div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">Technical <span class="text-tertiary">Arsenal</span></h2>
+  <p class="text-on-surface-variant font-body max-w-md">Modern tools for modern problems. I specialize in building scalable, accessible, and fast web applications.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 md:gap-6">
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-1"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">code</span><h3 class="font-headline font-bold text-lg mb-0.5">HTML</h3><p class="text-on-surface-variant text-sm">Markup</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-2"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">brush</span><h3 class="font-headline font-bold text-lg mb-0.5">CSS</h3><p class="text-on-surface-variant text-sm">Styling</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-3"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">data_object</span><h3 class="font-headline font-bold text-lg mb-0.5">JavaScript</h3><p class="text-on-surface-variant text-sm">Logic</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-4"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">hub</span><h3 class="font-headline font-bold text-lg mb-0.5">React</h3><p class="text-on-surface-variant text-sm">UI Framework</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-1"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">deployed_code</span><h3 class="font-headline font-bold text-lg mb-0.5">Laravel</h3><p class="text-on-surface-variant text-sm">Backend</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-2"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">terminal</span><h3 class="font-headline font-bold text-lg mb-0.5">PHP</h3><p class="text-on-surface-variant text-sm">Server-Side</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-3"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">style</span><h3 class="font-headline font-bold text-lg mb-0.5">TailwindCSS</h3><p class="text-on-surface-variant text-sm">Utility CSS</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-4"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">account_tree</span><h3 class="font-headline font-bold text-lg mb-0.5">Git</h3><p class="text-on-surface-variant text-sm">Version Control</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-1"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">database</span><h3 class="font-headline font-bold text-lg mb-0.5">MySQL</h3><p class="text-on-surface-variant text-sm">Database</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-2"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">integration_instructions</span><h3 class="font-headline font-bold text-lg mb-0.5">GitHub</h3><p class="text-on-surface-variant text-sm">Collaboration</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-3"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">storage</span><h3 class="font-headline font-bold text-lg mb-0.5">SQLite</h3><p class="text-on-surface-variant text-sm">Lightweight DB</p></div>
+  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-4"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">description</span><h3 class="font-headline font-bold text-lg mb-0.5">MS Office</h3><p class="text-on-surface-variant text-sm">Productivity</p></div>
+</div>
+</section>
+
+<!-- Projects -->
+<section class="py-28 md:py-32 bg-surface-container-lowest" id="projects">
+<div class="max-w-7xl mx-auto px-6 md:px-8">
+  <div class="flex flex-col gap-4 mb-16 md:mb-20 fade-up">
+    <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold tracking-tight text-on-surface">Selected <br/> <span class="text-gradient">Creations</span></h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+    <!-- Featured: Superlighting -->
+    <div class="md:col-span-8 group relative aspect-[16/10] md:aspect-auto md:h-[520px] overflow-hidden rounded-xl bg-surface-container-high fade-up">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50" src="./image/Superlighting.png" alt="Superlighting"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/30 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6 md:p-10 w-full">
+        <div class="flex gap-2 mb-3"><span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-label font-bold tracking-widest uppercase">React</span><span class="px-3 py-1 rounded-full bg-white/10 text-on-surface text-[10px] font-label font-bold tracking-widest uppercase">Contributing</span></div>
+        <h3 class="text-2xl md:text-4xl font-headline font-bold mb-3">Superlighting</h3>
+        <p class="text-on-surface-variant max-w-lg mb-6 text-sm md:text-base">Dynamic product catalog featuring advanced filtering options and an intuitive cart experience.</p>
+        <a href="https://superlightingbd.vercel.app/" target="_blank" class="flex items-center gap-2 font-headline font-bold text-tertiary group/btn"><span>View Live</span><span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-2">arrow_forward</span></a>
+      </div>
+    </div>
+    <!-- E-Commerce -->
+    <div class="md:col-span-4 group relative h-[280px] md:h-auto overflow-hidden rounded-xl bg-surface-container-high fade-up stagger-2">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40" src="./image/ecommerce.png" alt="E-Commerce"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6">
+        <h3 class="text-xl font-headline font-bold mb-1">E-Commerce</h3>
+        <p class="text-on-surface-variant text-sm mb-3">Responsive e-commerce platform using React.</p>
+        <a href="https://e-commerce-hekto.vercel.app/" target="_blank"><span class="material-symbols-outlined text-tertiary">open_in_new</span></a>
+      </div>
+    </div>
+    <!-- Weather App -->
+    <div class="md:col-span-4 group relative h-[340px] overflow-hidden rounded-xl bg-surface-container-high fade-up stagger-1">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40" src="./image/weather-client-dsk.png" alt="Weather App"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6">
+        <h3 class="text-xl font-headline font-bold mb-1">Weather App</h3>
+        <p class="text-on-surface-variant text-sm mb-3">Current weather via OpenWeatherMap API.</p>
+        <a href="https://weather-client-iota.vercel.app/" target="_blank"><span class="material-symbols-outlined text-tertiary">open_in_new</span></a>
+      </div>
+    </div>
+    <!-- Logistica -->
+    <div class="md:col-span-8 group relative h-[340px] overflow-hidden rounded-xl bg-surface-container-high fade-up stagger-2">
+      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50" src="./image/logistica.png" alt="Logistica"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/30 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6 md:p-10">
+        <h3 class="text-2xl md:text-3xl font-headline font-bold mb-2">Logistica</h3>
+        <p class="text-on-surface-variant max-w-md mb-3 text-sm md:text-base">Server-side rendering capabilities and dynamic routing to enhance user experience.</p>
+        <div class="flex gap-4"><span class="text-xs font-label uppercase tracking-widest text-primary">Next.js</span><span class="text-xs font-label uppercase tracking-widest text-secondary">SSR</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- More Projects Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-1">
+      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/game3.png" alt="Memory Match Game"/>
+      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Memory Match Game</h3><p class="text-on-surface-variant text-sm mb-3">Memorising and Matching game. TypeScript + TailwindCSS.</p><a href="https://memory-match-weld.vercel.app/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
+    </div>
+    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-2">
+      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/project-5.png" alt="Dreamify"/>
+      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Dreamify</h3><p class="text-on-surface-variant text-sm mb-3">Laravel-powered text-focused platform for curated written content.</p><a href="https://github.com/iftykhar/Dreamify" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
+    </div>
+    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-3">
+      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/project4.jpeg" alt="Feedback Application"/>
+      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Feedback App</h3><p class="text-on-surface-variant text-sm mb-3">Unique shareable link to collect feedback with a personal dashboard.</p><a href="https://github.com/iftykhar/Feedback-Application" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
+    </div>
+    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-1">
+      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/Slothui.png" alt="Slothui"/>
+      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Slothui</h3><p class="text-on-surface-variant text-sm mb-3">A sleek landing page built with HTML, CSS and JavaScript.</p><a href="https://slothui-jet.vercel.app/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
+    </div>
+    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-2">
+      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/quote.jpg" alt="Quote Giver"/>
+      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Quote Giver</h3><p class="text-on-surface-variant text-sm mb-3">Minimalist daily quote generator with dynamic input using JS.</p><a href="https://quotegiver.tiiny.site/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
+    </div>
+    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-3">
+      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/project1.jpeg" alt="Dictator Portfolio"/>
+      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Dictator Portfolio</h3><p class="text-on-surface-variant text-sm mb-3">A short static website showcasing creative design.</p><a href="https://dictator-portfolio.vercel.app/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Hobbies -->
+<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="hobbies">
+<div class="fade-up mb-16">
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface mb-4">Beyond <span class="text-secondary">The Code</span></h2>
+  <p class="text-on-surface-variant font-body max-w-lg">What fuels my creativity outside of development.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+  <div class="hobby-card group relative rounded-xl overflow-hidden aspect-[3/4] fade-up stagger-1">
+    <img class="absolute inset-0 w-full h-full object-cover" src="./image/coding.jpg" alt="Coding"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Coding</h3><p class="text-on-surface-variant text-xs">Side Projects & OSS</p></div>
+  </div>
+  <div class="hobby-card group relative rounded-xl overflow-hidden aspect-[3/4] fade-up stagger-2">
+    <img class="absolute inset-0 w-full h-full object-cover" src="./image/books.jpg" alt="Reading"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Reading</h3><p class="text-on-surface-variant text-xs">Tech & Literature</p></div>
+  </div>
+  <div class="hobby-card group relative rounded-xl overflow-hidden aspect-[3/4] fade-up stagger-3">
+    <img class="absolute inset-0 w-full h-full object-cover" src="./image/photo.jpg" alt="Photography"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Photography</h3><p class="text-on-surface-variant text-xs">Visual Storytelling</p></div>
+  </div>
+  <div class="hobby-card group relative rounded-xl overflow-hidden aspect-[3/4] fade-up stagger-4">
+    <img class="absolute inset-0 w-full h-full object-cover" src="./image/cycle01.jpg" alt="Cycling"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Cycling</h3><p class="text-on-surface-variant text-xs">Adventures</p></div>
+  </div>
+  <div class="hobby-card group relative rounded-xl overflow-hidden aspect-[3/4] fade-up stagger-5">
+    <img class="absolute inset-0 w-full h-full object-cover" src="./image/buffalos.jpg" alt="Traveling"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Traveling</h3><p class="text-on-surface-variant text-xs">Exploring New Places</p></div>
+  </div>
+</div>
+</section>
+
+<!-- Contact -->
+<section class="py-28 md:py-32 px-6 md:px-8" id="contact">
+<div class="max-w-7xl mx-auto rounded-3xl bg-surface-container-high relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[#6366F1]/20 blur-[150px] -mr-48 -mt-48 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#4cd7f6]/15 blur-[150px] -ml-48 -mb-48 pointer-events-none"></div>
+  <div class="relative z-10 p-8 md:p-16 lg:p-24">
+    <div class="text-center mb-16 fade-up">
+      <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold mb-6">Let's build something <br/> <span class="text-gradient">exceptional together.</span></h2>
+      <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Currently seeking new opportunities and creative collaborations. My inbox is always open.</p>
+    </div>
+    <form action="https://formspree.io/f/mrbknqal" method="POST" id="contact-form" class="max-w-2xl mx-auto space-y-8 fade-up stagger-2">
+      <div><label class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Name</label><input type="text" name="name" required placeholder="Your name"/></div>
+      <div><label class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Email</label><input type="email" name="email" required placeholder="you@example.com"/></div>
+      <div><label class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Message</label><textarea name="message" required placeholder="Tell me about your project..."></textarea></div>
+      <div class="text-center pt-4">
+        <button type="submit" class="inline-flex items-center gap-3 px-10 py-4 bg-on-surface text-background font-headline font-bold rounded-xl hover:scale-105 transition-transform shadow-xl">Send Message <span class="material-symbols-outlined">send</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 px-6 md:px-8 mt-24 bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
+  <div class="text-on-surface font-bold font-body text-sm tracking-wide">© 2025 S M Iftykhar Ul Alam. Built with precision.</div>
+  <div class="flex gap-8">
+    <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="mailto:s.m.ifty49@gmail.com">Email</a>
+    <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank">LinkedIn</a>
+    <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="https://github.com/iftykhar" target="_blank">GitHub</a>
+  </div>
+  <div class="flex items-center gap-2 text-on-surface-variant opacity-60">
+    <span class="material-symbols-outlined text-[16px]">location_on</span>
+    <span class="text-xs font-label">Based in Dhaka, Bangladesh</span>
+  </div>
+</div>
+</footer>
 
 <script>
-    document.documentElement.classList.add('group'); // Ensures animations work on page load
+// Particle Canvas
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+function resizeCanvas() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; }
+resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+class Particle {
+  constructor() { this.reset(); }
+  reset() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*1.5+0.5; this.opacity = Math.random()*0.4+0.1; }
+  update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height) this.reset(); }
+  draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(99,102,241,${this.opacity})`; ctx.fill(); }
+}
+for(let i=0;i<60;i++) particles.push(new Particle());
+function animateParticles() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{p.update();p.draw();});
+  particles.forEach((a,i)=>{ particles.slice(i+1).forEach(b=>{ const d=Math.hypot(a.x-b.x,a.y-b.y); if(d<120){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(99,102,241,${0.08*(1-d/120)})`;ctx.stroke();}});});
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
 
+// Scroll Reveal
+const observer = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 
-    
+// Mobile Menu
+const menuToggle=document.getElementById('menu-toggle'), mobileMenu=document.getElementById('mobile-menu'), menuOverlay=document.getElementById('menu-overlay'), menuClose=document.getElementById('menu-close');
+function openMobileMenu(){mobileMenu.classList.add('open');menuOverlay.classList.remove('hidden');}
+function closeMobileMenu(){mobileMenu.classList.remove('open');menuOverlay.classList.add('hidden');}
+menuToggle.addEventListener('click',openMobileMenu);
+menuClose.addEventListener('click',closeMobileMenu);
 
-    document.querySelectorAll('.scroll-link').forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            const targetId = this.getAttribute('href').substring(1); 
-            const targetSection = document.getElementById(targetId);
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
 
-           
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        });
-    });
+// Active Nav
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-link');
+window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
+
+// Contact Form
+const form=document.getElementById('contact-form');
+form.addEventListener('submit',function(e){e.preventDefault();fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){alert('Thanks! Your message has been sent.');form.reset();}else alert('Oops! There was a problem.');}).catch(()=>alert('Oops! Something went wrong.'));});
 </script>
-
-
 </body>
 </html>
