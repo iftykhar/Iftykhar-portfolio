@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="S M Iftykhar Ul Alam — Frontend Developer portfolio showcasing web projects, skills, and creative work."/>
+<meta name="description" content="S M Iftykhar Ul Alam  Frontend Developer portfolio showcasing web projects, skills, and creative work."/>
 <title>S M Iftykhar Ul Alam | Frontend Developer</title>
-<link rel="icon" type="image/png" href="./image/iftykhar.png"/>
+<link rel="icon" type="image/png" class="object-cover rounded-full" href="./image/iftykhar.png"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -57,6 +57,10 @@ body { background:#131313; color:#e5e2e1; font-family:'Inter',sans-serif; overfl
 .stagger-5 { transition-delay:0.5s; } .stagger-6 { transition-delay:0.6s; }
 @keyframes float { 0%,100%{transform:translate(0,0)} 33%{transform:translate(30px,-20px)} 66%{transform:translate(-20px,15px)} }
 @keyframes pulse-glow { 0%,100%{opacity:0.15} 50%{opacity:0.3} }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.shimmer-bg { background: linear-gradient(90deg, #1c1b1b 25%, #2a2a2a 50%, #1c1b1b 75%); background-size: 400% 100%; animation: shimmer 4s infinite linear; }
+.card-tilt { transform-style: preserve-3d; transform: perspective(1000px); }
+.card-tilt-inner { transform: translateZ(30px); }
 .orb { position:absolute; border-radius:50%; filter:blur(120px); animation:float 20s ease-in-out infinite; pointer-events:none; }
 canvas#particles { position:absolute; inset:0; pointer-events:none; }
 .nav-link { position:relative; }
@@ -79,13 +83,17 @@ details summary::-webkit-details-marker { display:none; }
 ::-webkit-scrollbar-thumb { background:#353534; border-radius:4px; }
 ::-webkit-scrollbar-thumb:hover { background:#464554; }
 </style>
+<script src="./portfolio-data.js"></script>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
 <!-- Navbar -->
 <nav id="navbar" class="fixed top-0 w-full z-50 glass-nav shadow-2xl shadow-black/40 transition-all duration-500">
 <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
-  <a href="#" class="text-lg font-bold tracking-tighter text-on-surface font-headline">Iftykhar<span class="text-gradient">.</span></a>
+  <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tighter text-on-surface font-headline">
+    <img src="./image/iftykhar.png" alt="Iftykhar" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30"/>
+    Iftykhar<span class="text-gradient">.</span>
+  </a>
   <div class="hidden md:flex items-center gap-8">
     <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#about">About</a>
     <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#skills">Skills</a>
@@ -169,7 +177,7 @@ details summary::-webkit-details-marker { display:none; }
       Hello! I'm S M Iftykhar Ul Alam, a Frontend Developer passionate about creating efficient and scalable web applications. My journey is driven by a love for solving complex problems and building functional, user-friendly designs.
     </p>
     <p class="text-on-surface-variant font-body leading-relaxed">
-      Beyond the code, I'm an explorer — always searching for the next breakthrough in performance, accessibility, and user interaction. I believe every pixel should serve a purpose and every interaction should feel seamless.
+      Beyond the code, I'm an explorer always searching for the next breakthrough in performance, accessibility, and user interaction. I believe every pixel should serve a purpose and every interaction should feel seamless.
     </p>
     <div class="grid grid-cols-2 gap-8 pt-2">
       <div>
@@ -213,81 +221,34 @@ details summary::-webkit-details-marker { display:none; }
 <!-- Projects -->
 <section class="py-28 md:py-32 bg-surface-container-lowest" id="projects">
 <div class="max-w-7xl mx-auto px-6 md:px-8">
-  <div class="flex flex-col gap-4 mb-16 md:mb-20 fade-up">
+  <div class="flex flex-col gap-4 mb-12 md:mb-16 fade-up">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold tracking-tight text-on-surface">Selected <br/> <span class="text-gradient">Creations</span></h2>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-    <!-- Featured: Superlighting -->
-    <div class="md:col-span-8 group relative aspect-[16/10] md:aspect-auto md:h-[520px] overflow-hidden rounded-xl bg-surface-container-high fade-up">
-      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50" src="./image/Superlighting.png" alt="Superlighting"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/30 to-transparent"></div>
-      <div class="absolute bottom-0 left-0 p-6 md:p-10 w-full">
-        <div class="flex gap-2 mb-3"><span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-label font-bold tracking-widest uppercase">React</span><span class="px-3 py-1 rounded-full bg-white/10 text-on-surface text-[10px] font-label font-bold tracking-widest uppercase">Contributing</span></div>
-        <h3 class="text-2xl md:text-4xl font-headline font-bold mb-3">Superlighting</h3>
-        <p class="text-on-surface-variant max-w-lg mb-6 text-sm md:text-base">Dynamic product catalog featuring advanced filtering options and an intuitive cart experience.</p>
-        <a href="https://superlightingbd.vercel.app/" target="_blank" class="flex items-center gap-2 font-headline font-bold text-tertiary group/btn"><span>View Live</span><span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-2">arrow_forward</span></a>
-      </div>
-    </div>
-    <!-- E-Commerce -->
-    <div class="md:col-span-4 group relative h-[280px] md:h-auto overflow-hidden rounded-xl bg-surface-container-high fade-up stagger-2">
-      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40" src="./image/ecommerce.png" alt="E-Commerce"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/40 to-transparent"></div>
-      <div class="absolute bottom-0 left-0 p-6">
-        <h3 class="text-xl font-headline font-bold mb-1">E-Commerce</h3>
-        <p class="text-on-surface-variant text-sm mb-3">Responsive e-commerce platform using React.</p>
-        <a href="https://e-commerce-hekto.vercel.app/" target="_blank"><span class="material-symbols-outlined text-tertiary">open_in_new</span></a>
-      </div>
-    </div>
-    <!-- Weather App -->
-    <div class="md:col-span-4 group relative h-[340px] overflow-hidden rounded-xl bg-surface-container-high fade-up stagger-1">
-      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40" src="./image/weather-client-dsk.png" alt="Weather App"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/40 to-transparent"></div>
-      <div class="absolute bottom-0 left-0 p-6">
-        <h3 class="text-xl font-headline font-bold mb-1">Weather App</h3>
-        <p class="text-on-surface-variant text-sm mb-3">Current weather via OpenWeatherMap API.</p>
-        <a href="https://weather-client-iota.vercel.app/" target="_blank"><span class="material-symbols-outlined text-tertiary">open_in_new</span></a>
-      </div>
-    </div>
-    <!-- Logistica -->
-    <div class="md:col-span-8 group relative h-[340px] overflow-hidden rounded-xl bg-surface-container-high fade-up stagger-2">
-      <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50" src="./image/logistica.png" alt="Logistica"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/30 to-transparent"></div>
-      <div class="absolute bottom-0 left-0 p-6 md:p-10">
-        <h3 class="text-2xl md:text-3xl font-headline font-bold mb-2">Logistica</h3>
-        <p class="text-on-surface-variant max-w-md mb-3 text-sm md:text-base">Server-side rendering capabilities and dynamic routing to enhance user experience.</p>
-        <div class="flex gap-4"><span class="text-xs font-label uppercase tracking-widest text-primary">Next.js</span><span class="text-xs font-label uppercase tracking-widest text-secondary">SSR</span></div>
-      </div>
-    </div>
+  
+  <!-- Project Filter Bar -->
+  <div class="flex flex-wrap items-center gap-2 mb-12 fade-up relative" id="project-filters">
+     <button class="filter-btn active relative z-10 px-6 py-2.5 rounded-full text-sm font-label font-bold tracking-widest uppercase transition-colors text-white" data-filter="all">All</button>
+     <button class="filter-btn relative z-10 px-6 py-2.5 rounded-full text-sm font-label font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface" data-filter="case-study">Case Studies</button>
+     <button class="filter-btn relative z-10 px-6 py-2.5 rounded-full text-sm font-label font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface" data-filter="personal">Personal</button>
+     <button class="filter-btn relative z-10 px-6 py-2.5 rounded-full text-sm font-label font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface" data-filter="mini-project">Mini Projects</button>
+     <div class="filter-indicator absolute h-10 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] shadow-xl shadow-[#6366F1]/20 transition-all duration-300 ease-out z-0"></div>
   </div>
-  <!-- More Projects Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-1">
-      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/game3.png" alt="Memory Match Game"/>
-      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Memory Match Game</h3><p class="text-on-surface-variant text-sm mb-3">Memorising and Matching game. TypeScript + TailwindCSS.</p><a href="https://memory-match-weld.vercel.app/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
-    </div>
-    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-2">
-      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/project-5.png" alt="Dreamify"/>
-      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Dreamify</h3><p class="text-on-surface-variant text-sm mb-3">Laravel-powered text-focused platform for curated written content.</p><a href="https://github.com/iftykhar/Dreamify" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
-    </div>
-    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-3">
-      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/project4.jpeg" alt="Feedback Application"/>
-      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Feedback App</h3><p class="text-on-surface-variant text-sm mb-3">Unique shareable link to collect feedback with a personal dashboard.</p><a href="https://github.com/iftykhar/Feedback-Application" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
-    </div>
-    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-1">
-      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/Slothui.png" alt="Slothui"/>
-      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Slothui</h3><p class="text-on-surface-variant text-sm mb-3">A sleek landing page built with HTML, CSS and JavaScript.</p><a href="https://slothui-jet.vercel.app/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
-    </div>
-    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-2">
-      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/quote.jpg" alt="Quote Giver"/>
-      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Quote Giver</h3><p class="text-on-surface-variant text-sm mb-3">Minimalist daily quote generator with dynamic input using JS.</p><a href="https://quotegiver.tiiny.site/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
-    </div>
-    <div class="group rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 overflow-hidden fade-up stagger-3">
-      <img class="w-full h-44 object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" src="./image/project1.jpeg" alt="Dictator Portfolio"/>
-      <div class="p-6"><h3 class="font-headline font-bold text-lg mb-1">Dictator Portfolio</h3><p class="text-on-surface-variant text-sm mb-3">A short static website showcasing creative design.</p><a href="https://dictator-portfolio.vercel.app/" target="_blank" class="text-tertiary text-sm font-label font-medium uppercase tracking-widest hover:underline">View →</a></div>
-    </div>
+
+  <!-- Dynamic Grids Container -->
+  <div id="projects-container" class="transition-opacity duration-300">
+    <!-- Rendered via JS -->
   </div>
 </div>
 </section>
+
+<!-- Project Modal -->
+<div id="project-modal" class="fixed inset-0 z-[100] hidden items-end sm:items-center justify-center pointer-events-none">
+  <div id="project-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-auto"></div>
+  <div id="project-modal-content" class="relative w-full max-w-5xl max-h-[90vh] sm:max-h-[85vh] bg-surface-container-lowest sm:rounded-2xl shadow-2xl overflow-y-auto transform translate-y-full sm:translate-y-8 opacity-0 transition-all duration-400 ease-out pointer-events-auto flex flex-col border border-white/5">
+    <!-- Rendered via JS -->
+  </div>
+</div>
+
 
 <!-- Hobbies -->
 <section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="hobbies">
@@ -406,6 +367,377 @@ window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.
 // Contact Form
 const form=document.getElementById('contact-form');
 form.addEventListener('submit',function(e){e.preventDefault();fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){alert('Thanks! Your message has been sent.');form.reset();}else alert('Oops! There was a problem.');}).catch(()=>alert('Oops! Something went wrong.'));});
+
+/* ==========================================================================
+   DYNAMIC PROJECTS & FILTERING LOGIC
+   ========================================================================== */
+
+// DOM Elements
+const projectsContainer = document.getElementById('projects-container');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const filterIndicator = document.querySelector('.filter-indicator');
+const projectModal = document.getElementById('project-modal');
+const projectModalContent = document.getElementById('project-modal-content');
+const projectModalBackdrop = document.getElementById('project-modal-backdrop');
+
+// Initialize Filter Indicator Position
+function updateFilterIndicator(activeBtn) {
+  if (!activeBtn) return;
+  filterIndicator.style.width = activeBtn.offsetWidth + 'px';
+  filterIndicator.style.left = activeBtn.offsetLeft + 'px';
+}
+
+// Attach filter listeners
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => {
+      b.classList.remove('active', 'text-white');
+      b.classList.add('text-on-surface-variant');
+    });
+    btn.classList.add('active', 'text-white');
+    btn.classList.remove('text-on-surface-variant');
+    updateFilterIndicator(btn);
+    
+    // Trigger filter
+    const filter = btn.getAttribute('data-filter');
+    renderProjects(filter);
+  });
+});
+
+// Window resize indicator updates
+window.addEventListener('resize', () => {
+  const activeBtn = document.querySelector('.filter-btn.active');
+  updateFilterIndicator(activeBtn);
+});
+
+// Render Projects Logic
+function renderProjects(filter = 'all') {
+  const container = document.getElementById('projects-container');
+  if (!container) return;
+  
+  // Fade out before re-render
+  container.style.opacity = '0';
+  container.style.transform = 'translateY(10px)';
+  
+  setTimeout(() => {
+    container.innerHTML = '';
+    
+    // Safety check for data
+    const data = window.projectData || [];
+    if (data.length === 0) {
+      container.innerHTML = '<div class="text-center py-20 text-on-surface-variant font-medium">Data loading or no projects found...</div>';
+      container.style.opacity = '1';
+      return;
+    }
+
+    // Filter logic
+    const filtered = filter === 'all' ? data : data.filter(p => p.type === filter);
+    
+    // UI Layout Strategy: 
+    // Case studies use a stylized Bento Grid.
+    // Personal/Mini projects use a clean, modern card grid.
+    
+    const caseStudies = filtered.filter(p => p.type === 'case-study');
+    const personal = filtered.filter(p => p.type === 'personal');
+    const mini = filtered.filter(p => p.type === 'mini-project');
+
+    // 1. RENDER CASE STUDIES (High-End Bento)
+    if (caseStudies.length > 0) {
+      const bento = document.createElement('div');
+      bento.className = 'grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 mb-12';
+      
+      caseStudies.forEach((p, i) => {
+        // Deterministic but dynamic layout pattern
+        const colSpan = i === 0 ? 'md:col-span-8' : (i % 3 === 0 ? 'md:col-span-6' : 'md:col-span-4');
+        const height = i === 0 ? 'h-[480px] md:h-[580px]' : 'h-[340px] md:h-[420px]';
+        const stagger = `stagger-${(i % 5) + 1}`;
+        
+        const card = `
+          <div class="${colSpan} group relative ${height} overflow-hidden rounded-2xl bg-surface-container-high fade-up ${stagger} cursor-pointer project-card-click" data-id="${p.id}">
+             <!-- Premium Shimmer & Initials Fallback -->
+             <div class="absolute inset-0 bg-surface-container-lowest overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center text-[12rem] font-black text-white/[0.03] uppercase select-none">${p.title.charAt(0)}</div>
+                <img src="${p.heroImage}" class="absolute inset-0 w-full h-full object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60" 
+                     onerror="this.style.display='none'; this.parentElement.classList.add('shimmer-bg')">
+             </div>
+             
+             <!-- Glass Overlays -->
+             <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/60 to-transparent transition-opacity duration-500 group-hover:opacity-80"></div>
+             
+             <!-- Content -->
+             <div class="absolute inset-x-0 bottom-0 p-6 md:p-10 card-tilt">
+                <div class="card-tilt-inner">
+                   <div class="flex flex-wrap gap-2 mb-4">
+                      ${p.categories.slice(0,2).map(c => `<span class="px-3 py-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-label font-bold tracking-widest uppercase text-on-surface/80">${c}</span>`).join('')}
+                   </div>
+                   <h3 class="text-2xl md:text-3xl lg:text-4xl font-headline font-extrabold mb-3 leading-tight text-white group-hover:text-primary transition-colors">${p.title}</h3>
+                   <p class="text-on-surface-variant text-sm md:text-base line-clamp-2 max-w-xl mb-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">${p.description || (p.sections && p.sections[0] ? p.sections[0].shortSummary : 'Detailed Case Study')}</p>
+                   <div class="flex items-center gap-3 font-headline font-bold text-tertiary transition-transform group-hover:translate-x-2">
+                      <span class="text-xs uppercase tracking-widest">Explore Discovery</span>
+                      <span class="material-symbols-outlined text-[20px]">north_east</span>
+                   </div>
+                </div>
+             </div>
+             
+             <!-- Visual Soul (Corner Glow) -->
+             <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/20 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          </div>
+        `;
+        bento.insertAdjacentHTML('beforeend', card);
+      });
+      container.appendChild(bento);
+    }
+
+    // 2. RENDER PERSONAL + MINI (Sleek Clean Grid)
+    const otherProjects = [...personal, ...mini];
+    if (otherProjects.length > 0) {
+      const grid = document.createElement('div');
+      grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-12 border-t border-white/5';
+      
+      otherProjects.forEach((p, i) => {
+        const stagger = `stagger-${(i % 4) + 1}`;
+        const item = `
+          <div class="group flex flex-col rounded-2xl bg-surface-container-low hover:bg-surface-bright transition-all duration-500 overflow-hidden fade-up ${stagger} border border-white/5 hover:border-white/10 hover:shadow-2xl hover:shadow-primary/5">
+            <div class="relative w-full h-48 overflow-hidden bg-surface-container-high">
+              <img src="${p.heroImage}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" alt="${p.title}"
+                   onerror="this.parentElement.classList.add('shimmer-bg'); this.style.display='none'">
+              <div class="absolute top-4 left-4">
+                 <span class="px-2 py-1 bg-black/60 backdrop-blur-md rounded text-[9px] font-label font-bold tracking-tighter uppercase text-white/50">${p.type === 'mini-project' ? 'Exploration' : 'Personal Build'}</span>
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="font-headline font-bold text-lg mb-2 text-on-surface group-hover:text-primary transition-colors">${p.title}</h3>
+              <p class="text-on-surface-variant text-sm mb-6 flex-grow line-clamp-3 leading-relaxed">${p.description || 'Modern frontend architectural implementation.'}</p>
+              <div class="flex items-center justify-between mt-auto">
+                 <div class="flex gap-2">
+                    ${p.categories.slice(0,1).map(c => `<span class="text-[10px] font-label font-bold text-on-surface-variant/60 uppercase tracking-widest">${c}</span>`)}
+                 </div>
+                 <a href="${p.websiteUrl}" target="_blank" class="text-tertiary hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+                 </a>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', item);
+      });
+      container.appendChild(grid);
+    }
+    
+    // Fade in
+    requestAnimationFrame(() => {
+       container.style.opacity = '1';
+       container.style.transform = 'translateY(0)';
+       
+       // Re-observe new elements
+       document.querySelectorAll('#projects-container .fade-up').forEach(el => {
+          el.classList.remove('visible'); // reset for new observer trigger
+          observer.observe(el);
+       });
+       
+       // Init effects
+       initCardEffects();
+    });
+  }, 300);
+}
+
+// -----------------------------------------
+// Interactive Effects (Tilt & Hover Soul)
+// -----------------------------------------
+function initCardEffects() {
+  const tiltWrappers = document.querySelectorAll('.project-card-click');
+  
+  if (window.innerWidth > 1024) { // Desktop only
+    tiltWrappers.forEach(wrap => {
+      const tilt = wrap.querySelector('.card-tilt');
+      
+      wrap.addEventListener('mousemove', e => {
+        const rect = wrap.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+        
+        if (tilt) {
+           tilt.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+           tilt.style.transition = 'none';
+        }
+      });
+      
+      wrap.addEventListener('mouseleave', () => {
+        if (tilt) {
+           tilt.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+           tilt.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        }
+      });
+      
+      // Click event for Case Study
+      wrap.addEventListener('click', () => {
+         const id = wrap.getAttribute('data-id');
+         const project = window.projectData.find(x => x.id === id);
+         if (project) openModal(project);
+      });
+    });
+  } else {
+    // Mobile: Just attach click
+    tiltWrappers.forEach(wrap => {
+       wrap.addEventListener('click', () => {
+          const id = wrap.getAttribute('data-id');
+          const project = window.projectData.find(x => x.id === id);
+          if (project) openModal(project);
+       });
+    });
+  }
+}
+
+// -----------------------------------------
+// Modal Logic
+// -----------------------------------------
+function openModal(project) {
+  // Lock body scroll
+  document.body.style.overflow = 'hidden';
+  
+  // Build Modal Content
+  let headerSec = '';
+  let solutionSec = '';
+  let metricsSec = '';
+
+  if(project.sections && project.sections.length > 0) {
+     const vis = project.sections.find(s=>s.type === 'vision');
+     const sol = project.sections.find(s=>s.type === 'solution');
+     const met = project.sections.find(s=>s.type === 'metrics');
+
+     if (vis) {
+         headerSec = `
+            <div class="mb-12">
+                <h4 class="text-sm font-label uppercase tracking-widest text-primary mb-3">The Vision</h4>
+                <p class="text-lg md:text-xl leading-relaxed text-on-surface/90 mb-6">${vis.fullDescription}</p>
+                ${vis.servicesProvided ? `
+                  <div class="flex flex-wrap gap-2">
+                     ${vis.servicesProvided.map(s => `<span class="px-3 py-1.5 bg-surface-container-high rounded-full text-xs font-label uppercase tracking-widest">${s}</span>`).join('')}
+                  </div>
+                `: ''}
+            </div>
+         `;
+     }
+
+     if (sol) {
+         solutionSec = `
+            <div class="mb-12 p-6 md:p-8 bg-surface-container rounded-xl border border-white/5 relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+                <h4 class="text-sm font-label uppercase tracking-widest text-tertiary mb-6 relative z-10">${sol.header}</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                    ${(sol.features||[]).map(f => `
+                        <div>
+                           <h5 class="font-headline font-bold text-white mb-2">${f.title}</h5>
+                           <p class="text-sm text-on-surface-variant">${f.desc}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+         `;
+     }
+
+     if (met) {
+         metricsSec = `
+            <div class="border-t border-white/5 pt-10 mt-10">
+                <h4 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-8 text-center">${met.header}</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                   ${(met.stats||[]).map(s => `
+                       <div class="p-4 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+                           <div class="text-2xl md:text-3xl font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-1">${s.value}</div>
+                           <div class="text-[10px] md:text-xs font-label uppercase tracking-widest text-on-surface-variant">${s.label}</div>
+                       </div>
+                   `).join('')}
+                </div>
+            </div>
+         `;
+     }
+  } else {
+      headerSec = `<p class="text-lg text-on-surface-variant">${project.description || 'Detailed case study coming soon.'}</p>`;
+  }
+
+  projectModalContent.innerHTML = `
+    <!-- Top Nav / Close -->
+    <div class="sticky top-0 z-50 flex justify-between items-center p-4 md:p-6 bg-surface-container-lowest/80 backdrop-blur-md border-b border-white/5">
+        <div class="flex gap-2 items-center">
+            ${project.categories.slice(0,2).map(c=>`<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">${c}</span>`).join('<span class="text-white/20">•</span>')}
+        </div>
+        <button id="modal-close-btn" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-white">close</span>
+        </button>
+    </div>
+
+    <!-- Hero Image Area -->
+    <div class="relative w-full h-64 md:h-80 bg-surface-container-high overflow-hidden shrink-0">
+        <img src="${project.heroImage}" class="w-full h-full object-cover opacity-60" alt="${project.title}" onerror="this.onerror=null; this.src=''; this.classList.add('shimmer-bg');"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+        <div class="absolute bottom-6 px-6 md:px-10 w-full flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+               <h2 class="text-3xl md:text-5xl font-headline font-extrabold tracking-tight mb-2">${project.title}</h2>
+               <div class="text-on-surface-variant flex items-center gap-2 text-sm"><span class="material-symbols-outlined text-[16px]">domain</span> ${project.client || 'Personal'} &nbsp;|&nbsp; <span class="material-symbols-outlined text-[16px]">location_on</span> ${project.location || 'Global'}</div>
+            </div>
+            <a href="${project.websiteUrl}" target="_blank" class="px-6 py-3 rounded-full bg-white text-[#131313] font-label font-bold tracking-widest uppercase text-xs hover:bg-white/90 transition-colors shrink-0 text-center">Visit Live Site</a>
+        </div>
+    </div>
+
+    <!-- Content Body -->
+    <div class="p-6 md:p-10 lg:p-14">
+        ${headerSec}
+        ${solutionSec}
+        ${metricsSec}
+    </div>
+  `;
+
+  // Show Modal
+  projectModal.classList.remove('hidden');
+  
+  // Trigger animations
+  // Use timeout to ensure DOM is updated before animating classes
+  requestAnimationFrame(() => {
+     projectModalBackdrop.classList.remove('opacity-0');
+     projectModalContent.classList.remove('opacity-0', 'translate-y-full', 'sm:translate-y-8');
+  });
+
+  // Attach Close Events
+  document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+}
+
+function closeModal() {
+  projectModalBackdrop.classList.add('opacity-0');
+  projectModalContent.classList.add('opacity-0', 'translate-y-full', 'sm:translate-y-8');
+  
+  setTimeout(() => {
+      projectModal.classList.add('hidden');
+      document.body.style.overflow = '';
+      projectModalContent.innerHTML = ''; // reset
+  }, 400); // match duration-400
+}
+
+// Close on Backdrop Click
+projectModalBackdrop.addEventListener('click', closeModal);
+
+// Close on Escape Key
+window.addEventListener('keydown', (e) => {
+   if(e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+       closeModal();
+   }
+});
+
+// INITIALIZE ON LOAD
+document.addEventListener('DOMContentLoaded', () => {
+    // Small delay to ensure filter indicator DOM sizing is correct
+    setTimeout(() => {
+        const activeFilter = document.querySelector('.filter-btn.active');
+        if(activeFilter) updateFilterIndicator(activeFilter);
+        renderProjects('all');
+    }, 100);
+});
+
 </script>
+
 </body>
 </html>
+
