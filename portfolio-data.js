@@ -3,70 +3,70 @@ window.projectData = [
   // 🔥 CASE STUDIES (p9 → p1)
   // =========================
 
-  {
-    id: "p9",
-    slug: "smshome-luxury-aggregator",
-    title: "SmsHome: Engineering a Neural Service Ecosystem",
-    categories: ["On-Demand SaaS", "Next.js", "AWS"],
-    location: "Dubai, UAE",
-    client: "SmsHome",
-    date: "2026-03-30",
-    websiteUrl: "https://smshome.ae/",
-    heroImage: "./images/projects/royalhousecheck/smshome.png", // Corrected path to existing asset
-    type: "case-study",
-     sections: [
-      {
-        id: "section-vision",
-        type: "vision",
-        header: "Engineering Trust at Scale",
-        shortSummary: "Digitizing luxury service booking.",
-        fullDescription: "Replaced manual booking with a real-time parametric engine for high-net-worth clients.",
-        servicesProvided: [
-          "Agri-Tech Digital Strategy",
-          "Next.js High-Performance Frontend",
-          "Parametric Data Engineering",
-          "Institutional Brand Modernization",
-          "SEO-Dominant Infrastructure"
-        ]
-      },
-      {
-        id: "section-solution",
-        type: "solution",
-        header: "The Fistech Engineering Solution: 'Precision Authority Architecture'",
-        bodyText: "Our objective was to solve for both legacy trust and operational transparency. We engineered a scalable backbone that prioritizes institutional authority and data-driven decision-making.",
-        features: [
-          {
-            title: "Parametric Growth Modules",
-            desc: "Engineered custom-logic tables to visualize soil suitability for high-value crops like Rooibos and Cannabis, transforming agronomic stats into actionable ROI data for investors."
-          },
-          {
-            title: "Next.js SSR & Latency Reduction",
-            desc: "Utilized Server-Side Rendering to ensure international partners experience sub-second load times, critical for high-stakes procurement browsing from global financial hubs."
-          },
-          {
-            title: "Compliance-First UI Framework",
-            desc: "Strategically architected the user journey around B-BBEE Level 2 metrics and industry certifications (Potatoes SA, Land Bank) to automate trust-building with government auditors."
-          },
-          {
-            title: "Scale-Ready Modular Codebase",
-            desc: "Implemented a component-based architecture allowing for seamless integration of new industrial crop divisions without core infrastructure downtime."
-          }
-        ]
-      },
-      {
-        id: "section-metrics",
-        type: "metrics",
-        header: "Strategic ROI & Results",
-        bodyText: "By 'Productizing' a complex agricultural operation into a frictionless digital interface, we positioned Witklip Farm as a primary digital authority for large-scale export partnerships.",
-        stats: [
-          { label: "Procurement Status", value: "125% B-BBEE Recognition" },
-          { label: "Land Digitization", value: "930 Hectares Validated" },
-          { label: "Interaction Speed", value: "< 0.9 Seconds" },
-          { label: "Investor Readiness", value: "Optimal Export Suitability" }
-        ]
-      }
-    ]
-  },
+  // {
+  //   id: "p9",
+  //   slug: "smshome-luxury-aggregator",
+  //   title: "SmsHome: Engineering a Neural Service Ecosystem",
+  //   categories: ["On-Demand SaaS", "Next.js", "AWS"],
+  //   location: "Dubai, UAE",
+  //   client: "SmsHome",
+  //   date: "2026-03-30",
+  //   websiteUrl: "https://smshome.ae/",
+  //   heroImage: "./images/projects/royalhousecheck/smshome.png", // Corrected path to existing asset
+  //   type: "case-study",
+  //    sections: [
+  //     {
+  //       id: "section-vision",
+  //       type: "vision",
+  //       header: "Engineering Trust at Scale",
+  //       shortSummary: "Digitizing luxury service booking.",
+  //       fullDescription: "Replaced manual booking with a real-time parametric engine for high-net-worth clients.",
+  //       servicesProvided: [
+  //         "Agri-Tech Digital Strategy",
+  //         "Next.js High-Performance Frontend",
+  //         "Parametric Data Engineering",
+  //         "Institutional Brand Modernization",
+  //         "SEO-Dominant Infrastructure"
+  //       ]
+  //     },
+  //     {
+  //       id: "section-solution",
+  //       type: "solution",
+  //       header: "The Fistech Engineering Solution: 'Precision Authority Architecture'",
+  //       bodyText: "Our objective was to solve for both legacy trust and operational transparency. We engineered a scalable backbone that prioritizes institutional authority and data-driven decision-making.",
+  //       features: [
+  //         {
+  //           title: "Parametric Growth Modules",
+  //           desc: "Engineered custom-logic tables to visualize soil suitability for high-value crops like Rooibos and Cannabis, transforming agronomic stats into actionable ROI data for investors."
+  //         },
+  //         {
+  //           title: "Next.js SSR & Latency Reduction",
+  //           desc: "Utilized Server-Side Rendering to ensure international partners experience sub-second load times, critical for high-stakes procurement browsing from global financial hubs."
+  //         },
+  //         {
+  //           title: "Compliance-First UI Framework",
+  //           desc: "Strategically architected the user journey around B-BBEE Level 2 metrics and industry certifications (Potatoes SA, Land Bank) to automate trust-building with government auditors."
+  //         },
+  //         {
+  //           title: "Scale-Ready Modular Codebase",
+  //           desc: "Implemented a component-based architecture allowing for seamless integration of new industrial crop divisions without core infrastructure downtime."
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       id: "section-metrics",
+  //       type: "metrics",
+  //       header: "Strategic ROI & Results",
+  //       bodyText: "By 'Productizing' a complex agricultural operation into a frictionless digital interface, we positioned Witklip Farm as a primary digital authority for large-scale export partnerships.",
+  //       stats: [
+  //         { label: "Procurement Status", value: "125% B-BBEE Recognition" },
+  //         { label: "Land Digitization", value: "930 Hectares Validated" },
+  //         { label: "Interaction Speed", value: "< 0.9 Seconds" },
+  //         { label: "Investor Readiness", value: "Optimal Export Suitability" }
+  //       ]
+  //     }
+  //   ]
+  // },
 
   {
     id: "p8",
@@ -622,7 +622,7 @@ window.projectData = [
     location: "Bangladesh",
     client: "Self",
     date: "2025-06-01",
-    websiteUrl: "https://superlightingbd.vercel.app/",
+    websiteUrl: "https://www.superlightingbd.com/",
     heroImage: "./image/Superlighting.png",
     type: "personal",
     description: "Dynamic product catalog featuring advanced filtering options and an intuitive cart experience."

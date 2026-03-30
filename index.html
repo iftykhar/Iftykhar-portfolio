@@ -4,6 +4,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="description" content="S M Iftykhar Ul Alam (Iftykhar Alam) is a professional Frontend Developer and UI/UI Designer based in Dhaka, specializing in high-performance React and Next.js applications."/>
+<link rel="canonical" href="https://iftykhar-portfolio.vercel.app/" />
+<!-- Paste your Google Search Console verification tag below when you have it -->
 <meta name="keywords" content="Iftykhar Alam, S M Iftykhar, S M Iftykhar Ul Alam, Frontend Developer Dhaka, React Developer Bangladesh, UI Designer, Portfolio, Web Developer"/>
 <meta name="author" content="S M Iftykhar Ul Alam"/>
 <meta name="robots" content="index, follow"/>
@@ -111,7 +113,7 @@ canvas#particles { position:absolute; inset:0; pointer-events:none; }
 .hobby-card:hover img { filter:grayscale(0%); transform:scale(1.08); }
 input[type="text"], input[type="email"], textarea {
   background:transparent; border:none; border-bottom:2px solid #908fa0; border-radius:0;
-  color:#e5e2e1; padding:12px 0; width:100%; font-family:'Inter'; transition:border-color 0.3s, box-shadow 0.3s;
+  color:#e5e2e1; padding:12px 0; width:100%; font-family:'Inter', sans-serif; transition:border-color 0.3s, box-shadow 0.3s;
 }
 input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
   outline:none; border-bottom-color:#6366F1; box-shadow:0 4px 12px rgba(99,102,241,0.15);
@@ -204,7 +206,7 @@ details summary::-webkit-details-marker { display:none; }
 <a class="text-on-surface font-headline font-bold text-lg" href="#hobbies" onclick="closeMobileMenu()">Hobbies</a>
 <a class="text-on-surface font-headline font-bold text-lg" href="#contact" onclick="closeMobileMenu()">Contact</a>
 </div>
-<div id="menu-overlay" class="fixed inset-0 z-[55] bg-black/60 hidden" onclick="closeMobileMenu()"></div>
+<div id="menu-overlay" class="fixed inset-0 z-[55] bg-black/60 hidden" onclick="closeMobileMenu()" aria-hidden="true"></div>
 
 <!-- Hero -->
 <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
@@ -357,7 +359,7 @@ details summary::-webkit-details-marker { display:none; }
     <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Reading</h3><p class="text-on-surface-variant text-xs">Tech & Literature</p></div>
   </div>
   <div class="hobby-card group relative rounded-xl overflow-hidden aspect-[3/4] fade-up stagger-3">
-    <img class="absolute inset-0 w-full h-full object-cover" src="./image/photo.jpg" alt="Photography"/>
+    <img class="absolute inset-0 w-full h-full object-cover" src="./image/photo.jpg" alt="Creative Snapshots"/>
     <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
     <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Photography</h3><p class="text-on-surface-variant text-xs">Visual Storytelling</p></div>
   </div>
@@ -385,9 +387,9 @@ details summary::-webkit-details-marker { display:none; }
       <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Currently seeking new opportunities and creative collaborations. My inbox is always open.</p>
     </div>
     <form action="https://formspree.io/f/mrbknqal" method="POST" id="contact-form" class="max-w-2xl mx-auto space-y-8 fade-up stagger-2">
-      <div><label class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Name</label><input type="text" name="name" required placeholder="Your name"/></div>
-      <div><label class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Email</label><input type="email" name="email" required placeholder="you@example.com"/></div>
-      <div><label class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Message</label><textarea name="message" required placeholder="Tell me about your project..."></textarea></div>
+      <div><label for="name" class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Name</label><input id="name" type="text" name="name" required placeholder="Your name"/></div>
+      <div><label for="email" class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Email</label><input id="email" type="email" name="email" required placeholder="you@example.com"/></div>
+      <div><label for="message" class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Message</label><textarea id="message" class="text-gray-800" name="message" required placeholder="Tell me about your project..."></textarea></div>
       <div class="text-center pt-4">
         <button type="submit" class="inline-flex items-center gap-3 px-10 py-4 bg-on-surface text-background font-headline font-bold rounded-xl hover:scale-105 transition-transform shadow-xl">Send Message <span class="material-symbols-outlined">send</span></button>
       </div>
@@ -399,7 +401,7 @@ details summary::-webkit-details-marker { display:none; }
 <!-- Footer -->
 <footer class="py-16 px-6 md:px-8 mt-24 bg-surface-container-lowest">
 <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
-  <div class="text-on-surface font-bold font-body text-sm tracking-wide">© 2025 S M Iftykhar Ul Alam. Built with precision.</div>
+  <div class="text-on-surface font-bold font-body text-sm tracking-wide">© <span id="current-year">2025</span> S M Iftykhar Ul Alam. Built with precision.</div>
   <div class="flex gap-8">
     <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="mailto:s.m.ifty49@gmail.com">Email</a>
     <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank">LinkedIn</a>
@@ -520,6 +522,10 @@ renderProjects = function(filter) {
   originalRenderProjects(filter);
   setTimeout(setupCursorHovers, 500); // Wait for DOM render
 };
+
+// Auto-update Footer Year
+const yearSpan = document.getElementById('current-year');
+if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
 // Scroll Reveal
 const observer = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
