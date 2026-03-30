@@ -169,6 +169,40 @@ details summary::-webkit-details-marker { display:none; }
   @media (hover: hover) {
     html, body, a, button { cursor: none !important; }
   }
+  /* Toast Styles */
+  #toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: none;
+  }
+  .toast {
+    padding: 1rem 1.5rem;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .toast.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .toast-success { border-left: 4px solid #10b981; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
+  .toast-error { border-left: 4px solid #ef4444; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1); }
 </style>
 <script src="./portfolio-data.js"></script>
 </head>
@@ -277,7 +311,7 @@ details summary::-webkit-details-marker { display:none; }
         <p class="text-sm text-on-surface-variant">High-fidelity development, performance tuning, and animation.</p>
       </div>
     </div>
-    <a href="https://drive.google.com/file/d/1e5siBFf3Rqj3rnlqngwroPykVxaM22zl/view?usp=drive_link" target="_blank" class="inline-flex items-center gap-2 text-tertiary font-headline font-bold hover:underline underline-offset-4 decoration-2 pt-2">
+    <a href="https://drive.google.com/file/d/1sBxkvJAabm00c4mGA9Q4saoyFs-Lq9MA/view?usp=sharing" target="_blank" class="inline-flex items-center gap-2 text-tertiary font-headline font-bold hover:underline underline-offset-4 decoration-2 pt-2">
       <span class="material-symbols-outlined text-[20px]">download</span> Download Resume
     </a>
   </div>
@@ -378,9 +412,9 @@ details summary::-webkit-details-marker { display:none; }
 
 <!-- Contact -->
 <section class="py-28 md:py-32 px-6 md:px-8" id="contact">
-<div class="max-w-7xl mx-auto rounded-3xl bg-surface-container-high relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-96 h-96 bg-[#6366F1]/20 blur-[150px] -mr-48 -mt-48 pointer-events-none"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#4cd7f6]/15 blur-[150px] -ml-48 -mb-48 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[#6366F1]/25 blur-[150px] -mr-48 -mt-48 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#4cd7f6]/20 blur-[150px] -ml-48 -mb-48 pointer-events-none"></div>
   <div class="relative z-10 p-8 md:p-16 lg:p-24">
     <div class="text-center mb-16 fade-up">
       <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold mb-6">Let's build something <br/> <span class="text-gradient">exceptional together.</span></h2>
@@ -397,6 +431,8 @@ details summary::-webkit-details-marker { display:none; }
   </div>
 </div>
 </section>
+
+<div id="toast-container"></div>
 
 <!-- Footer -->
 <footer class="py-16 px-6 md:px-8 mt-24 bg-surface-container-lowest">
@@ -546,9 +582,57 @@ const sections=document.querySelectorAll('section[id]');
 const navLinks=document.querySelectorAll('.nav-link');
 window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
 
-// Contact Form
-const form=document.getElementById('contact-form');
-form.addEventListener('submit',function(e){e.preventDefault();fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){alert('Thanks! Your message has been sent.');form.reset();}else alert('Oops! There was a problem.');}).catch(()=>alert('Oops! Something went wrong.'));});
+// Notification Toast Engine
+function showToast(message, type = 'success') {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  
+  const icon = type === 'success' ? 'check_circle' : 'error';
+  toast.innerHTML = `
+    <span class="material-symbols-outlined text-${type === 'success' ? 'green-400' : 'red-400'}">${icon}</span>
+    <span>${message}</span>
+  `;
+  
+  container.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('visible'));
+  
+  setTimeout(() => {
+    toast.classList.remove('visible');
+    setTimeout(() => toast.remove(), 400);
+  }, 4000);
+}
+
+// Contact Form Refined Logic
+const form = document.getElementById('contact-form');
+const submitBtn = form.querySelector('button[type="submit"]');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Disable UI
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...';
+  
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      showToast('Thanks! Your message has been sent.', 'success');
+      form.reset();
+    } else {
+      showToast('Oops! There was a problem submitting.', 'error');
+    }
+  }).catch(() => {
+    showToast('Oops! Something went wrong. Check your connection.', 'error');
+  }).finally(() => {
+    // Re-enable UI
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Send Message <span class="material-symbols-outlined">send</span>';
+  });
+});
 
 /* ==========================================================================
    DYNAMIC PROJECTS & FILTERING LOGIC
