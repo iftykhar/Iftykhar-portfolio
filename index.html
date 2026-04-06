@@ -48,7 +48,7 @@
 <title>S M Iftykhar Ul Alam | Iftykhar Alam | Frontend Developer & UI Designer</title>
 <link rel="icon" type="image/png" class="object-cover rounded-full" href="./image/iftykhar.png"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script>
 tailwind.config = {
@@ -56,40 +56,119 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-variant":"#353534","tertiary":"#4cd7f6","on-surface":"#e5e2e1",
-        "secondary-fixed":"#f0dbff","error":"#ffb4ab","secondary-fixed-dim":"#ddb7ff",
-        "on-primary-container":"#0d0096","surface-tint":"#c0c1ff",
-        "tertiary-container":"#009eb9","primary-fixed":"#e1e0ff",
-        "on-background":"#e5e2e1","surface-bright":"#3a3939",
-        "on-secondary-container":"#d6a9ff","primary-container":"#8083ff",
-        "surface-container":"#201f1f","on-tertiary-container":"#002f38",
-        "secondary-container":"#6f00be","background":"#131313",
-        "on-primary-fixed":"#07006c","on-error":"#690005",
-        "tertiary-fixed":"#acedff","on-primary":"#1000a9",
-        "surface-container-low":"#1c1b1b","surface-container-highest":"#353534",
-        "on-tertiary":"#003640","inverse-surface":"#e5e2e1",
-        "surface-dim":"#131313","outline-variant":"#464554",
-        "tertiary-fixed-dim":"#4cd7f6","inverse-on-surface":"#313030",
-        "on-secondary":"#490080","surface":"#131313",
-        "surface-container-high":"#2a2a2a","primary-fixed-dim":"#c0c1ff",
-        "inverse-primary":"#494bd6","primary":"#c0c1ff",
-        "outline":"#908fa0","surface-container-lowest":"#0e0e0e",
-        "error-container":"#93000a","on-surface-variant":"#c7c4d7",
-        "secondary":"#ddb7ff"
+        "surface-variant":"var(--surface-variant)","tertiary":"var(--tertiary)","on-surface":"var(--on-surface)",
+        "secondary-fixed":"var(--secondary-fixed)","error":"var(--error)","secondary-fixed-dim":"var(--secondary-fixed-dim)",
+        "on-primary-container":"var(--on-primary-container)","surface-tint":"var(--surface-tint)",
+        "tertiary-container":"var(--tertiary-container)","primary-fixed":"var(--primary-fixed)",
+        "on-background":"var(--on-background)","surface-bright":"var(--surface-bright)",
+        "on-secondary-container":"var(--on-secondary-container)","primary-container":"var(--primary-container)",
+        "surface-container":"var(--surface-container)","on-tertiary-container":"var(--on-tertiary-container)",
+        "secondary-container":"var(--secondary-container)","background":"var(--background)",
+        "on-primary-fixed":"var(--on-primary-fixed)","on-error":"var(--on-error)",
+        "tertiary-fixed":"var(--tertiary-fixed)","on-primary":"var(--on-primary)",
+        "surface-container-low":"var(--surface-container-low)","surface-container-highest":"var(--surface-container-highest)",
+        "on-tertiary":"var(--on-tertiary)","inverse-surface":"var(--inverse-surface)",
+        "surface-dim":"var(--surface-dim)","outline-variant":"var(--outline-variant)",
+        "tertiary-fixed-dim":"var(--tertiary-fixed-dim)","inverse-on-surface":"var(--inverse-on-surface)",
+        "on-secondary":"var(--on-secondary)","surface":"var(--surface)",
+        "surface-container-high":"var(--surface-container-high)","primary-fixed-dim":"var(--primary-fixed-dim)",
+        "inverse-primary":"var(--inverse-primary)","primary":"var(--primary)",
+        "outline":"var(--outline)","surface-container-lowest":"var(--surface-container-lowest)",
+        "error-container":"var(--error-container)","on-surface-variant":"var(--on-surface-variant)",
+        "secondary":"var(--secondary)"
       },
-      fontFamily: { "headline":["Plus Jakarta Sans"], "body":["Inter"], "label":["Inter"] },
+      fontFamily: { "headline":["Plus Jakarta Sans"], "body":["Inter"], "label":["Inter"], "fancy":["Syne"] },
       borderRadius: {"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"9999px"},
     },
   },
 }
 </script>
 <style>
-body { background:#131313; color:#e5e2e1; font-family:'Inter',sans-serif; overflow-x:hidden; }
+:root {
+  /* Light Mode Palette */
+  --background: #fdf8f8;
+  --on-background: #1c1b1b;
+  --surface: #fdf8f8;
+  --on-surface: #1c1b1b;
+  --surface-variant: #e5e1e6;
+  --on-surface-variant: #46464f;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f7f3f3;
+  --surface-container: #f1eeee;
+  --surface-container-high: #ebe8e8;
+  --surface-container-highest: #e0dede;
+  --surface-bright: #fdf8f8;
+  --surface-dim: #ded9d9;
+  --inverse-surface: #313033;
+  --inverse-on-surface: #f4eff4;
+  --primary: #4e4ecf;
+  --on-primary: #ffffff;
+  --primary-container: #e0e0ff;
+  --on-primary-container: #00006e;
+  --secondary: #904ebf;
+  --on-secondary: #ffffff;
+  --secondary-container: #f6d9ff;
+  --on-secondary-container: #2c0051;
+  --tertiary: #006876;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #acedff;
+  --on-tertiary-container: #001f24;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #410002;
+  --outline: #777680;
+  --outline-variant: #c7c5d0;
+  --surface-tint: #4e4ecf;
+}
+
+.dark {
+  /* Dark Mode Palette - Original */
+  --background: #131313;
+  --on-background: #e5e2e1;
+  --surface: #131313;
+  --on-surface: #e5e2e1;
+  --surface-variant: #353534;
+  --on-surface-variant: #c7c4d7;
+  --surface-container-lowest: #0e0e0e;
+  --surface-container-low: #1c1b1b;
+  --surface-container: #201f1f;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353534;
+  --surface-bright: #3a3939;
+  --surface-dim: #131313;
+  --inverse-surface: #e5e2e1;
+  --inverse-on-surface: #313030;
+  --primary: #c0c1ff;
+  --on-primary: #1000a9;
+  --primary-container: #8083ff;
+  --on-primary-container: #0d0096;
+  --secondary: #ddb7ff;
+  --on-secondary: #490080;
+  --secondary-container: #6f00be;
+  --on-secondary-container: #d6a9ff;
+  --tertiary: #4cd7f6;
+  --on-tertiary: #003640;
+  --tertiary-container: #009eb9;
+  --on-tertiary-container: #002f38;
+  --error: #ffb4ab;
+  --on-error: #690005;
+  --error-container: #93000a;
+  --on-error-container: #ffdad4;
+  --outline: #908fa0;
+  --outline-variant: #464554;
+  --surface-tint: #c0c1ff;
+}
+
+body { background:var(--background); color:var(--on-surface); font-family:'Inter',sans-serif; overflow-x:hidden; transition: background 0.4s ease, color 0.4s ease; }
 .font-headline { font-family:'Plus Jakarta Sans',sans-serif; }
-.glass-nav { background:rgba(19,19,19,0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
+.glass-nav { background:rgba(var(--nav-bg),0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
+:root { --nav-bg: 253, 248, 248; }
+.dark { --nav-bg: 19, 19, 19; }
+
 .hero-gradient { background:radial-gradient(circle at 50% 50%,rgba(99,102,241,0.15) 0%,rgba(168,85,247,0.1) 25%,transparent 70%); }
 .text-gradient { background:linear-gradient(135deg,#6366F1,#A855F7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.border-gradient { border:1.5px solid transparent; background-image:linear-gradient(#131313,#131313),linear-gradient(135deg,#6366F1,#A855F7); background-origin:border-box; background-clip:padding-box,border-box; }
+.border-gradient { border:1.5px solid transparent; background-image:linear-gradient(var(--background),var(--background)),linear-gradient(135deg,#6366F1,#A855F7); background-origin:border-box; background-clip:padding-box,border-box; }
 .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
 .fade-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
 .fade-up.visible { opacity:1; transform:translateY(0); }
@@ -99,7 +178,7 @@ body { background:#131313; color:#e5e2e1; font-family:'Inter',sans-serif; overfl
 @keyframes float { 0%,100%{transform:translate(0,0)} 33%{transform:translate(30px,-20px)} 66%{transform:translate(-20px,15px)} }
 @keyframes pulse-glow { 0%,100%{opacity:0.15} 50%{opacity:0.3} }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-.shimmer-bg { background: linear-gradient(90deg, #1c1b1b 25%, #2a2a2a 50%, #1c1b1b 75%); background-size: 400% 100%; animation: shimmer 4s infinite linear; }
+.shimmer-bg { background: linear-gradient(90deg, var(--surface-container-low) 25%, var(--surface-container-high) 50%, var(--surface-container-low) 75%); background-size: 400% 100%; animation: shimmer 4s infinite linear; }
 .card-tilt { transform-style: preserve-3d; transform: perspective(1000px); }
 .card-tilt-inner { transform: translateZ(30px); }
 .orb { position:absolute; border-radius:50%; filter:blur(120px); animation:float 20s ease-in-out infinite; pointer-events:none; }
@@ -112,17 +191,17 @@ canvas#particles { position:absolute; inset:0; pointer-events:none; }
 .hobby-card img { filter:grayscale(80%); transition:filter 0.6s, transform 0.6s; }
 .hobby-card:hover img { filter:grayscale(0%); transform:scale(1.08); }
 input[type="text"], input[type="email"], textarea {
-  background:transparent; border:none; border-bottom:2px solid #908fa0; border-radius:0;
-  color:#e5e2e1; padding:12px 0; width:100%; font-family:'Inter', sans-serif; transition:border-color 0.3s, box-shadow 0.3s;
+  background:transparent; border:none; border-bottom:2px solid var(--outline); border-radius:0;
+  color:var(--on-surface); padding:12px 0; width:100%; font-family:'Inter', sans-serif; transition:border-color 0.3s, box-shadow 0.3s;
 }
 input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
   outline:none; border-bottom-color:#6366F1; box-shadow:0 4px 12px rgba(99,102,241,0.15);
 }
 textarea { resize:vertical; min-height:120px; }
 details summary::-webkit-details-marker { display:none; }
-::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:#131313; }
-::-webkit-scrollbar-thumb { background:#353534; border-radius:4px; }
-::-webkit-scrollbar-thumb:hover { background:#464554; }
+::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--background); }
+::-webkit-scrollbar-thumb { background:var(--surface-variant); border-radius:4px; }
+::-webkit-scrollbar-thumb:hover { background:var(--outline); }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -165,9 +244,9 @@ details summary::-webkit-details-marker { display:none; }
     #custom-cursor { display: none !important; }
     html, body { cursor: auto !important; }
   }
-  /* Hide native cursor globally for desktop */
+  /* Show native cursor alongside custom tracker */
   @media (hover: hover) {
-    html, body, a, button { cursor: none !important; }
+    /* html, body, a, button { cursor: none !important; } */
   }
   /* Toast Styles */
   #toast-container {
@@ -182,14 +261,14 @@ details summary::-webkit-details-marker { display:none; }
   }
   .toast {
     padding: 1rem 1.5rem;
-    background: rgba(20, 20, 20, 0.8);
+    background: var(--surface-container-high);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--outline-variant);
     border-radius: 12px;
-    color: white;
+    color: var(--on-surface);
     font-size: 0.875rem;
     font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transform: translateY(20px);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -205,6 +284,7 @@ details summary::-webkit-details-marker { display:none; }
   .toast-error { border-left: 4px solid #ef4444; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1); }
 </style>
 <script src="./portfolio-data.js"></script>
+<script src="./skills-data.js"></script>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 <div id="custom-cursor"></div>
@@ -220,9 +300,15 @@ details summary::-webkit-details-marker { display:none; }
     <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#about">About</a>
     <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#skills">Skills</a>
     <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#projects">Projects</a>
+    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#experience">Experience</a>
     <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#hobbies">Hobbies</a>
   </div>
   <div class="flex items-center gap-4">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all duration-300" aria-label="Toggle Theme">
+      <span class="material-symbols-outlined theme-icon-dark hidden">dark_mode</span>
+      <span class="material-symbols-outlined theme-icon-light">light_mode</span>
+    </button>
     <a href="#contact" class="hidden sm:inline-flex bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-6 py-2.5 rounded-xl font-headline font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#6366F1]/20">Contact Me</a>
     <button id="menu-toggle" class="md:hidden text-on-surface">
       <span class="material-symbols-outlined text-2xl">menu</span>
@@ -233,10 +319,17 @@ details summary::-webkit-details-marker { display:none; }
 
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 z-[60] bg-surface-container-high/95 backdrop-blur-xl p-8 flex flex-col gap-6 shadow-2xl">
-<button id="menu-close" class="self-end text-on-surface"><span class="material-symbols-outlined text-2xl">close</span></button>
+<div class="flex justify-between items-center">
+    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-surface-container text-on-surface">
+        <span class="material-symbols-outlined theme-icon-dark hidden">dark_mode</span>
+        <span class="material-symbols-outlined theme-icon-light">light_mode</span>
+    </button>
+    <button id="menu-close" class="text-on-surface"><span class="material-symbols-outlined text-2xl">close</span></button>
+</div>
 <a class="text-on-surface font-headline font-bold text-lg" href="#about" onclick="closeMobileMenu()">About</a>
 <a class="text-on-surface font-headline font-bold text-lg" href="#skills" onclick="closeMobileMenu()">Skills</a>
 <a class="text-on-surface font-headline font-bold text-lg" href="#projects" onclick="closeMobileMenu()">Projects</a>
+<a class="text-on-surface font-headline font-bold text-lg" href="#experience" onclick="closeMobileMenu()">Experience</a>
 <a class="text-on-surface font-headline font-bold text-lg" href="#hobbies" onclick="closeMobileMenu()">Hobbies</a>
 <a class="text-on-surface font-headline font-bold text-lg" href="#contact" onclick="closeMobileMenu()">Contact</a>
 </div>
@@ -252,7 +345,11 @@ details summary::-webkit-details-marker { display:none; }
   <span class="inline-block px-4 py-1.5 rounded-full bg-surface-container-high text-tertiary text-[0.7rem] font-label font-medium tracking-[0.2em] uppercase fade-up">Available for new projects</span>
   <h1 class="text-5xl sm:text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-on-surface leading-[0.9] fade-up stagger-1">
     S M Iftykhar <br/> <span class="text-gradient">Ul Alam</span>
-  </h1>
+    </h1>
+  </div>
+  <p class="text-sm md:text-base font-label font-bold uppercase tracking-[0.4em] text-on-surface-variant/60 mb-8 fade-up stagger-2">
+    Digital Architect <span class="mx-2 opacity-30">•</span> Full-Stack Developer
+  </p>
   <p class="text-lg sm:text-xl md:text-2xl font-headline text-on-surface-variant max-w-2xl mx-auto leading-relaxed fade-up stagger-2">
     Frontend Developer &amp; Explorer. Passionate about crafting pixel-perfect, high-performance web experiences.
   </p>
@@ -318,25 +415,14 @@ details summary::-webkit-details-marker { display:none; }
 </div>
 </section>
 
-<!-- Tech Arsenal -->
+<!-- Technical Proficiency -->
 <section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="skills">
 <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">Technical <span class="text-tertiary">Arsenal</span></h2>
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">Technical <span class="text-tertiary">Proficiency</span></h2>
   <p class="text-on-surface-variant font-body max-w-md">Modern tools for modern problems. I specialize in building scalable, accessible, and fast web applications.</p>
 </div>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 md:gap-6">
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-1"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">code</span><h3 class="font-headline font-bold text-lg mb-0.5">HTML</h3><p class="text-on-surface-variant text-sm">Markup</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-2"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">brush</span><h3 class="font-headline font-bold text-lg mb-0.5">CSS</h3><p class="text-on-surface-variant text-sm">Styling</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-3"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">data_object</span><h3 class="font-headline font-bold text-lg mb-0.5">JavaScript</h3><p class="text-on-surface-variant text-sm">Logic</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-4"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">hub</span><h3 class="font-headline font-bold text-lg mb-0.5">React</h3><p class="text-on-surface-variant text-sm">UI Framework</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-1"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">deployed_code</span><h3 class="font-headline font-bold text-lg mb-0.5">Laravel</h3><p class="text-on-surface-variant text-sm">Backend</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-2"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">terminal</span><h3 class="font-headline font-bold text-lg mb-0.5">PHP</h3><p class="text-on-surface-variant text-sm">Server-Side</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-3"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">style</span><h3 class="font-headline font-bold text-lg mb-0.5">TailwindCSS</h3><p class="text-on-surface-variant text-sm">Utility CSS</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-4"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">account_tree</span><h3 class="font-headline font-bold text-lg mb-0.5">Git</h3><p class="text-on-surface-variant text-sm">Version Control</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-1"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">database</span><h3 class="font-headline font-bold text-lg mb-0.5">MySQL</h3><p class="text-on-surface-variant text-sm">Database</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-2"><span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">integration_instructions</span><h3 class="font-headline font-bold text-lg mb-0.5">GitHub</h3><p class="text-on-surface-variant text-sm">Collaboration</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-3"><span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">storage</span><h3 class="font-headline font-bold text-lg mb-0.5">SQLite</h3><p class="text-on-surface-variant text-sm">Lightweight DB</p></div>
-  <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-4"><span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">description</span><h3 class="font-headline font-bold text-lg mb-0.5">MS Office</h3><p class="text-on-surface-variant text-sm">Productivity</p></div>
+<div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 md:gap-6">
+  <!-- Rendered via JS -->
 </div>
 </section>
 
@@ -367,13 +453,79 @@ details summary::-webkit-details-marker { display:none; }
 </section>
 
 <!-- Project Modal -->
-<div id="project-modal" class="fixed inset-0 z-[100] hidden items-end sm:items-center justify-center pointer-events-none">
+<div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 pointer-events-none">
   <div id="project-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-auto"></div>
-  <div id="project-modal-content" class="relative w-full max-w-5xl max-h-[90vh] sm:max-h-[85vh] bg-surface-container-lowest sm:rounded-2xl shadow-2xl overflow-y-auto transform translate-y-full sm:translate-y-8 opacity-0 transition-all duration-400 ease-out pointer-events-auto flex flex-col border border-white/5">
+  <div id="project-modal-content" class="relative w-full max-w-5xl max-h-[90vh] bg-surface-container-lowest rounded-2xl shadow-2xl overflow-y-auto transform scale-95 opacity-0 transition-all duration-400 ease-out pointer-events-auto flex flex-col border border-white/5">
     <!-- Rendered via JS -->
   </div>
 </div>
 
+
+<!-- Professional Experience -->
+<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="experience">
+  <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">Professional <span class="text-primary">Experience</span></h2>
+    <p class="text-on-surface-variant font-body max-w-md">My journey in engineering high-performance web applications and digital systems.</p>
+  </div>
+  
+  <div class="space-y-8">
+    <!-- Item 1 -->
+    <div class="group p-8 rounded-2xl bg-surface-container-low border border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
+       <div class="flex flex-col md:flex-row justify-between mb-6">
+          <div>
+             <h3 class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">Scaleup IT Limited</h3>
+             <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Dhaka, Bangladesh</p>
+          </div>
+          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/5">
+             <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+             Aug 2025 – March 2026
+          </div>
+       </div>
+       <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
+          <li class="flex gap-4">
+            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span>Architecting and maintaining React/Next.js applications with a focus on reusable component libraries.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span>Integrating backends and third-party services, ensuring seamless data sync and optimized API performance.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span>Collaborating via Agile methodologies, participating in daily standups and technical documentation.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span>Optimizing applications for mobile responsiveness and cross-browser compatibility.</span>
+          </li>
+       </ul>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="group p-8 rounded-2xl bg-surface-container-low border border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
+       <div class="flex flex-col md:flex-row justify-between mb-6">
+          <div>
+             <h3 class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">Refuel Forecourts Limited</h3>
+             <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Remote, UK</p>
+          </div>
+          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/5">
+             <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+             Nov 2023 – Apr 2024
+          </div>
+       </div>
+       <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
+          <li class="flex gap-4">
+            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span>Engineered data-driven React dashboards for real-time monitoring and internal automation tools.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span>Streamlined frontend workflows to improve application loading speeds and SEO performance.</span>
+          </li>
+       </ul>
+    </div>
+  </div>
+</section>
 
 <!-- Hobbies -->
 <section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="hobbies">
@@ -480,7 +632,14 @@ class Particle {
     this.vy = (Math.random()-0.5)*0.4; 
     this.radius = Math.random()*1.5+0.5; 
     this.opacity = Math.random()*0.5+0.2;
-    this.color = Math.random() > 0.5 ? '99, 102, 241' : '168, 85, 247'; // Indigo or Purple
+    this.opacity = Math.random()*0.5+0.2;
+    // Theme-aware coloring
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+        this.color = Math.random() > 0.5 ? '99, 102, 241' : '168, 85, 247'; // Indigo/Purple
+    } else {
+        this.color = '100, 100, 100'; // Subtle Grey
+    }
   }
   update() { 
     if (mouse.x !== null) {
@@ -510,8 +669,9 @@ for(let i=0;i<350;i++) particles.push(new Particle());
 
 function updateCursor() {
   if (mouse.targetX !== null) {
-    mouse.x += (mouse.targetX - mouse.x) * 0.15;
-    mouse.y += (mouse.targetY - mouse.y) * 0.15;
+    // Slower tracking for a more deliberate "lag" effect (0.08 instead of 0.15)
+    mouse.x += (mouse.targetX - mouse.x) * 0.05;
+    mouse.y += (mouse.targetY - mouse.y) * 0.05;
     cursor.style.display = 'block';
     cursor.style.left = `${mouse.x}px`;
     cursor.style.top = `${mouse.y}px`;
@@ -534,7 +694,9 @@ function animateParticles() {
         ctx.beginPath();
         ctx.moveTo(a.x,a.y);
         ctx.lineTo(b.x,b.y);
-        ctx.strokeStyle=`rgba(99,102,241,${0.12*(1-d/100)})`;
+        const isDark = document.documentElement.classList.contains('dark');
+        const color = isDark ? `99,102,241` : `150,150,150`;
+        ctx.strokeStyle=`rgba(${color},${0.12*(1-d/100)})`;
         ctx.stroke();
       }
     });
@@ -581,6 +743,32 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 const sections=document.querySelectorAll('section[id]');
 const navLinks=document.querySelectorAll('.nav-link');
 window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
+
+// --- Theme Management ---
+function updateThemeIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.toggle('hidden', !isDark));
+    document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.toggle('hidden', isDark));
+}
+
+function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeIcons();
+    particles.forEach(p => p.reset());
+}
+
+// Initialize Theme - Force Dark Default
+const savedTheme = localStorage.getItem('theme') || 'dark';
+if (savedTheme === 'light') {
+    document.documentElement.classList.remove('dark');
+} else {
+    document.documentElement.classList.add('dark');
+}
+updateThemeIcons();
+
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
 
 // Notification Toast Engine
 function showToast(message, type = 'success') {
@@ -963,10 +1151,10 @@ function openModal(project) {
   projectModal.classList.remove('hidden');
   
   // Trigger animations
-  // Use timeout to ensure DOM is updated before animating classes
   requestAnimationFrame(() => {
      projectModalBackdrop.classList.remove('opacity-0');
-     projectModalContent.classList.remove('opacity-0', 'translate-y-full', 'sm:translate-y-8');
+     projectModalContent.classList.remove('opacity-0', 'scale-95');
+     projectModalContent.classList.add('scale-100');
   });
 
   // Attach Close Events
@@ -975,7 +1163,8 @@ function openModal(project) {
 
 function closeModal() {
   projectModalBackdrop.classList.add('opacity-0');
-  projectModalContent.classList.add('opacity-0', 'translate-y-full', 'sm:translate-y-8');
+  projectModalContent.classList.add('opacity-0', 'scale-95');
+  projectModalContent.classList.remove('scale-100');
   
   setTimeout(() => {
       projectModal.classList.add('hidden');
@@ -994,13 +1183,40 @@ window.addEventListener('keydown', (e) => {
    }
 });
 
+// RENDER SKILLS
+function renderSkills() {
+    const skillsGrid = document.getElementById('skills-grid');
+    if (!skillsGrid || !window.skillsData) return;
+
+    skillsGrid.innerHTML = window.skillsData.map(skill => {
+        const iconSection = skill.isMaterialIcon 
+            ? `<span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">${skill.icon}</span>`
+            : `<img src="${skill.icon}" alt="${skill.name}" class="h-10 md:h-12 w-auto mb-3 block group-hover:scale-110 transition-transform" />`;
+
+        return `
+            <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-${skill.stagger}">
+                ${iconSection}
+                <h3 class="font-headline font-bold text-lg mb-0.5">${skill.name}</h3>
+                <p class="text-on-surface-variant text-xs">${skill.category}</p>
+            </div>
+        `;
+    }).join('');
+
+    // Re-observe dynamic skills for the scroll animation to trigger
+    document.querySelectorAll('#skills-grid .fade-up').forEach(el => {
+        observer.observe(el);
+    });
+}
+
 // INITIALIZE ON LOAD
 document.addEventListener('DOMContentLoaded', () => {
     // Small delay to ensure filter indicator DOM sizing is correct
     setTimeout(() => {
         const activeFilter = document.querySelector('.filter-btn.active');
         if(activeFilter) updateFilterIndicator(activeFilter);
-        renderProjects('all');
+        
+        renderSkills(); // Render skills first
+        renderProjects('all'); 
     }, 100);
 });
 

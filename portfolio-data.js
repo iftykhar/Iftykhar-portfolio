@@ -2,8 +2,82 @@ window.projectData = [
   // =========================
   // 🔥 CASE STUDIES (p16 → p1)
   // =========================
+{
+  // --- 1. CORE IDENTITY ---
+  id: "p17", // Sequential ID following Witklip
+  slug: "elitestone-builders-transformation",
+  title: "EliteStoneBuildersAZ: Engineering a High-Velocity Media Engine for Luxury Masonry",
+  categories: ["Industrial Portfolio", "Next.js Architecture", "Digital Transformation"],
+  location: "Mesa, Arizona (Western U.S. Market)",
+  client: "Elite Stone Builders AZ (Custom Masonry & Construction)",
+  date: "2026-04-06",
+  websiteUrl: "https://elitestonebuildersaz.vercel.app/",
+  type: "case-study",
 
-  {
+  // --- 2. MEDIA ASSETS ---
+  heroImage: "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
+  gallery: [
+    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
+    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
+    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
+    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png"
+  ],
+
+  // --- 3. DYNAMIC SECTIONS ---
+sections: [
+    {
+      id: "section-vision",
+      type: "vision",
+      header: "Precision Masonry Meets Digital Scalability",
+      shortSummary: "Architecting a high-performance, cinematic visual engine to bridge the gap between premium masonry craftsmanship and digital authority.",
+      fullDescription: "Elite Stone Builders required more than a gallery; they needed a digital flagship. We moved beyond traditional web presence to engineer a 'Performance-Luxury' hybrid. By solving the 'Heavy Asset' paradox—delivering ultra-high-resolution masonry textures without compromising speed—we transformed a local contractor's identity into a Tier-1 industrial powerhouse ready for high-stakes commercial bids.",
+      servicesProvided: [
+        "Digital Transformation Strategy",
+        "Next.js High-Performance Frontend",
+        "Decoupled Asset Orchestration",
+        "Conversion Funnel Engineering",
+        "Automated Lead Pipeline (AWS/Nodemailer)"
+      ]
+    },
+    {
+      id: "section-solution",
+      type: "solution",
+      header: "The Fistech Engineering Solution: 'Performance-First Architecture'",
+      bodyText: "Our objective was to solve for both legacy trust and technical latency. We engineered a scalable backbone that prioritizes visual fidelity and rapid lead acquisition.",
+      features: [
+        {
+          title: "Decoupled Asset Orchestration",
+          desc: "Utilized a headless media layer via AWS and Cloudinary to serve pixel-perfect masonry textures in WebP format, ensuring zero-latency portfolio browsing."
+        },
+        {
+          title: "Next.js SSR & Core Web Vitals",
+          desc: "Implemented Server-Side Rendering to ensure immediate content availability, achieving a sub-1s LCP (Largest Contentful Paint) for superior SEO and user retention."
+        },
+        {
+          title: "Unified Conversion Funnel",
+          desc: "Developed a streamlined, state-driven 'Quote A Request' architecture that captures specific project data, reducing friction between inspiration and inquiry."
+        },
+        {
+          title: "Parametric Responsive UI",
+          desc: "Architected a mobile-first interface optimized for high-glare outdoor environments, allowing homeowners and contractors to access the portfolio on active jobsites."
+        }
+      ]
+    },
+    {
+      id: "section-metrics",
+      type: "metrics",
+      header: "Strategic ROI & Results",
+      bodyText: "By 'Productizing' physical stonework into a frictionless digital interface, we positioned Elite Stone Builders as the primary digital authority for high-ticket masonry in the Arizona market.",
+      stats: [
+        { label: "Lighthouse Score", value: "98/100 Performance" },
+        { label: "Visual Rendering", value: "Retina-Grade WebP" },
+        { label: "Lead Response Lag", value: "Automated AWS Routing" },
+        { label: "Market Authority", value: "Tier-1 Contractor Status" }
+      ]
+    }
+  ]
+},
+{
     id: "p16",
     slug: "witklip-agri-transformation",
     title: "Witklip Farm: Engineering a Precision Agriculture Ecosystem for Global Investment",
