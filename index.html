@@ -282,6 +282,17 @@ details summary::-webkit-details-marker { display:none; }
   }
   .toast-success { border-left: 4px solid #10b981; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
   .toast-error { border-left: 4px solid #ef4444; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1); }
+
+  /* Animated Premium Light Mode Background */
+  .bg-animated-gradient {
+    background-size: 200% 200%;
+    animation: bg-gradient-pan 12s ease infinite;
+  }
+  @keyframes bg-gradient-pan {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 </style>
 <script src="./portfolio-data.js"></script>
 <script src="./skills-data.js"></script>
@@ -354,7 +365,7 @@ details summary::-webkit-details-marker { display:none; }
     Frontend Developer &amp; Explorer. Passionate about crafting pixel-perfect, high-performance web experiences.
   </p>
   <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4 fade-up stagger-3">
-    <a class="px-8 py-4 bg-gradient-to-r from-primary-container to-secondary-container rounded-xl font-headline font-bold text-white shadow-xl shadow-[#6366F1]/20 hover:scale-105 transition-transform" href="#projects">View Projects</a>
+    <a class="px-8 py-4 bg-gradient-to-r from-primary-container to-secondary-container rounded-xl font-headline font-bold text-gray-500 dark:text-white shadow-xl shadow-[#6366F1]/20 hover:scale-105 transition-transform" href="#projects">View Projects</a>
     <a class="px-8 py-4 border-gradient rounded-xl font-headline font-bold text-on-surface hover:scale-105 transition-transform" href="#contact">Contact Me</a>
   </div>
   <div class="flex items-center justify-center gap-8 pt-10 text-on-surface-variant fade-up stagger-4">
@@ -427,7 +438,7 @@ details summary::-webkit-details-marker { display:none; }
 </section>
 
 <!-- Projects -->
-<section class="py-28 md:py-32 bg-surface-container-lowest" id="projects">
+<section class="py-28 md:py-32 bg-gradient-to-r from-indigo-50 via-purple-50 to-indigo-50 bg-animated-gradient dark:!bg-none dark:!animate-none dark:bg-surface-container-lowest relative overflow-hidden" id="projects">
 <div class="max-w-7xl mx-auto px-6 md:px-8">
   <div class="flex flex-col gap-4 mb-12 md:mb-16 fade-up">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold tracking-tight text-on-surface">Selected <br/> <span class="text-gradient">Creations</span></h2>
@@ -586,6 +597,11 @@ details summary::-webkit-details-marker { display:none; }
 
 <div id="toast-container"></div>
 
+<!-- Go To Top Button -->
+<button id="go-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-[100] p-3 rounded-full bg-primary text-white shadow-xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 flex items-center justify-center group" aria-label="Go to top">
+  <span class="material-symbols-outlined text-2xl group-hover:text-white transition-colors animate-bounce">arrow_upward</span>
+</button>
+
 <!-- Footer -->
 <footer class="py-16 px-6 md:px-8 mt-24 bg-surface-container-lowest">
 <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
@@ -737,12 +753,24 @@ menuToggle.addEventListener('click',openMobileMenu);
 menuClose.addEventListener('click',closeMobileMenu);
 
 // Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const href=this.getAttribute('href');if(href==='#'){window.scrollTo({top:0,behavior:'smooth'});return;}const t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
 
-// Active Nav
+// Active Nav & Go To Top Logic
 const sections=document.querySelectorAll('section[id]');
 const navLinks=document.querySelectorAll('.nav-link');
-window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
+const goTopBtn=document.getElementById('go-to-top');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});
+  navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});
+  
+  // Go to top button visibility (shows after 400px of scrolling)
+  if(window.scrollY > 400) {
+    goTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+  } else {
+    goTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+  }
+});
 
 // --- Theme Management ---
 function updateThemeIcons() {
@@ -1194,7 +1222,7 @@ function renderSkills() {
             : `<img src="${skill.icon}" alt="${skill.name}" class="h-10 md:h-12 w-auto mb-3 block group-hover:scale-110 transition-transform" />`;
 
         return `
-            <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-${skill.stagger}">
+            <div class="group p-6 md:p-8 rounded-xl bg-gray-300 hover:bg-gray-200 dark:bg-surface-container-low dark:hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-${skill.stagger}">
                 ${iconSection}
                 <h3 class="font-headline font-bold text-lg mb-0.5">${skill.name}</h3>
                 <p class="text-on-surface-variant text-xs">${skill.category}</p>
