@@ -10,6 +10,9 @@
 <meta name="author" content="S M Iftykhar Ul Alam"/>
 <meta name="robots" content="index, follow"/>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://iftykhar.github.io/"/>
@@ -47,255 +50,11 @@
 
 <title>S M Iftykhar Ul Alam | Iftykhar Alam | Frontend Developer & UI Designer</title>
 <link rel="icon" type="image/png" class="object-cover rounded-full" href="./image/iftykhar.png"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="stylesheet" href="./output.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script>
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "surface-variant":"var(--surface-variant)","tertiary":"var(--tertiary)","on-surface":"var(--on-surface)",
-        "secondary-fixed":"var(--secondary-fixed)","error":"var(--error)","secondary-fixed-dim":"var(--secondary-fixed-dim)",
-        "on-primary-container":"var(--on-primary-container)","surface-tint":"var(--surface-tint)",
-        "tertiary-container":"var(--tertiary-container)","primary-fixed":"var(--primary-fixed)",
-        "on-background":"var(--on-background)","surface-bright":"var(--surface-bright)",
-        "on-secondary-container":"var(--on-secondary-container)","primary-container":"var(--primary-container)",
-        "surface-container":"var(--surface-container)","on-tertiary-container":"var(--on-tertiary-container)",
-        "secondary-container":"var(--secondary-container)","background":"var(--background)",
-        "on-primary-fixed":"var(--on-primary-fixed)","on-error":"var(--on-error)",
-        "tertiary-fixed":"var(--tertiary-fixed)","on-primary":"var(--on-primary)",
-        "surface-container-low":"var(--surface-container-low)","surface-container-highest":"var(--surface-container-highest)",
-        "on-tertiary":"var(--on-tertiary)","inverse-surface":"var(--inverse-surface)",
-        "surface-dim":"var(--surface-dim)","outline-variant":"var(--outline-variant)",
-        "tertiary-fixed-dim":"var(--tertiary-fixed-dim)","inverse-on-surface":"var(--inverse-on-surface)",
-        "on-secondary":"var(--on-secondary)","surface":"var(--surface)",
-        "surface-container-high":"var(--surface-container-high)","primary-fixed-dim":"var(--primary-fixed-dim)",
-        "inverse-primary":"var(--inverse-primary)","primary":"var(--primary)",
-        "outline":"var(--outline)","surface-container-lowest":"var(--surface-container-lowest)",
-        "error-container":"var(--error-container)","on-surface-variant":"var(--on-surface-variant)",
-        "secondary":"var(--secondary)"
-      },
-      fontFamily: { "headline":["Plus Jakarta Sans"], "body":["Inter"], "label":["Inter"], "fancy":["Syne"] },
-      borderRadius: {"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"9999px"},
-    },
-  },
-}
-</script>
-<style>
-:root {
-  /* Light Mode Palette */
-  --background: #fdf8f8;
-  --on-background: #1c1b1b;
-  --surface: #fdf8f8;
-  --on-surface: #1c1b1b;
-  --surface-variant: #e5e1e6;
-  --on-surface-variant: #46464f;
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #f7f3f3;
-  --surface-container: #f1eeee;
-  --surface-container-high: #ebe8e8;
-  --surface-container-highest: #e0dede;
-  --surface-bright: #fdf8f8;
-  --surface-dim: #ded9d9;
-  --inverse-surface: #313033;
-  --inverse-on-surface: #f4eff4;
-  --primary: #4e4ecf;
-  --on-primary: #ffffff;
-  --primary-container: #e0e0ff;
-  --on-primary-container: #00006e;
-  --secondary: #904ebf;
-  --on-secondary: #ffffff;
-  --secondary-container: #f6d9ff;
-  --on-secondary-container: #2c0051;
-  --tertiary: #006876;
-  --on-tertiary: #ffffff;
-  --tertiary-container: #acedff;
-  --on-tertiary-container: #001f24;
-  --error: #ba1a1a;
-  --on-error: #ffffff;
-  --error-container: #ffdad6;
-  --on-error-container: #410002;
-  --outline: #777680;
-  --outline-variant: #c7c5d0;
-  --surface-tint: #4e4ecf;
-}
-
-.dark {
-  /* Dark Mode Palette - Original */
-  --background: #131313;
-  --on-background: #e5e2e1;
-  --surface: #131313;
-  --on-surface: #e5e2e1;
-  --surface-variant: #353534;
-  --on-surface-variant: #c7c4d7;
-  --surface-container-lowest: #0e0e0e;
-  --surface-container-low: #1c1b1b;
-  --surface-container: #201f1f;
-  --surface-container-high: #2a2a2a;
-  --surface-container-highest: #353534;
-  --surface-bright: #3a3939;
-  --surface-dim: #131313;
-  --inverse-surface: #e5e2e1;
-  --inverse-on-surface: #313030;
-  --primary: #c0c1ff;
-  --on-primary: #1000a9;
-  --primary-container: #8083ff;
-  --on-primary-container: #0d0096;
-  --secondary: #ddb7ff;
-  --on-secondary: #490080;
-  --secondary-container: #6f00be;
-  --on-secondary-container: #d6a9ff;
-  --tertiary: #4cd7f6;
-  --on-tertiary: #003640;
-  --tertiary-container: #009eb9;
-  --on-tertiary-container: #002f38;
-  --error: #ffb4ab;
-  --on-error: #690005;
-  --error-container: #93000a;
-  --on-error-container: #ffdad4;
-  --outline: #908fa0;
-  --outline-variant: #464554;
-  --surface-tint: #c0c1ff;
-}
-
-body { background:var(--background); color:var(--on-surface); font-family:'Inter',sans-serif; overflow-x:hidden; transition: background 0.4s ease, color 0.4s ease; }
-.font-headline { font-family:'Plus Jakarta Sans',sans-serif; }
-.glass-nav { background:rgba(var(--nav-bg),0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
-:root { --nav-bg: 253, 248, 248; }
-.dark { --nav-bg: 19, 19, 19; }
-
-.hero-gradient { background:radial-gradient(circle at 50% 50%,rgba(99,102,241,0.15) 0%,rgba(168,85,247,0.1) 25%,transparent 70%); }
-.text-gradient { background:linear-gradient(135deg,#6366F1,#A855F7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.border-gradient { border:1.5px solid transparent; background-image:linear-gradient(var(--background),var(--background)),linear-gradient(135deg,#6366F1,#A855F7); background-origin:border-box; background-clip:padding-box,border-box; }
-.material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
-.fade-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
-.fade-up.visible { opacity:1; transform:translateY(0); }
-.stagger-1 { transition-delay:0.1s; } .stagger-2 { transition-delay:0.2s; }
-.stagger-3 { transition-delay:0.3s; } .stagger-4 { transition-delay:0.4s; }
-.stagger-5 { transition-delay:0.5s; } .stagger-6 { transition-delay:0.6s; }
-@keyframes float { 0%,100%{transform:translate(0,0)} 33%{transform:translate(30px,-20px)} 66%{transform:translate(-20px,15px)} }
-@keyframes pulse-glow { 0%,100%{opacity:0.15} 50%{opacity:0.3} }
-@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-.shimmer-bg { background: linear-gradient(90deg, var(--surface-container-low) 25%, var(--surface-container-high) 50%, var(--surface-container-low) 75%); background-size: 400% 100%; animation: shimmer 4s infinite linear; }
-.card-tilt { transform-style: preserve-3d; transform: perspective(1000px); }
-.card-tilt-inner { transform: translateZ(30px); }
-.orb { position:absolute; border-radius:50%; filter:blur(120px); animation:float 20s ease-in-out infinite; pointer-events:none; }
-canvas#particles { position:absolute; inset:0; pointer-events:none; }
-.nav-link { position:relative; }
-.nav-link::after { content:''; position:absolute; bottom:-4px; left:50%; width:0; height:2px; background:linear-gradient(90deg,#6366F1,#A855F7); transition:width 0.3s, left 0.3s; }
-.nav-link:hover::after, .nav-link.active::after { width:100%; left:0; }
-#mobile-menu { transform:translateX(100%); transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); }
-#mobile-menu.open { transform:translateX(0); }
-.hobby-card img { filter:grayscale(80%); transition:filter 0.6s, transform 0.6s; }
-.hobby-card:hover img { filter:grayscale(0%); transform:scale(1.08); }
-input[type="text"], input[type="email"], textarea {
-  background:transparent; border:none; border-bottom:2px solid var(--outline); border-radius:0;
-  color:var(--on-surface); padding:12px 0; width:100%; font-family:'Inter', sans-serif; transition:border-color 0.3s, box-shadow 0.3s;
-}
-input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-  outline:none; border-bottom-color:#6366F1; box-shadow:0 4px 12px rgba(99,102,241,0.15);
-}
-textarea { resize:vertical; min-height:120px; }
-details summary::-webkit-details-marker { display:none; }
-::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--background); }
-::-webkit-scrollbar-thumb { background:var(--surface-variant); border-radius:4px; }
-::-webkit-scrollbar-thumb:hover { background:var(--outline); }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-  /* Custom Cursor Styles */
-  #custom-cursor {
-    position: fixed;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border: 1.5px solid rgba(99, 102, 241, 0.6);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background-color 0.3s, transform 0.1s ease-out;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
-    display: none; /* Hidden until first mouse move */
-    mix-blend-mode: exclusion; /* Helps visibility on dark/light areas */
-  }
-  #custom-cursor::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border: 1px solid #6366F1;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  #custom-cursor.hovering {
-    width: 50px;
-    height: 50px;
-    border-color: rgba(168, 85, 247, 0.4);
-    background: rgba(168, 85, 247, 0.05);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
-  }
-  @media (hover: none) and (pointer: coarse) {
-    #custom-cursor { display: none !important; }
-    html, body { cursor: auto !important; }
-  }
-  /* Show native cursor alongside custom tracker */
-  @media (hover: hover) {
-    /* html, body, a, button { cursor: none !important; } */
-  }
-  /* Toast Styles */
-  #toast-container {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 10001;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    pointer-events: none;
-  }
-  .toast {
-    padding: 1rem 1.5rem;
-    background: var(--surface-container-high);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--outline-variant);
-    border-radius: 12px;
-    color: var(--on-surface);
-    font-size: 0.875rem;
-    font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .toast.visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  .toast-success { border-left: 4px solid #10b981; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
-  .toast-error { border-left: 4px solid #ef4444; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1); }
-
-  /* Animated Premium Light Mode Background */
-  .bg-animated-gradient {
-    background-size: 200% 200%;
-    animation: bg-gradient-pan 12s ease infinite;
-  }
-  @keyframes bg-gradient-pan {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-</style>
-<script src="./portfolio-data.js"></script>
-<script src="./skills-data.js"></script>
+<script src="./portfolio-data.js" defer></script>
+<script src="./skills-data.js" defer></script>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 <div id="custom-cursor"></div>
@@ -304,7 +63,7 @@ details summary::-webkit-details-marker { display:none; }
 <nav id="navbar" class="fixed top-0 w-full z-50 glass-nav shadow-2xl shadow-black/40 transition-all duration-500">
 <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
   <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tighter text-on-surface font-headline">
-    <img src="./image/iftykhar.png" alt="Iftykhar" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30"/>
+    <img src="./image/iftykhar.png" alt="Iftykhar Logo" fetchpriority="high" decoding="async" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30"/>
     Iftykhar<span class="text-gradient">.</span>
   </a>
   <div class="hidden md:flex items-center gap-8">
@@ -317,8 +76,7 @@ details summary::-webkit-details-marker { display:none; }
   <div class="flex items-center gap-4">
     <!-- Theme Toggle -->
     <button id="theme-toggle" class="p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all duration-300" aria-label="Toggle Theme">
-      <span class="material-symbols-outlined theme-icon-dark hidden">dark_mode</span>
-      <span class="material-symbols-outlined theme-icon-light">light_mode</span>
+      <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
     </button>
     <a href="#contact" class="hidden sm:inline-flex bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-6 py-2.5 rounded-xl font-headline font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#6366F1]/20">Contact Me</a>
     <button id="menu-toggle" class="md:hidden text-on-surface">
@@ -332,8 +90,7 @@ details summary::-webkit-details-marker { display:none; }
 <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 z-[60] bg-surface-container-high/95 backdrop-blur-xl p-8 flex flex-col gap-6 shadow-2xl">
 <div class="flex justify-between items-center">
     <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-surface-container text-on-surface">
-        <span class="material-symbols-outlined theme-icon-dark hidden">dark_mode</span>
-        <span class="material-symbols-outlined theme-icon-light">light_mode</span>
+        <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
     </button>
     <button id="menu-close" class="text-on-surface"><span class="material-symbols-outlined text-2xl">close</span></button>
 </div>
@@ -394,7 +151,7 @@ details summary::-webkit-details-marker { display:none; }
   <div class="relative order-2 md:order-1 fade-up">
     <div class="absolute -top-10 -left-10 w-64 h-64 bg-[#6366F1]/20 blur-[80px] rounded-full pointer-events-none"></div>
     <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/50">
-      <img class="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="./image/iftykhar.png" alt="S M Iftykhar Ul Alam"/>
+      <img class="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="./image/iftykhar.png" alt="S M Iftykhar Ul Alam Profile Picture" fetchpriority="high" decoding="async"/>
     </div>
     <div class="absolute -bottom-6 -right-6 p-5 bg-surface-container shadow-2xl rounded-xl hidden md:block">
       <div class="text-3xl font-headline font-bold text-gradient">10+</div>
@@ -566,7 +323,7 @@ details summary::-webkit-details-marker { display:none; }
     <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Cycling</h3><p class="text-on-surface-variant text-xs">Adventures</p></div>
   </div>
   <div class="hobby-card group relative rounded-xl overflow-hidden aspect-[3/4] fade-up stagger-5">
-    <img class="absolute inset-0 w-full h-full object-cover" src="./image/buffalos.jpg" alt="Traveling"/>
+    <img class="absolute inset-0 w-full h-full object-cover" src="./image/buffalos.jpg" alt="Traveling" loading="lazy"/>
     <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
     <div class="absolute bottom-0 left-0 p-4"><h3 class="font-headline font-bold text-lg">Traveling</h3><p class="text-on-surface-variant text-xs">Exploring New Places</p></div>
   </div>
@@ -681,7 +438,22 @@ class Particle {
   }
 }
 
-for(let i=0;i<350;i++) particles.push(new Particle());
+// Particle Configuration & Throttling
+const isMobile = window.innerWidth < 768;
+const particleCount = isMobile ? 80 : 250; 
+for(let i=0;i<particleCount;i++) particles.push(new Particle());
+
+let animationFrameId;
+const canvasObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateParticles();
+    } else {
+      cancelAnimationFrame(animationFrameId);
+    }
+  });
+}, { threshold: 0.1 });
+canvasObserver.observe(canvas.parentElement);
 
 function updateCursor() {
   if (mouse.targetX !== null) {
@@ -717,9 +489,9 @@ function animateParticles() {
       }
     });
   });
-  requestAnimationFrame(animateParticles);
+  animationFrameId = requestAnimationFrame(animateParticles);
 }
-animateParticles();
+// Note: Initial call removed to let IntersectionObserver start animation
 
 // Hover effect listeners
 function setupCursorHovers() {
@@ -775,8 +547,10 @@ window.addEventListener('scroll',()=>{
 // --- Theme Management ---
 function updateThemeIcons() {
     const isDark = document.documentElement.classList.contains('dark');
-    document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.toggle('hidden', !isDark));
-    document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.toggle('hidden', isDark));
+    // Update all theme toggle icons to show the opposite mode (the target mode)
+    document.querySelectorAll('.theme-toggle-icon').forEach(el => {
+        el.innerText = isDark ? 'light_mode' : 'dark_mode';
+    });
 }
 
 function toggleTheme() {
@@ -941,6 +715,7 @@ function renderProjects(filter = 'all') {
                 <div class="absolute inset-0 flex items-center justify-center text-[12rem] font-black text-white/[0.03] uppercase select-none">${p.title.charAt(0)}</div>
                 <img src="${p.heroImage}" class="absolute inset-0 w-full h-full object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60" 
                      alt="${p.title} Case Study | S M Iftykhar Ul Alam"
+                     loading="lazy"
                      onerror="console.warn('Image failed to load:', '${p.heroImage}'); this.style.display='none'; this.parentElement.classList.add('shimmer-bg')">
              </div>
              
@@ -984,6 +759,7 @@ function renderProjects(filter = 'all') {
             <div class="relative w-full h-48 overflow-hidden bg-surface-container-high">
               <img src="${p.heroImage}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" 
                    alt="${p.title} Project UI | Iftykhar Alam"
+                   loading="lazy"
                    onerror="console.warn('Image failed to load:', '${p.heroImage}'); this.parentElement.classList.add('shimmer-bg'); this.style.display='none'">
               <div class="absolute top-4 left-4">
                  <span class="px-2 py-1 bg-black/60 backdrop-blur-md rounded text-[9px] font-label font-bold tracking-tighter uppercase text-white/50">${p.type === 'mini-project' ? 'Exploration' : 'Personal Build'}</span>
@@ -1156,7 +932,7 @@ function openModal(project) {
 
     <!-- Hero Image Area -->
     <div class="relative w-full h-64 md:h-80 bg-surface-container-high overflow-hidden shrink-0">
-        <img src="${project.heroImage}" class="w-full h-full object-cover opacity-60" alt="${project.title}" onerror="console.warn('Modal image failed:', '${project.heroImage}'); this.onerror=null; this.src=''; this.parentElement.classList.add('shimmer-bg');"/>
+        <img src="${project.heroImage}" class="w-full h-full object-cover opacity-60" alt="${project.title}" loading="lazy" onerror="console.warn('Modal image failed:', '${project.heroImage}'); this.onerror=null; this.src=''; this.parentElement.classList.add('shimmer-bg');"/>
         <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
         <div class="absolute bottom-6 px-6 md:px-10 w-full flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
