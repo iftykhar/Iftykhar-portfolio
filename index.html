@@ -440,16 +440,24 @@ class Particle {
 
 // Particle Configuration & Throttling
 const isMobile = window.innerWidth < 768;
-const particleCount = isMobile ? 80 : 250; 
+const particleCount = isMobile ? 40 : 250; 
 for(let i=0;i<particleCount;i++) particles.push(new Particle());
 
 let animationFrameId;
 const canvasObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      animateParticles();
+      if (isMobile) {
+        // Delay particle start on mobile to prioritize image paint
+        setTimeout(() => {
+          if (!animationFrameId) animateParticles();
+        }, 1000);
+      } else {
+        animateParticles();
+      }
     } else {
       cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
     }
   });
 }, { threshold: 0.1 });
