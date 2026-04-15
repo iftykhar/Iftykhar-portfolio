@@ -15,12 +15,12 @@ window.projectData = [
   type: "case-study",
 
   // --- 2. MEDIA ASSETS ---
-  heroImage: "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
+  heroImage: "./images/projects/elitestonebuildersaz.webp",
   gallery: [
-    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
-    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
-    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png",
-    "./images/projects/elitestonebuildersaz/elitestonebuildersaz.png"
+    "./images/projects/elitestonebuildersaz.webp",
+    "./images/projects/elitestonebuildersaz.webp",
+    "./images/projects/elitestonebuildersaz.webp",
+    "./images/projects/elitestonebuildersaz.webp"
   ],
 
   // --- 3. DYNAMIC SECTIONS ---
@@ -86,7 +86,7 @@ sections: [
     client: "Witklip Farm (Commercial Agriculture)",
     date: "2026-03-30",
     websiteUrl: "https://witklipfarm.com/",
-    heroImage: "./images/projects/witklipfarm/witklipfarm.png",
+    heroImage: "./images/projects/witklipfarm.webp",
     sections: [
       {
         id: "section-vision",
@@ -151,7 +151,7 @@ sections: [
   //   client: "SmsHome",
   //   date: "2026-03-30",
   //   websiteUrl: "https://smshome.ae/",
-  //   heroImage: "./images/projects/royalhousecheck/smshome.png",
+  //   heroImage: "./images/projects/smshome.webp",
   //   type: "case-study",
   //   sections: [
   //     {
@@ -216,7 +216,7 @@ sections: [
   //   client: "Instrufix",
   //   date: "2026-03-30",
   //   websiteUrl: "https://test.instrufix.com/",
-  //   heroImage: "./images/projects/instrufix/instrufix.png",
+  //   heroImage: "./images/projects/instrufix.webp",
   //   type: "case-study",
   //   sections: [
   //     {
@@ -281,7 +281,7 @@ sections: [
   //   client: "RoyalHouseCheck",
   //   date: "2026-03-30",
   //   websiteUrl: "https://royalhousecheck.com/",
-  //   heroImage: "./images/projects/royalhousecheck/royal.png",
+  //   heroImage: "./images/projects/royal.webp",
   //   type: "case-study",
   //   sections: [
   //     {
@@ -346,7 +346,7 @@ sections: [
   //   client: "Graphodio",
   //   date: "2026-03-30",
   //   websiteUrl: "https://graphodio.com/",
-  //   heroImage: "./images/projects/graphodio/graphodio.png",
+  //   heroImage: "./images/projects/graphodio.webp",
   //   type: "case-study",
   //   sections: [
   //     {
@@ -411,7 +411,7 @@ sections: [
   //   client: "Prime TV",
   //   date: "2026-03-30",
   //   websiteUrl: "https://prime-tv-web-stg.vercel.app/",
-  //   heroImage: "./images/projects/prime-tv/prime-tv.png",
+  //   heroImage: "./images/projects/prime-tv.webp",
   //   type: "case-study",
   //   sections: [
   //     {
@@ -476,7 +476,7 @@ sections: [
   //   client: "EVPITCH",
   //   date: "2026-03-30",
   //   websiteUrl: "https://evpitch.com/",
-  //   heroImage: "./images/projects/evpitch/evpitch.png",
+  //   heroImage: "./images/projects/evpitch.webp",
   //   type: "case-study",
   //   sections: [
   //     {
@@ -537,7 +537,7 @@ sections: [
     client: "Confidential",
     date: "2026-03-29",
     websiteUrl: "https://sktchlabs.com/",
-    heroImage: "./images/projects/sktchlabs/sktchlabs.png",
+    heroImage: "./images/projects/sktchlabs.webp",
     type: "case-study",
     sections: [
       {
@@ -598,7 +598,7 @@ sections: [
     client: "Line It Up",
     date: "2026-03-29",
     websiteUrl: "https://lineituptoledo.com/",
-    heroImage: "./images/projects/lineituptoledo/lineituptoledo.png",
+    heroImage: "./images/projects/lineituptoledo.webp",
     type: "case-study",
     sections: [
       {
@@ -663,7 +663,7 @@ sections: [
     client: "Build A Story Time",
     date: "2026-03-29",
     websiteUrl: "https://buildastorytime.com/",
-    heroImage: "./images/projects/buildastorytime/buildastorytime.png",
+    heroImage: "./images/projects/buildastorytime.webp",
     sections: [
       {
         id: "section-vision",
@@ -729,7 +729,7 @@ sections: [
     date: "2026-03-29",
     websiteUrl: "https://www.lolophysicaltherapy.com/",
     type: "case-study",
-    heroImage: "./images/projects/lolophysicaltherapy/lolophysicaltherapy.png",
+    heroImage: "./images/projects/lolophysicaltherapy.webp",
     sections: [
       {
         id: "section-vision",
@@ -793,7 +793,7 @@ sections: [
     client: "Pol Salvadore",
     date: "2024-03-25",
     websiteUrl: "https://hierroamedida.com/",
-    heroImage: "./images/projects/hierroamedida/hierroamedida.png",
+    heroImage: "./images/projects/hierroamedida.webp",
     type: "case-study",
     sections: [
       {
@@ -859,7 +859,7 @@ sections: [
     date: "2026-03-31",
     websiteUrl: "https://bragaexperience.com/",
     hook: "Transforming static brand portfolios into high-velocity cinematic ecosystems that eliminate the engagement-conversion gap.",
-    heroImage: "./images/projects/bragaexperience/bragaexperience.png",
+    heroImage: "./images/projects/bragaexperience.webp",
     sections: [
       {
         id: "section-vision",
@@ -923,7 +923,7 @@ sections: [
     client: "Vivtex / Novo Nordisk Partner",
     date: "2026-03-31",
     websiteUrl: "https://vivtex.com/",
-    heroImage: "./images/projects/vivtex/vivtex.png",
+    heroImage: "./images/projects/vivtex.webp",
     sections: [
       {
         id: "section-vision",
@@ -988,7 +988,7 @@ sections: [
     client: "Legacy Agricultural Enterprise",
     date: "2026-03-31",
     websiteUrl: "https://providingdialtone.com/",
-    heroImage: "./images/projects/providingdialtone/providingdialtone.png",
+    heroImage: "./images/projects/providingdialtone.webp",
     sections: [
       {
         id: "section-vision",
@@ -1053,7 +1053,7 @@ sections: [
     client: "Steve Littlefield (Scuba SteveNar)",
     date: "2026-03-31",
     websiteUrl: "https://scubalife.net/",
-    heroImage: "./images/projects/scubalife/scubalife.png",
+    heroImage: "./images/projects/scubalife.webp",
     sections: [
       {
         id: "section-vision",
