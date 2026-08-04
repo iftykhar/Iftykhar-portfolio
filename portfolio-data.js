@@ -1118,7 +1118,7 @@ sections: [
     client: "Self",
     date: "2024-01-01",
     websiteUrl: "https://dictator-portfolio.vercel.app/",
-    heroImage: "./image/project1.jpeg",
+    heroImage: "./image/project1.webp",
     type: "mini-project"
   },
 
@@ -1131,7 +1131,7 @@ sections: [
     client: "Self",
     date: "2024-01-03",
     websiteUrl: "https://iftykhar.github.io/Html-work/",
-    heroImage: "./image/project3.jpeg",
+    heroImage: "./image/project3.webp",
     type: "mini-project"
   },
 
@@ -1148,7 +1148,7 @@ sections: [
     client: "Self",
     date: "2025-06-01",
     websiteUrl: "https://www.superlightingbd.com/",
-    heroImage: "./image/Superlighting.png",
+    heroImage: "./image/Superlighting.webp",
     type: "personal",
     description: "Dynamic product catalog featuring advanced filtering options and an intuitive cart experience."
   },
@@ -1162,7 +1162,7 @@ sections: [
     client: "Self",
     date: "2025-05-01",
     websiteUrl: "https://e-commerce-hekto.vercel.app/",
-    heroImage: "./image/ecommerce.png",
+    heroImage: "./image/ecommerce.webp",
     type: "personal",
     description: "Responsive e-commerce platform built with React and modern UI patterns."
   },
@@ -1176,7 +1176,7 @@ sections: [
     client: "Self",
     date: "2025-04-01",
     websiteUrl: "https://weather-client-iota.vercel.app/",
-    heroImage: "./image/weather-client-dsk.png",
+    heroImage: "./image/weather-client-dsk.webp",
     type: "personal",
     description: "Real-time weather data via OpenWeatherMap API with a clean, minimal interface."
   },
@@ -1190,7 +1190,7 @@ sections: [
     client: "Self",
     date: "2025-02-01",
     websiteUrl: "https://memory-match-weld.vercel.app/",
-    heroImage: "./image/game3.png",
+    heroImage: "./image/game3.webp",
     type: "personal",
     description: "Memorising and Matching game built with TypeScript + TailwindCSS."
   },
@@ -1204,7 +1204,7 @@ sections: [
     client: "Self",
     date: "2025-01-01",
     websiteUrl: "https://github.com/iftykhar/Dreamify",
-    heroImage: "./image/project-5.png",
+    heroImage: "./image/project-5.webp",
     type: "personal",
     description: "Laravel-powered text-focused platform for curated written content."
   },
@@ -1218,7 +1218,7 @@ sections: [
     client: "Self",
     date: "2024-12-01",
     websiteUrl: "https://github.com/iftykhar/Feedback-Application",
-    heroImage: "./image/project4.jpeg",
+    heroImage: "./image/project4.webp",
     type: "personal",
     description: "Unique shareable link to collect feedback with a personal dashboard."
   },
@@ -1232,7 +1232,7 @@ sections: [
     client: "Self",
     date: "2024-10-01",
     websiteUrl: "https://quotegiver.tiiny.site/",
-    heroImage: "./image/quote.jpg",
+    heroImage: "./image/quote.webp",
     type: "personal",
     description: "Minimalist daily quote generator with dynamic input using JavaScript."
   }

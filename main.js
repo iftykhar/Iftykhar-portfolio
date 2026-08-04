@@ -4,6 +4,8 @@ const ctx = canvas.getContext('2d');
 const cursor = document.getElementById('custom-cursor');
 let particles = [];
 let mouse = { x: null, y: null, targetX: null, targetY: null };
+// Touch devices: no mouse, so skip the custom-cursor animation loop entirely
+const isCoarsePointer = window.matchMedia ? window.matchMedia('(pointer: coarse)').matches : false;
 
 function resizeCanvas() { 
   canvas.width = canvas.parentElement.offsetWidth; 
@@ -85,6 +87,7 @@ const canvasObserver = new IntersectionObserver((entries) => {
 canvasObserver.observe(canvas.parentElement);
 
 function updateCursor() {
+  if (isCoarsePointer) return; // No custom cursor on touch; avoids a forever-running rAF loop
   if (mouse.targetX !== null) {
     // Slower tracking for a more deliberate "lag" effect (0.08 instead of 0.15)
     mouse.x += (mouse.targetX - mouse.x) * 0.05;
@@ -124,6 +127,7 @@ function animateParticles() {
 
 // Hover effect listeners
 function setupCursorHovers() {
+  if (isCoarsePointer) return;
   document.querySelectorAll('a, button, .project-card-click').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
@@ -294,7 +298,7 @@ filterBtns.forEach(btn => {
 // Window resize indicator updates
 window.addEventListener('resize', () => {
   const activeBtn = document.querySelector('.filter-btn.active');
-  updateFilterIndicator(activeFilter);
+  updateFilterIndicator(activeBtn);
 });
 
 // Render Projects Logic
