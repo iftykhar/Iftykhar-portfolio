@@ -593,9 +593,9 @@ sections: [
     id: "p8",
     slug: "line-it-up-toledo",
     title: "Line It Up",
-    categories: ["Service SaaS"],
-    location: "USA",
-    client: "Line It Up",
+    categories: ["Service-SaaS", "Conversion Optimization", "Next.js"],
+    location: "Tri-State (OH, MI, IN), USA",
+    client: "Line It Up Line Striping, LLC",
     date: "2026-03-29",
     websiteUrl: "https://lineituptoledo.com/",
     heroImage: "./images/projects/lineituptoledo.webp",
@@ -604,51 +604,51 @@ sections: [
       {
         id: "section-vision",
         type: "vision",
-        header: "Engineering Content Velocity",
-        shortSummary: "Architecting a lightning-fast, SEO-dominant news ecosystem that transforms traditional broadcasting into a high-concurrency digital powerhouse.",
-        fullDescription: "To dominate the modern news cycle, latency is the enemy. Prime TV faced a critical bottleneck: a legacy infrastructure that struggled to maintain performance during volatile traffic spikes. We re-engineered their digital presence to ensure that breaking stories reach the audience—and the search engines—in milliseconds. By moving from a 'broadcast-only' mindset to a 'web-first' architecture, we empowered them to capture search engine traffic and social media shares effectively, turning digital visibility into a measurable business asset.",
+        header: "Engineering Industrial Authority via Lead-Driven Design",
+        shortSummary: "Transforming a legacy industrial brochure into a high-velocity 'Validation Engine' that automates commercial lead qualification.",
+        fullDescription: "The industrial service sector often suffers from the 'Legacy Perception Friction.' Fistech intervened to bridge the Trust-Velocity Gap by re-architecting Line It Up's digital infrastructure. We transitioned the client from a 'small local contractor' profile to a high-end regional authority, utilizing Next.js to provide the technical proof required for high-margin commercial contracts.",
         servicesProvided: [
-          "Digital Transformation Strategy",
-          "Next.js SEO Architecture",
-          "Real-time API Orchestration",
-          "High-Concurrency Live Streaming",
-          "Mobile-First Performance Engineering"
+          "Next.js SSR Optimization",
+          "Parametric Lead Logic",
+          "Localized SEO Silos",
+          "WCAG 2.1 Technical Compliance",
+          "Headless CMS Integration"
         ]
       },
       {
         id: "section-solution",
         type: "solution",
-        header: "The Fistech Solution: 'Performance-First Architecture'",
-        bodyText: "We approached this project as a High-Velocity Media Engine rather than a standard portal. Our objective was to ensure that technical scalability served as the direct foundation for business ROI and market authority.",
+        header: "The Fistech Engineering Solution: 'Precision Execution'",
+        bodyText: "We architected a 'one-stop' digital sales representative designed for technical scalability. Our solution focused on latency reduction and parametric data collection to ensure a premium UX for property managers working in the field.",
         features: [
           {
-            title: "SEO-Dominant SSR & ISR",
-            desc: "Leveraging Next.js Server-Side Rendering and Incremental Static Regeneration to ensure news snippets appear in search results within minutes of publication."
+            title: "Next.js SSR & SEO Silos",
+            desc: "Dynamic, server-side rendered landing pages targeting specific regional municipalities to dominate local SERPs."
           },
           {
-            title: "Parametric Data Integration",
-            desc: "Custom hooks to ingest non-blocking API feeds for live gold prices and weather, transforming the site into a high-retention daily utility."
+            title: "Parametric Lead Logic",
+            desc: "Custom React component utilizing conditional logic to pre-qualify commercial project scale and automate data capture."
           },
           {
-            title: "Latency-Optimized Video Pipeline",
-            desc: "Dedicated 'Sorasori' portal with neural media pipelines for immersive live broadcasting without the typical script-heavy overhead."
+            title: "Latency-Optimized Asset Delivery",
+            desc: "Automated WebP conversion and edge-caching to ensure sub-second load times on low-connectivity job sites."
           },
           {
-            title: "Edge-Deployed Resilience",
-            desc: "Deployment via Vercel Edge functions to guarantee 99.9% uptime and sub-second delivery during massive global news spikes."
+            title: "Advanced JSON-LD Schema",
+            desc: "Hard-coded structured data to programmatically validate business authority and ADA compliance expertise for Google's Knowledge Graph."
           }
         ]
       },
       {
         id: "section-metrics",
         type: "metrics",
-        header: "Strategic ROI & Results",
-        bodyText: "By delivering a high-performance digital hub, we successfully transitioned Prime TV into a scalable media ecosystem with a clear focus on speed and audience retention.",
+        header: "Strategic Results & ROI",
+        bodyText: "By replacing static information with a dynamic lead engine, we moved the needle from a passive web presence to an ROI-positive business asset.",
         stats: [
-          { label: "Performance Optimization", value: "94+ Lighthouse Core Web Vitals" },
-          { label: "Search Indexing Speed", value: "Sub-5 Minute Indexing for Breaking News" },
-          { label: "Mobile Growth", value: "65% Increase in Fluid Breakpoint Reach" },
-          { label: "Content Management ROI", value: "40% Reduction in Editorial Workflow Overhead" }
+          { label: "Lighthouse Performance", value: "99/100 (Sub-Second Load)" },
+          { label: "Sales Cycle Reduction", value: "40% via Automated Qualification" },
+          { label: "Search Visibility", value: "Tri-State Dominance" },
+          { label: "Technical Compliance", value: "98% Accessibility Rating" }
         ]
       }
     ]
@@ -788,7 +788,7 @@ sections: [
     id: "p5",
     slug: "hierro-a-medida",
     title: "Hierro A Medida",
-    categories: ["eCommerce", "MERN"],
+    categories: ["eCommerce", "MERN", "Custom Manufacturing"],
     location: "Spain",
     client: "Pol Salvadore",
     date: "2024-03-25",
@@ -799,38 +799,38 @@ sections: [
       {
         id: "section-vision",
         type: "vision",
-        header: "Engineering Industrial Authority via Neural-Lead Design",
-        shortSummary: "Transforming a legacy industrial brochure into a high-velocity 'Validation Engine' that automates commercial lead qualification.",
-        fullDescription: "The industrial service sector often suffers from the 'Legacy Perception Friction.' Fistech intervened to bridge the Trust-Velocity Gap by re-architecting Line It Up's digital infrastructure. We transitioned the client from a 'small local contractor' profile to a high-end regional authority, utilizing Next.js to provide the technical proof required for high-margin commercial contracts.",
+        header: "From Quote-by-Request to a Scalable Online Storefront",
+        shortSummary: "Architecting a high-conversion eCommerce ecosystem for made-to-measure iron and steel products in the Spanish market.",
+        fullDescription: "Hierro A Medida crafts bespoke ironwork — from railings and gates to custom furniture — but selling made-to-measure goods online is a challenge of trust and clarity. Fistech engineered a MERN-powered storefront that presents the full catalog in a structured, mobile-first experience, turning a quote-by-request business into a scalable digital sales channel without losing the personal, artisanal feel of the brand.",
         servicesProvided: [
-          "Next.js SSR Optimization",
-          "Parametric Lead Logic",
-          "Localized SEO Silos",
-          "WCAG 2.1 Technical Compliance",
-          "Headless CMS Integration"
+          "MERN Stack Engineering",
+          "eCommerce Architecture",
+          "Product Catalog Design",
+          "Responsive Frontend Development",
+          "SEO Optimization"
         ]
       },
       {
         id: "section-solution",
         type: "solution",
-        header: "The Fistech Engineering Solution: 'Precision Execution'",
-        bodyText: "We architected a 'one-stop' digital sales representative designed for technical scalability. Our solution focused on latency reduction and parametric data collection to ensure a premium UX for property managers in the field.",
+        header: "The Fistech Engineering Solution: 'Precision Commerce'",
+        bodyText: "We architected a modular eCommerce backbone that balances rich product storytelling with fast, frictionless browsing — the standard modern shoppers expect.",
         features: [
           {
-            title: "Next.js SSR & SEO Silos",
-            desc: "Dynamic, server-side rendered landing pages targeting specific regional municipalities to dominate local SERPs."
+            title: "Structured Product Catalog",
+            desc: "A clean, categorized catalog of custom ironwork with detailed product views that make each piece easy to discover and compare."
           },
           {
-            title: "Parametric Lead Logic",
-            desc: "Custom React component utilizing conditional logic to pre-qualify commercial project scale and automate data capture."
+            title: "Made-to-Measure Clarity",
+            desc: "Product pages designed around made-to-measure needs, presenting options and ordering flows clearly to reduce inquiry friction."
           },
           {
-            title: "Latency-Optimized Asset Delivery",
-            desc: "Automated WebP conversion and edge-caching to ensure sub-second load times on low-connectivity job sites."
+            title: "MERN Architecture",
+            desc: "A React frontend backed by a Node.js/Express API and MongoDB data layer, engineered for fast iteration and future scaling."
           },
           {
-            title: "Advanced JSON-LD Schema",
-            desc: "Hard-coded structured data to programmatically validate business authority and ADA compliance expertise for Google's Knowledge Graph."
+            title: "Performance-First UI",
+            desc: "Optimized, lazy-loaded imagery and a mobile-first layout to keep load times fast where most product browsing happens."
           }
         ]
       },
@@ -838,12 +838,12 @@ sections: [
         id: "section-metrics",
         type: "metrics",
         header: "Strategic Results & ROI",
-        bodyText: "By replacing static information with a dynamic lead engine, we moved the needle from a passive web presence to an ROI-positive business asset.",
+        bodyText: "By digitizing the quote-to-order journey, Hierro A Medida gained a scalable, always-open storefront for the Spanish market.",
         stats: [
-          { label: "Lighthouse Performance", value: "99/100 (Sub-Second Load)" },
-          { label: "Sales Cycle Reduction", value: "40% via Automated Qualification" },
-          { label: "Search Visibility", value: "Tri-State Dominance" },
-          { label: "Technical Compliance", value: "98% Accessibility Rating" }
+          { label: "Load Velocity", value: "< 1s LCP" },
+          { label: "Order Flow", value: "Quote-to-Cart Digitized" },
+          { label: "Platform", value: "MERN Stack" },
+          { label: "Mobile UX", value: "Responsive-First" }
         ]
       }
     ]
