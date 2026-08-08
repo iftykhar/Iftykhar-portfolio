@@ -6,7 +6,7 @@ const CDP_PORT = '9441';
 const URL = 'http://127.0.0.1:8124/index.html';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const { spawn } = require('child_process');
+import { spawn } from 'child_process';
 const chrome = spawn(CHROME, [
   '--headless=new', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage',
   `--remote-debugging-port=${CDP_PORT}`, '--user-data-dir=C:/tmp/cdp-audit-' + Date.now(),
