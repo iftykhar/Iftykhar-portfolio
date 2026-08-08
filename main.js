@@ -160,6 +160,11 @@ function closeMobileMenu(){mobileMenu.classList.remove('open');menuOverlay.class
 menuToggle.addEventListener('click',openMobileMenu);
 menuClose.addEventListener('click',closeMobileMenu);
 
+// Close mobile menu on Escape key (accessibility)
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+});
+
 // Smooth Scroll
 // Smooth Scroll (honors prefers-reduced-motion)
 function scrollToTop() {
@@ -184,7 +189,15 @@ if (skipLink) {
 const sections=document.querySelectorAll('section[id]');
 const navLinks=document.querySelectorAll('.nav-link');
 const goTopBtn=document.getElementById('go-to-top');
+const scrollProgress=document.getElementById('scroll-progress');
+const floatingCta=document.getElementById('floating-cta');
+const navbar=document.getElementById('navbar');
 window.addEventListener('scroll',()=>{
+  // Compact navbar after scrolling past the hero (~80vh)
+  if (navbar) {
+    if (window.scrollY > window.innerHeight * 0.8) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }
   let cur='';
   sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});
   navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});
@@ -194,6 +207,22 @@ window.addEventListener('scroll',()=>{
     goTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
   } else {
     goTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+  }
+
+  // Scroll progress bar (top of viewport)
+  if (scrollProgress) {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+    scrollProgress.style.transform = `scaleX(${progress})`;
+  }
+
+  // Floating "Let's talk" pill after ~1.5 viewport heights
+  if (floatingCta) {
+    if (window.scrollY > window.innerHeight * 1.5) {
+      floatingCta.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+    } else {
+      floatingCta.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+    }
   }
 });
 
@@ -696,16 +725,18 @@ window.addEventListener('keydown', (e) => {
    }
 });
 
-// RENDER SKILLS
+// RENDER SKILLS (tiered: Core Expertise + Also In My Toolbox)
 function renderSkills() {
     const skillsGrid = document.getElementById('skills-grid');
     if (!skillsGrid || !window.skillsData) return;
 
-    skillsGrid.innerHTML = window.skillsData.map(skill => {
+    const core = window.skillsData.filter(s => s.tier !== 'familiar');
+    const familiar = window.skillsData.filter(s => s.tier === 'familiar');
+
+    const skillCard = (skill) => {
         const iconSection = skill.isMaterialIcon 
             ? `<span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">${skill.icon}</span>`
             : `<img src="${skill.icon}" alt="${skill.name}" class="h-10 md:h-12 w-auto mb-3 block group-hover:scale-110 transition-transform" />`;
-
         return `
             <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-container hover:scale-[1.02] transition-all duration-500 fade-up stagger-${skill.stagger}">
                 ${iconSection}
@@ -713,7 +744,19 @@ function renderSkills() {
                 <p class="text-on-surface-variant text-xs">${skill.category}</p>
             </div>
         `;
-    }).join('');
+    };
+
+    const groupMarkup = (title, subtitle, skills) => skills.length > 0 ? `
+        <div class="col-span-full mt-4 first:mt-0 fade-up">
+            <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-primary mb-1">${title}</h3>
+            <p class="text-on-surface-variant text-xs mb-6">${subtitle}</p>
+        </div>
+        ${skills.map(skillCard).join('')}
+    ` : '';
+
+    skillsGrid.innerHTML =
+        groupMarkup('Core Expertise', 'What I reach for on every project', core) +
+        groupMarkup('Also In My Toolbox', 'Familiar and production-ready when needed', familiar);
 
     // Re-observe dynamic skills for the scroll animation to trigger
     document.querySelectorAll('#skills-grid .fade-up').forEach(el => {
@@ -721,14 +764,70 @@ function renderSkills() {
     });
 }
 
+// RENDER TECH MARQUEE (duplicated track for a seamless loop)
+function renderMarquee() {
+    const track = document.getElementById('marquee-track');
+    if (!track || !window.skillsData) return;
+    const chips = window.skillsData.filter(s => !s.isMaterialIcon).map(s => `
+        <span class="marquee-item inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-surface-container-low border border-outline-variant dark:border-white/5 mr-6 whitespace-nowrap">
+            <img src="${s.icon}" alt="" class="h-6 w-auto" loading="lazy" />
+            <span class="font-label font-bold text-sm text-on-surface-variant">${s.name}</span>
+        </span>
+    `).join('');
+    track.innerHTML = chips + chips; // duplicate for seamless -50% loop
+}
+
+// LIVE COUNTS on project filter pills
+function renderFilterCounts() {
+    const data = window.projectData || [];
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        const f = btn.getAttribute('data-filter');
+        const count = f === 'all' ? data.length : data.filter(p => p.type === f).length;
+        const span = btn.querySelector('.filter-count');
+        if (span) span.textContent = count;
+    });
+}
+
+// Rotating hero roles (skipped for reduced-motion users)
+const roleRotator = document.getElementById('role-rotator');
+if (roleRotator && !prefersReducedMotion) {
+  const roles = ['Full-Stack Developer', 'React Engineer', 'Next.js Specialist', 'Laravel Developer', 'UI Designer'];
+  let roleIdx = 0;
+  setInterval(() => {
+    roleRotator.classList.add('role-fade');
+    setTimeout(() => {
+      roleIdx = (roleIdx + 1) % roles.length;
+      roleRotator.textContent = roles[roleIdx];
+      roleRotator.classList.remove('role-fade');
+    }, 260);
+  }, 2800);
+}
+
+// Magnetic primary CTA (desktop mouse only)
+const magneticCta = document.getElementById('magnetic-cta');
+if (magneticCta && !isCoarsePointer && !prefersReducedMotion) {
+  magneticCta.addEventListener('mousemove', (e) => {
+    const rect = magneticCta.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width / 2) * 0.25;
+    const dy = (e.clientY - rect.top - rect.height / 2) * 0.35;
+    magneticCta.style.transform = `translate(${dx}px, ${dy}px)`;
+  });
+  magneticCta.addEventListener('mouseleave', () => {
+    magneticCta.style.transform = ''; // let CSS hover/active transforms work again
+  });
+}
+
 // INITIALIZE ON LOAD
 document.addEventListener('DOMContentLoaded', () => {
     // Small delay to ensure filter indicator DOM sizing is correct
     setTimeout(() => {
+        renderMarquee();       // Tech logo strip first
+        renderSkills();        // Skills grid (tiered)
+        renderFilterCounts();  // Live pill counts (before indicator is measured)
+        renderProjects('all'); // Projects
+
+        // Measure the filter indicator AFTER counts are populated
         const activeFilter = document.querySelector('.filter-btn.active');
         if(activeFilter) updateFilterIndicator(activeFilter);
-        
-        renderSkills(); // Render skills first
-        renderProjects('all'); 
     }, 100);
 });

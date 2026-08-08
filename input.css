@@ -271,6 +271,187 @@ details summary::-webkit-details-marker { display:none; }
 }
 
 /* ================================================================
+   Hero Enhancements (bolder refresh)
+   ================================================================ */
+
+/* Aurora / conic backdrop layered over the existing radial gradient */
+.hero-aurora {
+  background:
+    conic-gradient(from 180deg at 78% 18%, rgba(99,102,241,0.16), transparent 40%, rgba(168,85,247,0.12) 65%, transparent 100%),
+    radial-gradient(circle at 20% 85%, rgba(76,215,246,0.10), transparent 45%);
+  filter: blur(6px);
+}
+
+/* Availability status dot (pulsing green) */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+  animation: status-pulse 2.2s ease-out infinite;
+  flex-shrink: 0;
+}
+@keyframes status-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+  70% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* Floating tech chips around the hero portrait */
+.tech-chip {
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  background: rgb(var(--surface-container-high) / 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgb(var(--outline-variant));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: rgb(var(--on-surface));
+  white-space: nowrap;
+  animation: chip-float 6s ease-in-out infinite;
+}
+@keyframes chip-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+/* Rotating role word crossfade */
+#role-rotator {
+  display: inline-block;
+  transition: opacity 0.26s ease, transform 0.26s ease;
+}
+#role-rotator.role-fade {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+/* Magnetic CTA */
+.magnetic {
+  will-change: transform;
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  will-change: transform;
+}
+
+/* ================================================================
+   Navbar (floating glass pill)
+   ================================================================ */
+#navbar {
+  transition: padding 0.4s ease;
+}
+#navbar-inner {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+  animation: nav-drop 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes nav-drop {
+  from { opacity: 0; transform: translateY(-18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Compact state after scrolling past the hero */
+#navbar.scrolled { padding-top: 0.6rem; }
+#navbar.scrolled #navbar-inner {
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  border-color: rgb(var(--primary) / 0.25);
+}
+
+/* Mobile menu numbered links */
+.mobile-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.75rem;
+  border-radius: 9999px;
+  background: rgb(var(--primary-container));
+  color: rgb(var(--on-primary-container));
+  font-size: 0.6rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.mobile-link {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+}
+#mobile-menu.open .mobile-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+#mobile-menu.open .mobile-link:nth-child(1) { transition-delay: 0.06s; }
+#mobile-menu.open .mobile-link:nth-child(2) { transition-delay: 0.1s; }
+#mobile-menu.open .mobile-link:nth-child(3) { transition-delay: 0.14s; }
+#mobile-menu.open .mobile-link:nth-child(4) { transition-delay: 0.18s; }
+#mobile-menu.open .mobile-link:nth-child(5) { transition-delay: 0.22s; }
+#mobile-menu.open .mobile-link:nth-child(6) { transition-delay: 0.26s; }
+#mobile-menu.open .mobile-link:nth-child(7) { transition-delay: 0.3s; }
+
+/* ================================================================
+   Tech Marquee
+   ================================================================ */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-item {
+  flex-shrink: 0;
+}
+@keyframes marquee-scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* ================================================================
+   Experience Timeline
+   ================================================================ */
+.timeline-item .timeline-dot {
+  position: absolute;
+  left: -0.05rem;
+  top: 2.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 9999px;
+  background: rgb(var(--background));
+  border: 2px solid rgb(var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+}
+.timeline-item .timeline-dot::after {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #6366F1, #A855F7);
+}
+.timeline-item:hover .timeline-dot {
+  background: rgb(var(--primary-container));
+  transform: scale(1.1);
+  transition: background 0.4s, transform 0.4s;
+}
+
+/* ================================================================
    Accessibility
    ================================================================ */
 
