@@ -27,8 +27,13 @@
 <meta property="og:url" content="https://iftykhar-portfolio.vercel.app/"/>
 <meta property="og:site_name" content="Iftykhar Alam Portfolio"/>
 <meta property="og:title" content="Iftykhar Alam | Full-Stack Developer & UI Designer"/>
-<meta property="og:description" content="Full-Stack Developer and UI/UI Designer based in Dhaka. Explore my latest work and case studies."/>
+<meta property="og:description" content="Full-Stack Developer and UI/UX Designer based in Dhaka. Explore my latest work and case studies."/>
+<meta property="og:locale" content="en_US"/>
 <meta property="og:image" content="https://iftykhar-portfolio.vercel.app/image/og-image.webp"/>
+<meta property="og:image:type" content="image/webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Iftykhar Alam — Full-Stack Developer & UI Designer"/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image"/>
@@ -149,6 +154,7 @@
 <canvas id="particles"></canvas>
 <div class="hero-gradient absolute inset-0 pointer-events-none"></div>
 <div class="hero-aurora absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+<div class="eng-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 <div class="orb w-96 h-96 bg-[#6366F1] top-1/4 -left-20" style="animation-delay:-5s;opacity:0.12"></div>
 <div class="orb w-80 h-80 bg-[#A855F7] bottom-1/4 -right-20" style="animation-delay:-10s;opacity:0.1"></div>
 <div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-12 items-center">
@@ -174,22 +180,35 @@
         Let's talk <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
       </a>
     </div>
+    <!-- Core stack (engineering spec strip) -->
+    <div class="flex flex-wrap items-center gap-2 pt-8 fade-up stagger-3 max-w-xl mx-auto lg:mx-0">
+      <span class="font-label text-[0.6rem] font-bold uppercase tracking-[0.3em] text-on-surface-variant/60 mr-1">// stack</span>
+      <span class="spec-chip">React.js</span>
+      <span class="spec-chip">Next.js</span>
+      <span class="spec-chip">Laravel</span>
+      <span class="spec-chip">TypeScript</span>
+      <span class="spec-chip">AWS</span>
+    </div>
     <!-- Quick Stats -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-8 fade-up stagger-4 max-w-xl mx-auto lg:mx-0">
+    <div class="flex items-center gap-3 pt-8 max-w-xl mx-auto lg:mx-0 fade-up stagger-4">
+      <span class="font-label text-[0.6rem] font-bold uppercase tracking-[0.3em] text-on-surface-variant/60 whitespace-nowrap">// Key Metrics</span>
+      <div class="h-px flex-1 bg-outline-variant/50"></div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-5 fade-up stagger-4 max-w-xl mx-auto lg:mx-0">
       <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">10+</div>
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">10+</div>
         <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Projects Built</div>
       </div>
       <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">10+</div>
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">10+</div>
         <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Global Clients</div>
       </div>
       <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">98</div>
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">98</div>
         <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Lighthouse Score</div>
       </div>
       <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">3+</div>
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">3+</div>
         <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Years Coding</div>
       </div>
     </div>
@@ -257,6 +276,7 @@
     </div>
   </div>
   <div class="order-1 md:order-2 space-y-7 fade-up stagger-2">
+    <p class="section-kicker fade-up">01 / About</p>
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold leading-tight">Building <span class="text-primary">Human-Centric</span> Experiences</h2>
     <p class="text-lg text-on-surface-variant font-body leading-relaxed">
       Hello! I'm S M Iftykhar Ul Alam, a Full-Stack Developer passionate about creating efficient and scalable web applications — from pixel-perfect React frontends to Laravel-backed backends. My journey is driven by a love for solving complex problems and building functional, user-friendly designs.
@@ -295,6 +315,7 @@
 <!-- Technical Proficiency -->
 <section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="skills">
 <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+  <p class="section-kicker fade-up">02 / Toolkit</p>
   <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">Technical <span class="text-tertiary">Proficiency</span></h2>
   <p class="text-on-surface-variant font-body max-w-md">Modern tools for modern problems. I specialize in building scalable, accessible, and fast web applications.</p>
 </div>
@@ -304,9 +325,10 @@
 </section>
 
 <!-- Projects -->
-<section class="py-28 md:py-32 bg-gradient-to-r from-indigo-50 via-purple-50 to-indigo-50 bg-animated-gradient dark:!bg-none dark:!animate-none dark:bg-surface-container-lowest relative overflow-hidden" id="projects">
+<section class="py-28 md:py-32 bg-surface-container-low dark:bg-surface-container-lowest border-y border-outline-variant/40 dark:border-white/5 relative overflow-hidden" id="projects">
 <div class="max-w-7xl mx-auto px-6 md:px-8">
   <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 md:mb-16 fade-up">
+    <p class="section-kicker fade-up">03 / Selected Work</p>
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold tracking-tight text-on-surface">Selected <br/> <span class="text-gradient">Creations</span></h2>
     <a href="https://github.com/iftykhar" target="_blank" class="self-start sm:self-auto inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">
       All on GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
@@ -344,6 +366,7 @@
 <!-- Professional Experience -->
 <section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="experience">
   <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+    <p class="section-kicker fade-up">04 / Experience</p>
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">Professional <span class="text-primary">Experience</span></h2>
     <p class="text-on-surface-variant font-body max-w-md">My journey in engineering high-performance web applications and digital systems.</p>
   </div>
@@ -413,6 +436,7 @@
 <!-- Communication -->
 <section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="communication">
   <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+    <p class="section-kicker fade-up">05 / Communication</p>
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">Clear <span class="text-primary">Communication</span></h2>
     <p class="text-on-surface-variant font-body max-w-md">Fluent English that bridges technical complexity and business value — from client presentations to delivery.</p>
   </div>
@@ -438,6 +462,7 @@
 <!-- Hobbies -->
 <section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="hobbies">
 <div class="fade-up mb-16">
+  <p class="section-kicker fade-up">06 / Beyond the Code</p>
   <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface mb-4">Beyond <span class="text-secondary">The Code</span></h2>
   <p class="text-on-surface-variant font-body max-w-lg">What fuels my creativity outside of development.</p>
 </div>
@@ -477,6 +502,7 @@
   <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#4cd7f6]/20 blur-[150px] -ml-48 -mb-48 pointer-events-none"></div>
   <div class="relative z-10 p-8 md:p-16 lg:p-24">
     <div class="text-center mb-16 fade-up">
+      <p class="section-kicker fade-up">07 / Contact</p>
       <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold mb-6">Let's build something <br/> <span class="text-gradient">exceptional together.</span></h2>
       <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Currently seeking new opportunities and creative collaborations. My inbox is always open.</p>
       <div class="flex flex-wrap justify-center gap-3 mt-8">

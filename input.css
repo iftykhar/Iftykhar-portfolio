@@ -485,6 +485,92 @@ input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:fo
   outline-offset: 2px;
 }
 
+/* ================================================================
+   Engineering Precision (editorial structure over decoration)
+   ================================================================ */
+
+/* Numbered editorial section kicker — e.g. "01 — About" */
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgb(var(--primary));
+  margin-bottom: 1.25rem;
+}
+.section-kicker::before {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, #6366F1, #A855F7);
+}
+
+/* Monospace spec chip — small "technical proof" label */
+.spec-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgb(var(--outline-variant));
+  background: rgb(var(--surface-container-high) / 0.75);
+  color: rgb(var(--on-surface-variant));
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', Menlo, Consolas, monospace;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+.spec-chip:hover {
+  border-color: rgb(var(--primary) / 0.55);
+  color: rgb(var(--on-surface));
+}
+
+/* Monospace metric value — data that reads like a spec sheet */
+.metric-value {
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Inverted spec chip — readable over dark imagery (cards, modal hero) */
+.spec-chip--invert {
+  background: rgb(0 0 0 / 0.45);
+  color: rgb(255 255 255 / 0.92);
+  border-color: rgb(255 255 255 / 0.16);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.spec-chip--invert:hover {
+  background: rgb(0 0 0 / 0.6);
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.32);
+}
+
+/* Truncated metric chip — prevents long stat values from spilling off cards */
+.spec-chip--metric {
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Subtle blueprint grid backdrop (hero) */
+.eng-grid {
+  background-image:
+    linear-gradient(rgb(var(--outline-variant) / 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--outline-variant) / 0.22) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse 72% 60% at 50% 40%, #000 25%, transparent 75%);
+  mask-image: radial-gradient(ellipse 72% 60% at 50% 40%, #000 25%, transparent 75%);
+}
+
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
