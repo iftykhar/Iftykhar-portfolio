@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="S M Iftykhar Ul Alam (Iftykhar Alam) is a professional Frontend Developer and UI/UI Designer based in Dhaka, specializing in high-performance React and Next.js applications."/>
+<script>
+  // Apply theme before first paint to avoid a flash of the wrong theme.
+  // Saved preference wins; otherwise follow the OS preference (dark default fallback).
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (dark) document.documentElement.classList.add('dark');
+    } catch (e) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+<meta name="description" content="Full-Stack Developer based in Dhaka specializing in high-performance React, Next.js, and Laravel applications. Available for new projects."/>
 <link rel="canonical" href="https://iftykhar-portfolio.vercel.app/" />
 <!-- Paste your Google Search Console verification tag below when you have it -->
-<meta name="keywords" content="Iftykhar Alam, S M Iftykhar, S M Iftykhar Ul Alam, Frontend Developer Dhaka, React Developer Bangladesh, UI Designer, Portfolio, Web Developer"/>
 <meta name="author" content="S M Iftykhar Ul Alam"/>
 <meta name="robots" content="index, follow"/>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://iftykhar.github.io/"/>
-<meta property="og:title" content="S M Iftykhar Ul Alam | Iftykhar Alam | Frontend Developer"/>
-<meta property="og:description" content="Frontend Developer and UI/UI Designer based in Dhaka. Explore my latest work and case studies."/>
-<meta property="og:image" content="./image/og-image.webp"/>
+<meta property="og:url" content="https://iftykhar-portfolio.vercel.app/"/>
+<meta property="og:site_name" content="Iftykhar Alam Portfolio"/>
+<meta property="og:title" content="Iftykhar Alam | Full-Stack Developer & UI Designer"/>
+<meta property="og:description" content="Full-Stack Developer and UI/UI Designer based in Dhaka. Explore my latest work and case studies."/>
+<meta property="og:image" content="https://iftykhar-portfolio.vercel.app/image/og-image.webp"/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="S M Iftykhar Ul Alam | Iftykhar Alam"/>
-<meta property="twitter:description" content="Frontend Developer crafting pixel-perfect, high-performance web experiences."/>
-<meta property="twitter:image" content="./image/og-image.webp"/>
+<meta property="twitter:title" content="Iftykhar Alam | Full-Stack Developer & UI Designer"/>
+<meta property="twitter:description" content="Full-Stack Developer crafting pixel-perfect, high-performance web experiences."/>
+<meta property="twitter:image" content="https://iftykhar-portfolio.vercel.app/image/og-image.webp"/>
 
 <!-- Structured Data (JSON-LD) for SEO -->
 <script type="application/ld+json">
@@ -30,22 +43,22 @@
   "@type": "Person",
   "name": "S M Iftykhar Ul Alam",
   "alternateName": "Iftykhar Alam",
-  "url": "https://iftykhar.github.io/",
-  "image": "https://iftykhar.github.io/image/iftykhar.webp",
+  "url": "https://iftykhar-portfolio.vercel.app/",
+  "image": "https://iftykhar-portfolio.vercel.app/image/iftykhar.webp",
   "sameAs": [
     "https://github.com/iftykhar",
     "https://www.linkedin.com/in/iftykhar-alam/"
   ],
-  "jobTitle": "Frontend Developer",
+  "jobTitle": "Full-Stack Developer",
   "worksFor": {
     "@type": "Organization",
     "name": "Freelance"
   },
-  "description": "Professional Frontend Developer based in Dhaka specializing in modern web experiences."
+  "description": "Professional Full-Stack Developer based in Dhaka specializing in modern web experiences."
 }
 </script>
 
-<title>S M Iftykhar Ul Alam | Iftykhar Alam | Frontend Developer & UI Designer</title>
+<title>Iftykhar Alam | Full-Stack Developer & UI Designer</title>
 <link rel="icon" type="image/webp" class="object-cover rounded-full" href="./image/iftykhar.webp"/>
 <link rel="stylesheet" href="./output.css"/>
 <link rel="preload" href="./fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin/>
@@ -55,117 +68,213 @@
 <script src="./main.js" defer></script>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<a href="#about" class="skip-link">Skip to content</a>
 <div id="custom-cursor"></div>
+<div id="scroll-progress" class="fixed top-0 inset-x-0 h-[3px] z-[70] origin-left scale-x-0 bg-gradient-to-r from-[#6366F1] to-[#A855F7] pointer-events-none" aria-hidden="true"></div>
 
-<!-- Navbar -->
-<nav id="navbar" class="fixed top-0 w-full z-50 glass-nav shadow-2xl shadow-black/40 transition-all duration-500">
-<div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
-  <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tighter text-on-surface font-headline">
-    <img src="./image/iftykhar.webp" alt="Iftykhar Logo" fetchpriority="high" decoding="async" width="256" height="253" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30"/>
-    Iftykhar<span class="text-gradient">.</span>
-  </a>
-  <div class="hidden md:flex items-center gap-8">
-    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#about">About</a>
-    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#skills">Skills</a>
-    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#projects">Projects</a>
-    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#experience">Experience</a>
-    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#communication">Communication</a>
-    <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#hobbies">Hobbies</a>
+<!-- Navbar (floating glass pill) -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 px-4 pt-3 sm:px-6" aria-label="Main navigation">
+  <div id="navbar-inner" class="glass-nav rounded-2xl border border-outline-variant/40 dark:border-white/5 shadow-xl shadow-black/10 dark:shadow-black/40 flex items-center justify-between px-4 sm:px-6 py-3 max-w-7xl mx-auto">
+    <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tighter text-on-surface font-headline group" aria-label="Iftykhar Alam — back to top">
+      <img src="./image/iftykhar.webp" alt="Iftykhar Logo" fetchpriority="high" decoding="async" width="256" height="253" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30 group-hover:ring-primary/70 transition-all"/>
+      Iftykhar<span class="text-gradient">.</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#about">About</a>
+      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#skills">Skills</a>
+      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#projects">Projects</a>
+      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#experience">Experience</a>
+      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#communication">Communication</a>
+      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#hobbies">Hobbies</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all duration-300" aria-label="Toggle Theme">
+        <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
+      </button>
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-5 py-2.5 rounded-xl font-headline font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#6366F1]/25">
+        Hire Me <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </a>
+      <button id="menu-toggle" class="md:hidden p-2 rounded-xl bg-surface-container-high text-on-surface" aria-label="Open menu">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
   </div>
-  <div class="flex items-center gap-4">
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all duration-300" aria-label="Toggle Theme">
-      <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
-    </button>
-    <a href="#contact" class="hidden sm:inline-flex bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-6 py-2.5 rounded-xl font-headline font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#6366F1]/20">Contact Me</a>
-    <button id="menu-toggle" class="md:hidden text-on-surface">
-      <span class="material-symbols-outlined text-2xl">menu</span>
-    </button>
-  </div>
-</div>
 </nav>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 z-[60] bg-surface-container-high/95 backdrop-blur-xl p-8 flex flex-col gap-6 shadow-2xl overflow-y-auto">
-<div class="flex justify-between items-center">
-    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-surface-container text-on-surface">
-        <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
-    </button>
-    <button id="menu-close" class="text-on-surface"><span class="material-symbols-outlined text-2xl">close</span></button>
+<div id="mobile-menu" class="fixed inset-y-0 right-0 w-80 z-[60] bg-surface-container-high/95 backdrop-blur-xl p-8 flex flex-col shadow-2xl overflow-y-auto">
+<div class="flex justify-between items-center mb-8">
+    <a href="#" onclick="closeMobileMenu()" class="flex items-center gap-2.5 font-headline font-bold text-lg text-on-surface">
+      <img src="./image/iftykhar.webp" alt="Iftykhar Logo" width="256" height="253" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30"/>
+      Iftykhar<span class="text-gradient">.</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-surface-container text-on-surface" aria-label="Toggle theme">
+          <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
+      </button>
+      <button id="menu-close" class="p-2 rounded-lg bg-surface-container text-on-surface" aria-label="Close menu">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
 </div>
-<a class="text-on-surface font-headline font-bold text-lg" href="#about" onclick="closeMobileMenu()">About</a>
-<a class="text-on-surface font-headline font-bold text-lg" href="#skills" onclick="closeMobileMenu()">Skills</a>
-<a class="text-on-surface font-headline font-bold text-lg" href="#projects" onclick="closeMobileMenu()">Projects</a>
-<a class="text-on-surface font-headline font-bold text-lg" href="#experience" onclick="closeMobileMenu()">Experience</a>
-<a class="text-on-surface font-headline font-bold text-lg" href="#communication" onclick="closeMobileMenu()">Communication</a>
-<a class="text-on-surface font-headline font-bold text-lg" href="#hobbies" onclick="closeMobileMenu()">Hobbies</a>
-<a class="text-on-surface font-headline font-bold text-lg" href="#contact" onclick="closeMobileMenu()">Contact</a>
+<nav class="flex flex-col gap-1" aria-label="Mobile navigation">
+  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#about" onclick="closeMobileMenu()"><span class="mobile-num">01</span> About</a>
+  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#skills" onclick="closeMobileMenu()"><span class="mobile-num">02</span> Skills</a>
+  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#projects" onclick="closeMobileMenu()"><span class="mobile-num">03</span> Projects</a>
+  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#experience" onclick="closeMobileMenu()"><span class="mobile-num">04</span> Experience</a>
+  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#communication" onclick="closeMobileMenu()"><span class="mobile-num">05</span> Communication</a>
+  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#hobbies" onclick="closeMobileMenu()"><span class="mobile-num">06</span> Hobbies</a>
+  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5" href="#contact" onclick="closeMobileMenu()"><span class="mobile-num">07</span> Contact</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-outline-variant/30 dark:border-white/5">
+  <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant/60 mb-4">Let's connect</p>
+  <div class="flex gap-3">
+    <a href="mailto:s.m.ifty49@gmail.com" aria-label="Email" class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
+      <span class="material-symbols-outlined text-[20px]">mail</span>
+    </a>
+    <a href="https://github.com/iftykhar" target="_blank" aria-label="GitHub" class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
+      <span class="material-symbols-outlined text-[20px]">code</span>
+    </a>
+    <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" aria-label="LinkedIn" class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
+      <span class="material-symbols-outlined text-[20px]">link</span>
+    </a>
+  </div>
+</div>
 </div>
 <div id="menu-overlay" class="fixed inset-0 z-[55] bg-black/60 hidden" onclick="closeMobileMenu()" aria-hidden="true"></div>
 
 <!-- Hero -->
-<section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
+<section class="relative min-h-screen flex items-center px-6 md:px-8 pt-28 pb-24 overflow-hidden">
 <canvas id="particles"></canvas>
 <div class="hero-gradient absolute inset-0 pointer-events-none"></div>
+<div class="hero-aurora absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 <div class="orb w-96 h-96 bg-[#6366F1] top-1/4 -left-20" style="animation-delay:-5s;opacity:0.12"></div>
 <div class="orb w-80 h-80 bg-[#A855F7] bottom-1/4 -right-20" style="animation-delay:-10s;opacity:0.1"></div>
-<div class="relative z-10 max-w-4xl space-y-8">
-  <span class="inline-block px-4 py-1.5 rounded-full bg-surface-container-high text-tertiary text-[0.7rem] font-label font-medium tracking-[0.2em] uppercase fade-up">Available for new projects</span>
-  <h1 class="text-5xl sm:text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-on-surface leading-[0.9] fade-up stagger-1">
-    S M Iftykhar <br/> <span class="text-gradient">Ul Alam</span>
+<div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-12 items-center">
+  <!-- Left: Copy -->
+  <div class="text-center lg:text-left space-y-6">
+    <span class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-tertiary text-[0.7rem] font-label font-medium tracking-[0.2em] uppercase fade-up">
+      <span class="status-dot" aria-hidden="true"></span> Available for new projects
+    </span>
+    <p class="font-label font-bold uppercase tracking-[0.35em] text-on-surface-variant/70 text-xs sm:text-sm fade-up stagger-1">Hi, I'm <span class="text-on-surface">Iftykhar Alam</span></p>
+    <h1 class="text-4xl sm:text-6xl xl:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-[1.04] fade-up stagger-1">
+      I build <span class="text-gradient">fast, human-centered</span> web products.
     </h1>
+    <p class="text-sm md:text-base font-label font-bold uppercase tracking-[0.3em] text-on-surface-variant/70 fade-up stagger-2">
+      <span id="role-rotator" class="text-primary">Full-Stack Developer</span> <span class="mx-2 opacity-30">•</span> Digital Architect
+    </p>
+    <p class="text-lg sm:text-xl font-headline text-on-surface-variant max-w-xl mx-auto lg:mx-0 leading-relaxed fade-up stagger-2">
+      From pixel-perfect <span class="text-primary font-bold">React</span> frontends to scalable <span class="text-primary font-bold">Laravel</span> APIs — engineered with an explorer's eye for performance and detail.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-2 fade-up stagger-3">
+      <a id="magnetic-cta" class="magnetic px-9 py-4 bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white rounded-xl font-headline font-bold shadow-xl shadow-[#6366F1]/25 hover:shadow-[#6366F1]/40 active:scale-95 transition-all duration-300" href="#projects">View My Work</a>
+      <a class="px-9 py-4 border-gradient rounded-xl font-headline font-bold text-on-surface hover:scale-105 transition-transform" href="./Iftykharalam_CV.pdf" download="Iftykharalam_CV.pdf">Download Resume</a>
+      <a class="inline-flex items-center gap-2 font-headline font-bold text-tertiary hover:text-primary transition-colors underline-offset-4 hover:underline pt-2" href="#contact">
+        Let's talk <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+      </a>
+    </div>
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-8 fade-up stagger-4 max-w-xl mx-auto lg:mx-0">
+      <div class="text-center lg:text-left">
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">10+</div>
+        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Projects Built</div>
+      </div>
+      <div class="text-center lg:text-left">
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">10+</div>
+        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Global Clients</div>
+      </div>
+      <div class="text-center lg:text-left">
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">98</div>
+        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Lighthouse Score</div>
+      </div>
+      <div class="text-center lg:text-left">
+        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient">3+</div>
+        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Years Coding</div>
+      </div>
+    </div>
+    <div class="flex items-center justify-center lg:justify-start gap-7 pt-6 text-on-surface-variant fade-up stagger-4">
+      <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank">
+        <span class="material-symbols-outlined text-[20px]">link</span>
+        <span class="font-label text-xs tracking-widest uppercase">LinkedIn</span>
+      </a>
+      <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://github.com/iftykhar" target="_blank">
+        <span class="material-symbols-outlined text-[20px]">code</span>
+        <span class="font-label text-xs tracking-widest uppercase">GitHub</span>
+      </a>
+      <a class="hover:text-primary transition-colors flex items-center gap-2" href="mailto:s.m.ifty49@gmail.com">
+        <span class="material-symbols-outlined text-[20px]">mail</span>
+        <span class="font-label text-xs tracking-widest uppercase">Email</span>
+      </a>
+    </div>
   </div>
-  <p class="text-sm md:text-base font-label font-bold uppercase tracking-[0.4em] text-on-surface-variant/60 mb-8 fade-up stagger-2">
-    Digital Architect <span class="mx-2 opacity-30">•</span> Full-Stack Developer
-  </p>
-  <p class="text-lg sm:text-xl md:text-2xl font-headline text-on-surface-variant max-w-2xl mx-auto leading-relaxed fade-up stagger-2">
-    Frontend Developer &amp; Explorer. Passionate about crafting pixel-perfect, high-performance web experiences.
-  </p>
-  <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4 fade-up stagger-3">
-    <a class="px-8 py-4 bg-gradient-to-r from-primary-container to-secondary-container rounded-xl font-headline font-bold text-gray-500 dark:text-white shadow-xl shadow-[#6366F1]/20 hover:scale-105 transition-transform" href="#projects">View Projects</a>
-    <a class="px-8 py-4 border-gradient rounded-xl font-headline font-bold text-on-surface hover:scale-105 transition-transform" href="#contact">Contact Me</a>
-  </div>
-  <div class="flex items-center justify-center gap-8 pt-10 text-on-surface-variant fade-up stagger-4">
-    <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank">
-      <span class="material-symbols-outlined text-[20px]">link</span>
-      <span class="font-label text-xs tracking-widest uppercase">LinkedIn</span>
-    </a>
-    <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://github.com/iftykhar" target="_blank">
-      <span class="material-symbols-outlined text-[20px]">code</span>
-      <span class="font-label text-xs tracking-widest uppercase">GitHub</span>
-    </a>
-    <a class="hover:text-primary transition-colors flex items-center gap-2" href="mailto:s.m.ifty49@gmail.com">
-      <span class="material-symbols-outlined text-[20px]">mail</span>
-      <span class="font-label text-xs tracking-widest uppercase">Email</span>
-    </a>
+  <!-- Right: Portrait card -->
+  <div class="relative mx-auto w-full max-w-xs sm:max-w-sm fade-up stagger-3" id="hero-portrait">
+    <div class="absolute -inset-8 bg-gradient-to-tr from-[#6366F1]/30 via-[#A855F7]/20 to-transparent blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+    <div class="relative rounded-3xl overflow-hidden border border-outline-variant dark:border-white/10 shadow-2xl shadow-black/40 bg-surface-container-low">
+      <img src="./image/iftykharalam.webp" alt="S M Iftykhar Ul Alam" class="w-full aspect-[4/5] object-cover" decoding="async" width="500" height="500"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#131313]/70 via-transparent to-transparent" aria-hidden="true"></div>
+      <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.6rem] font-label font-bold uppercase tracking-widest text-white bg-black/40 backdrop-blur-md border border-white/10">
+          <span class="status-dot" aria-hidden="true"></span> Open to work
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.6rem] font-label font-bold uppercase tracking-widest text-white bg-black/40 backdrop-blur-md border border-white/10">
+          <span class="material-symbols-outlined text-[14px]">location_on</span> Dhaka, BD
+        </span>
+      </div>
+    </div>
+    <!-- Floating tech chips -->
+    <div class="tech-chip absolute -top-5 -left-4 sm:-left-8">React.js</div>
+    <div class="tech-chip absolute top-1/3 -right-3 sm:-right-9" style="animation-delay:-2.5s">Next.js</div>
+    <div class="tech-chip absolute -bottom-5 -left-3 sm:-left-10" style="animation-delay:-5s">Laravel</div>
+    <div class="tech-chip absolute bottom-1/4 -right-2 sm:-right-7" style="animation-delay:-7.5s">TypeScript</div>
   </div>
 </div>
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
-  <span class="material-symbols-outlined text-3xl">expand_more</span>
+<!-- Scroll cue -->
+<div class="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40 fade-up stagger-5" aria-hidden="true">
+  <span class="font-label text-[0.6rem] uppercase tracking-[0.3em]">Scroll to explore</span>
+  <span class="material-symbols-outlined text-2xl animate-bounce">expand_more</span>
+</div>
+</section>
+
+<!-- Tech Marquee -->
+<section class="py-10 md:py-16 px-6 md:px-8 relative overflow-hidden" aria-label="Technologies I work with">
+<div class="max-w-7xl mx-auto">
+  <p class="text-center text-xs font-label font-bold uppercase tracking-[0.3em] text-on-surface-variant/60 mb-10 fade-up">The stack I build with</p>
+  <div class="marquee fade-up stagger-2">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
 </div>
 </section>
 
 <!-- About -->
-<section class="py-32 md:py-40 px-6 md:px-8 max-w-7xl mx-auto overflow-hidden" id="about">
+<section class="py-32 md:py-40 px-6 md:px-8 max-w-7xl mx-auto overflow-hidden" id="about" tabindex="-1">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
   <div class="relative order-2 md:order-1 fade-up">
     <div class="absolute -top-10 -left-10 w-64 h-64 bg-[#6366F1]/20 blur-[80px] rounded-full pointer-events-none"></div>
     <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/50">
-      <img class="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="./image/iftykharalam.webp" alt="S M Iftykhar Ul Alam Profile Picture" decoding="async" width="500" height="500" loading="lazy"/>
-    </div>
-    <div class="absolute -bottom-6 -right-6 p-5 bg-surface-container shadow-2xl rounded-xl hidden md:block">
-      <div class="text-3xl font-headline font-bold text-gradient">10+</div>
-      <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant">Projects<br/>Delivered</div>
+      <img class="w-full aspect-square object-cover object-top grayscale hover:grayscale-0 transition-all duration-1000" src="./image/iftykharalam-lifestyle.webp" alt="S M Iftykhar Ul Alam Profile Picture" decoding="async" width="691" height="1327" loading="lazy"/>
     </div>
   </div>
   <div class="order-1 md:order-2 space-y-7 fade-up stagger-2">
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold leading-tight">Building <span class="text-primary">Human-Centric</span> Experiences</h2>
     <p class="text-lg text-on-surface-variant font-body leading-relaxed">
-      Hello! I'm S M Iftykhar Ul Alam, a Frontend Developer passionate about creating efficient and scalable web applications. My journey is driven by a love for solving complex problems and building functional, user-friendly designs.
+      Hello! I'm S M Iftykhar Ul Alam, a Full-Stack Developer passionate about creating efficient and scalable web applications — from pixel-perfect React frontends to Laravel-backed backends. My journey is driven by a love for solving complex problems and building functional, user-friendly designs.
     </p>
     <p class="text-on-surface-variant font-body leading-relaxed">
       Beyond the code, I'm an explorer always searching for the next breakthrough in performance, accessibility, and user interaction. I believe every pixel should serve a purpose and every interaction should feel seamless.
     </p>
+    <div class="flex flex-wrap gap-3 pt-1">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
+        <span class="material-symbols-outlined text-[16px] text-primary">location_on</span> Dhaka, Bangladesh
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
+        <span class="material-symbols-outlined text-[16px] text-primary">code</span> Full-Stack Engineer
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
+        <span class="material-symbols-outlined text-[16px] text-primary">schedule</span> 3+ Years Experience
+      </span>
+    </div>
     <div class="grid grid-cols-2 gap-8 pt-2">
       <div>
         <div class="text-tertiary font-headline font-bold mb-1">Strategy</div>
@@ -176,7 +285,7 @@
         <p class="text-sm text-on-surface-variant">High-fidelity development, performance tuning, and animation.</p>
       </div>
     </div>
-    <a href="https://drive.google.com/file/d/1sBxkvJAabm00c4mGA9Q4saoyFs-Lq9MA/view?usp=sharing" target="_blank" class="inline-flex items-center gap-2 text-tertiary font-headline font-bold hover:underline underline-offset-4 decoration-2 pt-2">
+    <a href="./Iftykharalam_CV.pdf" download="Iftykharalam_CV.pdf" class="inline-flex items-center gap-2 text-tertiary font-headline font-bold hover:underline underline-offset-4 decoration-2 pt-2">
       <span class="material-symbols-outlined text-[20px]">download</span> Download Resume
     </a>
   </div>
@@ -197,17 +306,20 @@
 <!-- Projects -->
 <section class="py-28 md:py-32 bg-gradient-to-r from-indigo-50 via-purple-50 to-indigo-50 bg-animated-gradient dark:!bg-none dark:!animate-none dark:bg-surface-container-lowest relative overflow-hidden" id="projects">
 <div class="max-w-7xl mx-auto px-6 md:px-8">
-  <div class="flex flex-col gap-4 mb-12 md:mb-16 fade-up">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 md:mb-16 fade-up">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold tracking-tight text-on-surface">Selected <br/> <span class="text-gradient">Creations</span></h2>
+    <a href="https://github.com/iftykhar" target="_blank" class="self-start sm:self-auto inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">
+      All on GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+    </a>
   </div>
   
   <!-- Project Filter Bar -->
   <div class="relative mb-8 md:mb-12 fade-up" id="project-filters-container">
     <div class="flex overflow-x-auto no-scrollbar items-center gap-2 pb-4 md:pb-0 md:flex-wrap" id="project-filters">
-       <button class="filter-btn active whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-white z-10" data-filter="all">All</button>
-       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="case-study">Case Studies</button>
-       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="personal">Personal</button>
-       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="mini-project">Mini Projects</button>
+       <button class="filter-btn active whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-white z-10" data-filter="all">All <span class="filter-count opacity-60">0</span></button>
+       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="case-study">Case Studies <span class="filter-count opacity-60">0</span></button>
+       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="personal">Personal <span class="filter-count opacity-60">0</span></button>
+       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="mini-project">Mini Projects <span class="filter-count opacity-60">0</span></button>
        
        <div class="filter-indicator absolute h-10 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] shadow-lg transition-all duration-300 ease-out z-0 pointer-events-none hidden md:block"></div>
     </div>
@@ -221,9 +333,9 @@
 </section>
 
 <!-- Project Modal -->
-<div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 pointer-events-none">
+<div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 pointer-events-none" role="dialog" aria-modal="true">
   <div id="project-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-auto"></div>
-  <div id="project-modal-content" class="relative w-full max-w-5xl max-h-[90vh] bg-surface-container-lowest rounded-2xl shadow-2xl overflow-y-auto transform scale-95 opacity-0 transition-all duration-400 ease-out pointer-events-auto flex flex-col border border-white/5">
+  <div id="project-modal-content" class="relative w-full max-w-5xl max-h-[90vh] bg-surface-container-lowest rounded-2xl shadow-2xl overflow-y-auto transform scale-95 opacity-0 transition-all duration-400 ease-out pointer-events-auto flex flex-col border border-outline-variant dark:border-white/5">
     <!-- Rendered via JS -->
   </div>
 </div>
@@ -236,15 +348,17 @@
     <p class="text-on-surface-variant font-body max-w-md">My journey in engineering high-performance web applications and digital systems.</p>
   </div>
   
-  <div class="space-y-8">
+  <div class="relative space-y-8">
+    <div class="absolute left-4 top-8 bottom-8 w-px bg-gradient-to-b from-primary via-secondary to-transparent" aria-hidden="true"></div>
     <!-- Item 1 -->
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
+    <div class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
+       <span class="timeline-dot" aria-hidden="true"></span>
        <div class="flex flex-col md:flex-row justify-between mb-6">
           <div>
              <h3 class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">Scaleup IT Limited</h3>
              <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Dhaka, Bangladesh</p>
           </div>
-          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/5">
+          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
              <span class="material-symbols-outlined text-[18px]">calendar_month</span>
              Aug 2025 – March 2026
           </div>
@@ -270,13 +384,14 @@
     </div>
 
     <!-- Item 2 -->
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
+    <div class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
+       <span class="timeline-dot" aria-hidden="true"></span>
        <div class="flex flex-col md:flex-row justify-between mb-6">
           <div>
              <h3 class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">Refuel Forecourts Limited</h3>
              <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Remote, UK</p>
           </div>
-          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/5">
+          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
              <span class="material-symbols-outlined text-[18px]">calendar_month</span>
              Nov 2023 – Apr 2024
           </div>
@@ -302,17 +417,17 @@
     <p class="text-on-surface-variant font-body max-w-md">Fluent English that bridges technical complexity and business value — from client presentations to delivery.</p>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
+    <div class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
       <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">record_voice_over</span>
       <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-primary transition-colors">Fluent Written &amp; Spoken English</h3>
       <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">English at professional working proficiency — persuasive communicator with clear documentation, confident product walk-throughs, and stakeholder conversations in English.</p>
     </div>
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-white/5 hover:border-tertiary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
+    <div class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-tertiary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
       <span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">support_agent</span>
       <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-tertiary transition-colors">Client-Facing Communication</h3>
       <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Bridging technical complexity and business value at Scaleup IT — direct client communication, technical solution presentations, product demos, and requirement analysis that kept stakeholders aligned.</p>
     </div>
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-white/5 hover:border-secondary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-3">
+    <div class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-secondary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-3">
       <span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">public</span>
       <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-secondary transition-colors">Remote &amp; International Collaboration</h3>
       <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Coordinated with international stakeholders across time zones at Refuel Forecourts (Remote, UK) — led product discussions that improved report-generation efficiency by 30%.</p>
@@ -357,13 +472,25 @@
 
 <!-- Contact -->
 <section class="py-28 md:py-32 px-6 md:px-8" id="contact">
-<div class="max-w-7xl mx-auto rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] relative overflow-hidden">
+<div class="max-w-7xl mx-auto rounded-3xl bg-surface-container-low dark:bg-white/[0.03] backdrop-blur-xl border border-outline-variant dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] relative overflow-hidden">
   <div class="absolute top-0 right-0 w-96 h-96 bg-[#6366F1]/25 blur-[150px] -mr-48 -mt-48 pointer-events-none"></div>
   <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#4cd7f6]/20 blur-[150px] -ml-48 -mb-48 pointer-events-none"></div>
   <div class="relative z-10 p-8 md:p-16 lg:p-24">
     <div class="text-center mb-16 fade-up">
       <h2 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold mb-6">Let's build something <br/> <span class="text-gradient">exceptional together.</span></h2>
       <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Currently seeking new opportunities and creative collaborations. My inbox is always open.</p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8">
+        <a href="mailto:s.m.ifty49@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
+          <span class="material-symbols-outlined text-[16px] text-primary">mail</span> Email me
+        </a>
+        <a href="https://github.com/iftykhar" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
+          <span class="material-symbols-outlined text-[16px] text-primary">code</span> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
+          <span class="material-symbols-outlined text-[16px] text-primary">link</span> LinkedIn
+        </a>
+      </div>
+      <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant/60 mt-8">Average response time — under 24 hours</p>
     </div>
     <form action="https://formspree.io/f/mrbknqal" method="POST" id="contact-form" class="max-w-2xl mx-auto space-y-8 fade-up stagger-2">
       <div><label for="name" class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Name</label><input id="name" type="text" name="name" required placeholder="Your name"/></div>
@@ -379,27 +506,28 @@
 
 <div id="toast-container"></div>
 
+<!-- Floating CTA -->
+<a id="floating-cta" href="#contact" class="fixed bottom-32 right-6 z-[90] inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-headline font-bold text-sm shadow-xl shadow-[#6366F1]/30 translate-y-24 opacity-0 pointer-events-none transition-all duration-500 hover:scale-105 active:scale-95" aria-label="Contact me">
+  <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+  Let's talk
+</a>
+
 <!-- Go To Top Button -->
-<button id="go-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-[100] p-3 rounded-full bg-primary text-white shadow-xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 flex items-center justify-center group" aria-label="Go to top">
+<button id="go-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 z-[100] p-3 rounded-full bg-primary text-white shadow-xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 flex items-center justify-center group" aria-label="Go to top">
   <span class="material-symbols-outlined text-2xl group-hover:text-white transition-colors animate-bounce">arrow_upward</span>
 </button>
 
 <!-- Footer -->
-<footer class="py-16 px-6 md:px-8 mt-24 bg-surface-container-lowest">
-<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
-  <div class="text-on-surface font-bold font-body text-sm tracking-wide">© <span id="current-year">2025</span> S M Iftykhar Ul Alam. Built with precision.</div>
-  <div class="flex gap-8">
-    <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="mailto:s.m.ifty49@gmail.com">Email</a>
-    <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank">LinkedIn</a>
-    <a class="text-on-surface-variant hover:text-tertiary underline-offset-8 hover:underline decoration-2 transition-all font-body text-sm tracking-wide" href="https://github.com/iftykhar" target="_blank">GitHub</a>
-  </div>
-  <div class="flex items-center gap-2 text-on-surface-variant opacity-60">
-    <span class="material-symbols-outlined text-[16px]">location_on</span>
-    <span class="text-xs font-label">Based in Dhaka, Bangladesh</span>
+<footer class="py-10 px-6 md:px-8 mt-24 bg-surface-container-lowest border-t border-outline-variant/40 dark:border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+  <p class="text-on-surface-variant">© <span id="current-year">2025</span> Iftykhar Alam. All rights reserved.</p>
+  <div class="flex items-center gap-5">
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="mailto:s.m.ifty49@gmail.com">Email</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://github.com/iftykhar" target="_blank" rel="noopener">GitHub</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </div>
-
-</script>
+</footer>
 
 </body>
 </html>

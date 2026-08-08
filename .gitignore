@@ -1,2 +1,6 @@
 config.bat
 node_modules
+
+# Local environment secrets (never commit)
+.env
+.env.local

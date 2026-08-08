@@ -6,6 +6,8 @@ let particles = [];
 let mouse = { x: null, y: null, targetX: null, targetY: null };
 // Touch devices: no mouse, so skip the custom-cursor animation loop entirely
 const isCoarsePointer = window.matchMedia ? window.matchMedia('(pointer: coarse)').matches : false;
+// Respect users who prefer reduced motion: skip cursor/particles/tilt animation and use instant scrolling
+const prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
 function resizeCanvas() { 
   canvas.width = canvas.parentElement.offsetWidth; 
@@ -70,6 +72,7 @@ let animationFrameId;
 const canvasObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      if (prefersReducedMotion) return; // Reduced motion: keep the particle canvas static
       if (isMobile) {
         // Delay particle start on mobile to prioritize image paint
         setTimeout(() => {
@@ -87,7 +90,7 @@ const canvasObserver = new IntersectionObserver((entries) => {
 canvasObserver.observe(canvas.parentElement);
 
 function updateCursor() {
-  if (isCoarsePointer) return; // No custom cursor on touch; avoids a forever-running rAF loop
+  if (isCoarsePointer || prefersReducedMotion) return; // No custom cursor on touch / reduced-motion; avoids a forever-running rAF loop
   if (mouse.targetX !== null) {
     // Slower tracking for a more deliberate "lag" effect (0.08 instead of 0.15)
     mouse.x += (mouse.targetX - mouse.x) * 0.05;
@@ -127,7 +130,7 @@ function animateParticles() {
 
 // Hover effect listeners
 function setupCursorHovers() {
-  if (isCoarsePointer) return;
+  if (isCoarsePointer || prefersReducedMotion) return;
   document.querySelectorAll('a, button, .project-card-click').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
@@ -157,14 +160,44 @@ function closeMobileMenu(){mobileMenu.classList.remove('open');menuOverlay.class
 menuToggle.addEventListener('click',openMobileMenu);
 menuClose.addEventListener('click',closeMobileMenu);
 
+// Close mobile menu on Escape key (accessibility)
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+});
+
 // Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const href=this.getAttribute('href');if(href==='#'){window.scrollTo({top:0,behavior:'smooth'});return;}const t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
+// Smooth Scroll (honors prefers-reduced-motion)
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+}
+document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const href=this.getAttribute('href');if(href==='#'){scrollToTop();return;}const t=document.querySelector(href);if(t)t.scrollIntoView({behavior: prefersReducedMotion ? 'auto' : 'smooth', block:'start'});});});
+
+// Skip-to-content: scroll AND move sequential focus to the target for screen readers
+const skipLink = document.querySelector('.skip-link');
+if (skipLink) {
+  skipLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      target.focus({ preventScroll: true });
+    }
+  });
+}
 
 // Active Nav & Go To Top Logic
 const sections=document.querySelectorAll('section[id]');
 const navLinks=document.querySelectorAll('.nav-link');
 const goTopBtn=document.getElementById('go-to-top');
+const scrollProgress=document.getElementById('scroll-progress');
+const floatingCta=document.getElementById('floating-cta');
+const navbar=document.getElementById('navbar');
 window.addEventListener('scroll',()=>{
+  // Compact navbar after scrolling past the hero (~80vh)
+  if (navbar) {
+    if (window.scrollY > window.innerHeight * 0.8) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }
   let cur='';
   sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});
   navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});
@@ -174,6 +207,22 @@ window.addEventListener('scroll',()=>{
     goTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
   } else {
     goTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+  }
+
+  // Scroll progress bar (top of viewport)
+  if (scrollProgress) {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+    scrollProgress.style.transform = `scaleX(${progress})`;
+  }
+
+  // Floating "Let's talk" pill after ~1.5 viewport heights
+  if (floatingCta) {
+    if (window.scrollY > window.innerHeight * 1.5) {
+      floatingCta.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+    } else {
+      floatingCta.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+    }
   }
 });
 
@@ -193,12 +242,16 @@ function toggleTheme() {
     particles.forEach(p => p.reset());
 }
 
-// Initialize Theme - Force Dark Default
-const savedTheme = localStorage.getItem('theme') || 'dark';
-if (savedTheme === 'light') {
-    document.documentElement.classList.remove('dark');
-} else {
+// Initialize Theme - saved preference wins, otherwise follow the OS preference
+// (an inline head script already applies this before first paint to avoid a flash)
+let savedTheme = null;
+try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialDark = savedTheme ? savedTheme === 'dark' : prefersDarkScheme;
+if (initialDark) {
     document.documentElement.classList.add('dark');
+} else {
+    document.documentElement.classList.remove('dark');
 }
 updateThemeIcons();
 
@@ -270,6 +323,31 @@ const filterIndicator = document.querySelector('.filter-indicator');
 const projectModal = document.getElementById('project-modal');
 const projectModalContent = document.getElementById('project-modal-content');
 const projectModalBackdrop = document.getElementById('project-modal-backdrop');
+
+// --- Accessibility helpers for the project modal ---
+let lastFocusedElement = null;
+let closeModalTimer = null;
+
+// Mark everything behind the modal as inert so keyboard & screen-reader users can't reach it
+function setPageInert(inert) {
+  document.querySelectorAll('body > *').forEach(el => {
+    if (el === projectModal || el.id === 'toast-container' || el.id === 'custom-cursor' || el.id === 'go-to-top') return;
+    if (inert) el.setAttribute('inert', '');
+    else el.removeAttribute('inert');
+  });
+}
+
+// Keep Tab / Shift+Tab cycling inside the open modal
+function trapModalFocus(e) {
+  if (e.key !== 'Tab' || projectModal.classList.contains('hidden')) return;
+  const focusables = projectModalContent.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+  if (focusables.length === 0) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+projectModal.addEventListener('keydown', trapModalFocus);
 
 // Initialize Filter Indicator Position
 function updateFilterIndicator(activeBtn) {
@@ -385,12 +463,12 @@ function renderProjects(filter = 'all') {
     const otherProjects = [...personal, ...mini];
     if (otherProjects.length > 0) {
       const grid = document.createElement('div');
-      grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-12 border-t border-white/5';
+      grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-12 border-t border-outline-variant dark:border-white/5';
       
       otherProjects.forEach((p, i) => {
         const stagger = `stagger-${(i % 4) + 1}`;
         const item = `
-          <div class="group flex flex-col rounded-2xl bg-surface-container-low hover:bg-surface-bright transition-all duration-500 overflow-hidden fade-up ${stagger} border border-white/5 hover:border-white/10 hover:shadow-2xl hover:shadow-primary/5">
+          <div class="group flex flex-col rounded-2xl bg-surface-container-low hover:bg-surface-bright transition-all duration-500 overflow-hidden fade-up ${stagger} border border-outline-variant dark:border-white/5 hover:border-primary/20 dark:hover:border-white/10 hover:shadow-2xl hover:shadow-primary/5">
             <div class="relative w-full h-48 overflow-hidden bg-surface-container-high">
               <img src="${p.heroImage}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" 
                    alt="${p.title} Project UI | Iftykhar Alam"
@@ -441,8 +519,9 @@ function renderProjects(filter = 'all') {
 // -----------------------------------------
 function initCardEffects() {
   const tiltWrappers = document.querySelectorAll('.project-card-click');
+  const useTilt = window.innerWidth > 1024 && !prefersReducedMotion; // Desktop only, unless user prefers reduced motion
   
-  if (window.innerWidth > 1024) { // Desktop only
+  if (useTilt) {
     tiltWrappers.forEach(wrap => {
       const tilt = wrap.querySelector('.card-tilt');
       
@@ -491,8 +570,16 @@ function initCardEffects() {
 // Modal Logic
 // -----------------------------------------
 function openModal(project) {
+  // Cancel any pending close transition so a quick reopen isn't hidden by the previous close
+  if (closeModalTimer) { clearTimeout(closeModalTimer); closeModalTimer = null; }
+  
   // Lock body scroll
   document.body.style.overflow = 'hidden';
+  
+  // Accessibility: remember the trigger, label the dialog, and hide the background page
+  lastFocusedElement = document.activeElement;
+  projectModal.setAttribute('aria-label', `${project.title} — case study`);
+  setPageInert(true);
   
   // Build Modal Content
   let headerSec = '';
@@ -520,7 +607,7 @@ function openModal(project) {
 
      if (sol) {
          solutionSec = `
-            <div class="mb-12 p-6 md:p-8 bg-surface-container rounded-xl border border-white/5 relative overflow-hidden">
+            <div class="mb-12 p-6 md:p-8 bg-surface-container rounded-xl border border-outline-variant dark:border-white/5 relative overflow-hidden">
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
                 <h4 class="text-sm font-label uppercase tracking-widest text-tertiary mb-6 relative z-10">${sol.header}</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
@@ -537,15 +624,21 @@ function openModal(project) {
 
      if (met) {
          metricsSec = `
-            <div class="border-t border-white/5 pt-10 mt-10">
+            <div class="border-t border-outline-variant dark:border-white/5 pt-10 mt-10">
                 <h4 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-8 text-center">${met.header}</h4>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                   ${(met.stats||[]).map(s => `
+                   ${(met.stats||[]).map(s => {
+                       // Support both plain {label, value} stats and before/after {label, pre, post, impact} stats
+                       const statValue = s.post ? `${s.pre} → ${s.post}` : (s.value ?? '—');
+                       const statImpact = s.impact ? `<div class="text-[10px] font-label text-on-surface-variant/80 mt-1">${s.impact}</div>` : '';
+                       return `
                        <div class="p-4 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
-                           <div class="text-2xl md:text-3xl font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-1">${s.value}</div>
+                           <div class="text-xl md:text-2xl font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-1">${statValue}</div>
                            <div class="text-[10px] md:text-xs font-label uppercase tracking-widest text-on-surface-variant">${s.label}</div>
+                           ${statImpact}
                        </div>
-                   `).join('')}
+                   `;
+                   }).join('')}
                 </div>
             </div>
          `;
@@ -556,7 +649,7 @@ function openModal(project) {
 
   projectModalContent.innerHTML = `
     <!-- Top Nav / Close -->
-    <div class="sticky top-0 z-50 flex justify-between items-center p-4 md:p-6 bg-surface-container-lowest/80 backdrop-blur-md border-b border-white/5">
+    <div class="sticky top-0 z-50 flex justify-between items-center p-4 md:p-6 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant dark:border-white/5">
         <div class="flex gap-2 items-center">
             ${project.categories.slice(0,2).map(c=>`<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">${c}</span>`).join('<span class="text-white/20">•</span>')}
         </div>
@@ -587,14 +680,18 @@ function openModal(project) {
     <br />
   `;
 
-  // Show Modal
+  // Show Modal (flex is required so the flex items-center/justify-center classes center the panel)
   projectModal.classList.remove('hidden');
+  projectModal.classList.add('flex');
   
   // Trigger animations
   requestAnimationFrame(() => {
      projectModalBackdrop.classList.remove('opacity-0');
      projectModalContent.classList.remove('opacity-0', 'scale-95');
      projectModalContent.classList.add('scale-100');
+     // Move keyboard focus into the dialog (close button) for keyboard & screen-reader users
+     const closeBtn = document.getElementById('modal-close-btn');
+     if (closeBtn) closeBtn.focus();
   });
 
   // Attach Close Events
@@ -606,10 +703,15 @@ function closeModal() {
   projectModalContent.classList.add('opacity-0', 'scale-95');
   projectModalContent.classList.remove('scale-100');
   
-  setTimeout(() => {
+  closeModalTimer = setTimeout(() => {
+      closeModalTimer = null;
       projectModal.classList.add('hidden');
+      projectModal.classList.remove('flex');
       document.body.style.overflow = '';
       projectModalContent.innerHTML = ''; // reset
+      setPageInert(false);
+      // Return focus to the element that opened the modal
+      if (lastFocusedElement && lastFocusedElement.focus) lastFocusedElement.focus();
   }, 400); // match duration-400
 }
 
@@ -623,24 +725,38 @@ window.addEventListener('keydown', (e) => {
    }
 });
 
-// RENDER SKILLS
+// RENDER SKILLS (tiered: Core Expertise + Also In My Toolbox)
 function renderSkills() {
     const skillsGrid = document.getElementById('skills-grid');
     if (!skillsGrid || !window.skillsData) return;
 
-    skillsGrid.innerHTML = window.skillsData.map(skill => {
+    const core = window.skillsData.filter(s => s.tier !== 'familiar');
+    const familiar = window.skillsData.filter(s => s.tier === 'familiar');
+
+    const skillCard = (skill) => {
         const iconSection = skill.isMaterialIcon 
             ? `<span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">${skill.icon}</span>`
             : `<img src="${skill.icon}" alt="${skill.name}" class="h-10 md:h-12 w-auto mb-3 block group-hover:scale-110 transition-transform" />`;
-
         return `
-            <div class="group p-6 md:p-8 rounded-xl bg-gray-300 hover:bg-gray-200 dark:bg-surface-container-low dark:hover:bg-surface-bright hover:scale-[1.02] transition-all duration-500 fade-up stagger-${skill.stagger}">
+            <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-container hover:scale-[1.02] transition-all duration-500 fade-up stagger-${skill.stagger}">
                 ${iconSection}
                 <h3 class="font-headline font-bold text-lg mb-0.5">${skill.name}</h3>
                 <p class="text-on-surface-variant text-xs">${skill.category}</p>
             </div>
         `;
-    }).join('');
+    };
+
+    const groupMarkup = (title, subtitle, skills) => skills.length > 0 ? `
+        <div class="col-span-full mt-4 first:mt-0 fade-up">
+            <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-primary mb-1">${title}</h3>
+            <p class="text-on-surface-variant text-xs mb-6">${subtitle}</p>
+        </div>
+        ${skills.map(skillCard).join('')}
+    ` : '';
+
+    skillsGrid.innerHTML =
+        groupMarkup('Core Expertise', 'What I reach for on every project', core) +
+        groupMarkup('Also In My Toolbox', 'Familiar and production-ready when needed', familiar);
 
     // Re-observe dynamic skills for the scroll animation to trigger
     document.querySelectorAll('#skills-grid .fade-up').forEach(el => {
@@ -648,14 +764,70 @@ function renderSkills() {
     });
 }
 
+// RENDER TECH MARQUEE (duplicated track for a seamless loop)
+function renderMarquee() {
+    const track = document.getElementById('marquee-track');
+    if (!track || !window.skillsData) return;
+    const chips = window.skillsData.filter(s => !s.isMaterialIcon).map(s => `
+        <span class="marquee-item inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-surface-container-low border border-outline-variant dark:border-white/5 mr-6 whitespace-nowrap">
+            <img src="${s.icon}" alt="" class="h-6 w-auto" loading="lazy" />
+            <span class="font-label font-bold text-sm text-on-surface-variant">${s.name}</span>
+        </span>
+    `).join('');
+    track.innerHTML = chips + chips; // duplicate for seamless -50% loop
+}
+
+// LIVE COUNTS on project filter pills
+function renderFilterCounts() {
+    const data = window.projectData || [];
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        const f = btn.getAttribute('data-filter');
+        const count = f === 'all' ? data.length : data.filter(p => p.type === f).length;
+        const span = btn.querySelector('.filter-count');
+        if (span) span.textContent = count;
+    });
+}
+
+// Rotating hero roles (skipped for reduced-motion users)
+const roleRotator = document.getElementById('role-rotator');
+if (roleRotator && !prefersReducedMotion) {
+  const roles = ['Full-Stack Developer', 'React Engineer', 'Next.js Specialist', 'Laravel Developer', 'UI Designer'];
+  let roleIdx = 0;
+  setInterval(() => {
+    roleRotator.classList.add('role-fade');
+    setTimeout(() => {
+      roleIdx = (roleIdx + 1) % roles.length;
+      roleRotator.textContent = roles[roleIdx];
+      roleRotator.classList.remove('role-fade');
+    }, 260);
+  }, 2800);
+}
+
+// Magnetic primary CTA (desktop mouse only)
+const magneticCta = document.getElementById('magnetic-cta');
+if (magneticCta && !isCoarsePointer && !prefersReducedMotion) {
+  magneticCta.addEventListener('mousemove', (e) => {
+    const rect = magneticCta.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width / 2) * 0.25;
+    const dy = (e.clientY - rect.top - rect.height / 2) * 0.35;
+    magneticCta.style.transform = `translate(${dx}px, ${dy}px)`;
+  });
+  magneticCta.addEventListener('mouseleave', () => {
+    magneticCta.style.transform = ''; // let CSS hover/active transforms work again
+  });
+}
+
 // INITIALIZE ON LOAD
 document.addEventListener('DOMContentLoaded', () => {
     // Small delay to ensure filter indicator DOM sizing is correct
     setTimeout(() => {
+        renderMarquee();       // Tech logo strip first
+        renderSkills();        // Skills grid (tiered)
+        renderFilterCounts();  // Live pill counts (before indicator is measured)
+        renderProjects('all'); // Projects
+
+        // Measure the filter indicator AFTER counts are populated
         const activeFilter = document.querySelector('.filter-btn.active');
         if(activeFilter) updateFilterIndicator(activeFilter);
-        
-        renderSkills(); // Render skills first
-        renderProjects('all'); 
     }, 100);
 });
