@@ -420,6 +420,13 @@ function renderProjects(filter = 'all') {
         const colSpan = i === 0 ? 'md:col-span-8' : (i % 3 === 0 ? 'md:col-span-6' : 'md:col-span-4');
         const height = i === 0 ? 'h-[400px] sm:h-[480px] md:h-[580px]' : 'h-[300px] sm:h-[340px] md:h-[420px]';
         const stagger = `stagger-${(i % 5) + 1}`;
+
+        // Engineering-precision: surface headline metrics from the case-study data
+        const met = p.sections && p.sections.find(s => s.type === 'metrics');
+        const metricChips = met && met.stats ? met.stats.slice(0, 2).map(s => {
+          const v = s.post ? `${s.pre} → ${s.post}` : (s.value ?? '—');
+          return `<span class="spec-chip spec-chip--invert spec-chip--metric" title="${v}">${v}</span>`;
+        }).join('') : '';
         
         const card = `
           <div class="${colSpan} group relative ${height} overflow-hidden rounded-2xl bg-surface-container-high fade-up ${stagger} cursor-pointer project-card-click" data-id="${p.id}">
@@ -439,10 +446,12 @@ function renderProjects(filter = 'all') {
              <div class="absolute inset-x-0 bottom-0 p-6 md:p-10 card-tilt">
                 <div class="card-tilt-inner">
                    <div class="flex flex-wrap gap-2 mb-4">
-                      ${p.categories.slice(0,2).map(c => `<span class="px-3 py-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-label font-bold tracking-widest uppercase text-on-surface/80">${c}</span>`).join('')}
+                      <span class="px-3 py-1 bg-primary text-on-primary backdrop-blur-md border border-primary/40 rounded-md text-[9px] font-mono font-bold tracking-widest uppercase">CASE STUDY</span>
+                      ${p.categories.slice(0,2).map(c => `<span class="px-3 py-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-md text-[9px] font-mono font-bold tracking-widest uppercase text-on-surface/80">${c}</span>`).join('')}
                    </div>
                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-headline font-extrabold mb-3 leading-tight text-white group-hover:text-primary transition-colors">${p.title}</h3>
                    <p class="text-on-surface-variant text-sm md:text-base line-clamp-2 max-w-xl mb-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">${p.description || (p.sections && p.sections[0] ? p.sections[0].shortSummary : 'Detailed Case Study')}</p>
+                   ${metricChips ? `<div class="hidden md:flex flex-wrap gap-2 mb-5">${metricChips}</div>` : ''}
                    <div class="flex items-center gap-3 font-headline font-bold text-tertiary transition-transform group-hover:translate-x-2">
                       <span class="text-xs uppercase tracking-widest">Explore Discovery</span>
                       <span class="material-symbols-outlined text-[20px]">north_east</span>
@@ -594,11 +603,11 @@ function openModal(project) {
      if (vis) {
          headerSec = `
             <div class="mb-12">
-                <h4 class="text-sm font-label uppercase tracking-widest text-primary mb-3">The Vision</h4>
+                <h4 class="text-sm font-label uppercase tracking-widest text-primary mb-3">// The Vision</h4>
                 <p class="text-lg md:text-xl leading-relaxed text-on-surface/90 mb-6">${vis.fullDescription}</p>
                 ${vis.servicesProvided ? `
                   <div class="flex flex-wrap gap-2">
-                     ${vis.servicesProvided.map(s => `<span class="px-3 py-1.5 bg-surface-container-high rounded-full text-xs font-label uppercase tracking-widest">${s}</span>`).join('')}
+                     ${vis.servicesProvided.map(s => `<span class="spec-chip">${s}</span>`).join('')}
                   </div>
                 `: ''}
             </div>
@@ -609,7 +618,7 @@ function openModal(project) {
          solutionSec = `
             <div class="mb-12 p-6 md:p-8 bg-surface-container rounded-xl border border-outline-variant dark:border-white/5 relative overflow-hidden">
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
-                <h4 class="text-sm font-label uppercase tracking-widest text-tertiary mb-6 relative z-10">${sol.header}</h4>
+                <h4 class="text-sm font-label uppercase tracking-widest text-tertiary mb-6 relative z-10">// ${sol.header}</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
                     ${(sol.features||[]).map(f => `
                         <div>
@@ -625,15 +634,15 @@ function openModal(project) {
      if (met) {
          metricsSec = `
             <div class="border-t border-outline-variant dark:border-white/5 pt-10 mt-10">
-                <h4 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-8 text-center">${met.header}</h4>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <h4 class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-8 text-center">// ${met.header}</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                    ${(met.stats||[]).map(s => {
                        // Support both plain {label, value} stats and before/after {label, pre, post, impact} stats
                        const statValue = s.post ? `${s.pre} → ${s.post}` : (s.value ?? '—');
-                       const statImpact = s.impact ? `<div class="text-[10px] font-label text-on-surface-variant/80 mt-1">${s.impact}</div>` : '';
+                       const statImpact = s.impact ? `<div class="text-[10px] font-label text-on-surface-variant/80 mt-2">${s.impact}</div>` : '';
                        return `
-                       <div class="p-4 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
-                           <div class="text-xl md:text-2xl font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-1">${statValue}</div>
+                       <div class="p-5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors border border-outline-variant dark:border-white/5">
+                           <div class="text-xl md:text-2xl metric-value text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-1.5">${statValue}</div>
                            <div class="text-[10px] md:text-xs font-label uppercase tracking-widest text-on-surface-variant">${s.label}</div>
                            ${statImpact}
                        </div>
@@ -664,8 +673,12 @@ function openModal(project) {
         <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
         <div class="absolute bottom-6 px-6 md:px-10 w-full flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-               <h2 class="text-3xl md:text-5xl font-headline font-extrabold tracking-tight mb-2">${project.title}</h2>
-               <div class="text-on-surface-variant flex items-center gap-2 text-sm"><span class="material-symbols-outlined text-[16px]">domain</span> ${project.client || 'Personal'} &nbsp;|&nbsp; <span class="material-symbols-outlined text-[16px]">location_on</span> ${project.location || 'Global'}</div>
+               <h2 class="text-3xl md:text-5xl font-headline font-extrabold tracking-tight mb-3">${project.title}</h2>
+               <div class="flex flex-wrap gap-2">
+                  <span class="spec-chip spec-chip--invert"><span class="material-symbols-outlined text-[13px]">domain</span> ${project.client || 'Personal'}</span>
+                  <span class="spec-chip spec-chip--invert"><span class="material-symbols-outlined text-[13px]">location_on</span> ${project.location || 'Global'}</span>
+                  <span class="spec-chip spec-chip--invert"><span class="material-symbols-outlined text-[13px]">calendar_month</span> ${project.date ? project.date.split('-').reverse().join('/') : '—'}</span>
+               </div>
             </div>
             <a href="${project.websiteUrl}" target="_blank" class="px-6 py-3 rounded-full bg-white text-[#131313] font-label font-bold tracking-widest uppercase text-xs hover:bg-white/90 transition-colors shrink-0 text-center">Visit Live Site</a>
         </div>
@@ -791,7 +804,7 @@ function renderFilterCounts() {
 // Rotating hero roles (skipped for reduced-motion users)
 const roleRotator = document.getElementById('role-rotator');
 if (roleRotator && !prefersReducedMotion) {
-  const roles = ['Full-Stack Developer', 'React Engineer', 'Next.js Specialist', 'Laravel Developer', 'UI Designer'];
+  const roles = ['Full-Stack Developer', 'React Engineer', 'Next.js Specialist', 'Laravel Developer', 'Performance Engineer', 'UI Designer'];
   let roleIdx = 0;
   setInterval(() => {
     roleRotator.classList.add('role-fade');

@@ -76,11 +76,14 @@ async function main() {
       }).observe({ type: 'longtask', buffered: true });
     } catch (e) {}
   `;
+  console.log('STEP ws open');
   await send('Page.addScriptToEvaluateOnNewDocument', { source: setup });
   await send('Page.enable');
   await send('Runtime.enable');
+  console.log('STEP navigating');
   await send('Page.navigate', { url: URL });
   await sleep(5000);
+  console.log('STEP settled, scrolling');
   // Trigger lazy-loaded images by scrolling through the page.
   await evalJs(`(async () => {
     const h = document.body.scrollHeight;
@@ -90,6 +93,7 @@ async function main() {
   })()`);
   await sleep(3000);
 
+  console.log('STEP collecting');
   const report = await evalJs(`(() => {
     const nav = performance.getEntriesByType('navigation')[0];
     const res = performance.getEntriesByType('resource');
