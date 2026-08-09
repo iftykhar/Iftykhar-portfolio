@@ -239,7 +239,47 @@ function toggleTheme() {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     updateThemeIcons();
+    applyThemeToIcons();
     particles.forEach(p => p.reset());
+}
+
+// --- Theme-aware skill logos ---
+// Skill logos are stored theme-neutral (no hardcoded dark/light variant).
+// themedIconUrl() resolves the correct variant for the active theme; it is used
+// both at render time and for hot-swapping <img> srcs on theme toggle.
+// simpleicons glyphs use the official brand color in light mode (via `brand`)
+// and flip to white in dark mode so they stay visible on dark surfaces.
+function themedIconUrl(base, dark, brand) {
+    if (base.includes('skillicons.dev')) {
+        // skillicons: theme=light = light tile + dark glyph, theme=dark = dark tile + light glyph
+        return `${base}${base.includes('?') ? '&' : '?'}theme=${dark ? 'dark' : 'light'}`;
+    }
+    if (base.includes('cdn.simpleicons.org')) {
+        // simpleicons: single-color glyph — official brand color on light, white on dark
+        return `${base}/${dark ? 'ffffff' : (brand || '000000')}`;
+    }
+    return base;
+}
+
+function skillIconUrl(skill, dark = document.documentElement.classList.contains('dark')) {
+    return themedIconUrl((skill && skill.icon) || '', dark, skill && skill.brand);
+}
+
+function isExternalIcon(skill) {
+    return /^https?:\/\//.test((skill && skill.icon) || '');
+}
+
+// Swap every rendered external logo to the active theme's variant.
+// Runs before first paint (to avoid a wrong-theme flash) and on theme toggle.
+function applyThemeToIcons() {
+    const dark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('img[data-icon-base]').forEach(img => {
+        img.src = themedIconUrl(
+            img.getAttribute('data-icon-base'),
+            dark,
+            img.getAttribute('data-icon-color')
+        );
+    });
 }
 
 // Initialize Theme - saved preference wins, otherwise follow the OS preference
@@ -254,6 +294,9 @@ if (initialDark) {
     document.documentElement.classList.remove('dark');
 }
 updateThemeIcons();
+// Fix external logo variants before first paint (deferred script runs post-parse,
+// pre-paint) so dark-mode visitors never see a light-theme icon flash.
+applyThemeToIcons();
 
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
@@ -749,7 +792,7 @@ function renderSkills() {
     const skillCard = (skill) => {
         const iconSection = skill.isMaterialIcon 
             ? `<span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-3 block group-hover:scale-110 transition-transform">${skill.icon}</span>`
-            : `<img src="${skill.icon}" alt="${skill.name}" class="h-10 md:h-12 w-auto mb-3 block group-hover:scale-110 transition-transform" />`;
+            : `<img src="${skillIconUrl(skill)}" alt="${skill.name}" loading="lazy" class="skill-icon h-10 md:h-12 w-auto mb-3 block group-hover:scale-110 transition-transform"${isExternalIcon(skill) ? ` data-icon-base="${skill.icon}"${skill.brand ? ` data-icon-color="${skill.brand}"` : ''}` : ''} />`;
         return `
             <div class="group p-6 md:p-8 rounded-xl bg-surface-container-low hover:bg-surface-container hover:scale-[1.02] transition-all duration-500 fade-up stagger-${skill.stagger}">
                 ${iconSection}
@@ -783,7 +826,7 @@ function renderMarquee() {
     if (!track || !window.skillsData) return;
     const chips = window.skillsData.filter(s => !s.isMaterialIcon).map(s => `
         <span class="marquee-item inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-surface-container-low border border-outline-variant dark:border-white/5 mr-6 whitespace-nowrap">
-            <img src="${s.icon}" alt="" class="h-6 w-auto" loading="lazy" />
+            <img src="${skillIconUrl(s)}" alt="" class="skill-icon h-6 w-auto" loading="lazy"${isExternalIcon(s) ? ` data-icon-base="${s.icon}"${s.brand ? ` data-icon-color="${s.brand}"` : ''}` : ''} />
             <span class="font-label font-bold text-sm text-on-surface-variant">${s.name}</span>
         </span>
     `).join('');
@@ -838,6 +881,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderSkills();        // Skills grid (tiered)
         renderFilterCounts();  // Live pill counts (before indicator is measured)
         renderProjects('all'); // Projects
+        applyThemeToIcons();   // Sync external logos (hero chips) to the active theme
 
         // Measure the filter indicator AFTER counts are populated
         const activeFilter = document.querySelector('.filter-btn.active');
