@@ -36,31 +36,31 @@
 }
 
 :root {
-  /* Light Mode Palette */
-  --background: 253 248 248;
-  --on-background: 28 27 27;
-  --surface: 253 248 248;
-  --on-surface: 28 27 27;
-  --surface-variant: 229 225 230;
-  --on-surface-variant: 70 70 79;
-  --surface-container-lowest: 255 255 255;
-  --surface-container-low: 247 243 243;
-  --surface-container: 241 238 238;
-  --surface-container-high: 235 232 232;
-  --surface-container-highest: 224 222 222;
-  --surface-bright: 253 248 248;
-  --surface-dim: 222 217 217;
-  --inverse-surface: 49 48 51;
-  --inverse-on-surface: 244 239 244;
-  --primary: 78 78 207;
+  /* Light Mode Palette — warm paper + ink, tuned for a Modular-Typography / Neo-Brutalist reading */
+  --background: 250 246 240;
+  --on-background: 26 23 20;
+  --surface: 250 246 240;
+  --on-surface: 26 23 20;
+  --surface-variant: 228 220 208;
+  --on-surface-variant: 88 79 68;
+  --surface-container-lowest: 255 252 245;
+  --surface-container-low: 246 241 232;
+  --surface-container: 240 234 224;
+  --surface-container-high: 233 225 214;
+  --surface-container-highest: 221 212 199;
+  --surface-bright: 250 246 240;
+  --surface-dim: 226 218 207;
+  --inverse-surface: 43 38 33;
+  --inverse-on-surface: 244 239 233;
+  --primary: 79 70 229;
   --on-primary: 255 255 255;
   --primary-container: 224 224 255;
   --on-primary-container: 0 0 110;
-  --secondary: 144 78 191;
+  --secondary: 168 85 247;
   --on-secondary: 255 255 255;
   --secondary-container: 246 217 255;
   --on-secondary-container: 44 0 81;
-  --tertiary: 0 104 118;
+  --tertiary: 0 110 118;
   --on-tertiary: 255 255 255;
   --tertiary-container: 172 237 255;
   --on-tertiary-container: 0 31 36;
@@ -68,10 +68,12 @@
   --on-error: 255 255 255;
   --error-container: 255 218 214;
   --on-error-container: 65 0 2;
-  --outline: 119 118 128;
-  --outline-variant: 199 197 208;
-  --surface-tint: 78 78 207;
-  --nav-bg: 253 248 248;
+  --outline: 83 75 64;
+  --outline-variant: 222 213 198;
+  --surface-tint: 79 70 229;
+  --nav-bg: 250 246 240;
+  --ink: 24 21 17;                  /* neo ink — warm near-black (light theme) */
+  --paper: var(--surface-container-lowest); /* neo paper — card fill (light theme) */
 }
 
 .dark {
@@ -111,6 +113,8 @@
   --outline-variant: 70 69 84;
   --surface-tint: 192 193 255;
   --nav-bg: 19 19 19;
+  --ink: 229 226 225;               /* neo ink — light (dark theme) */
+  --paper: var(--surface-container-high); /* neo paper — card fill (dark theme) */
 }
 
 body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-family:'Inter',sans-serif; letter-spacing:-0.011em; overflow-x:hidden; transition: background 0.4s ease, color 0.4s ease; }
@@ -771,6 +775,216 @@ input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:fo
   -webkit-mask-image: radial-gradient(ellipse 72% 60% at 50% 40%, #000 25%, transparent 75%);
   mask-image: radial-gradient(ellipse 72% 60% at 50% 40%, #000 25%, transparent 75%);
 }
+
+/* ================================================================
+   Neo-Brutalism + Modular Typography (applies to BOTH themes)
+   Ink/paper are theme-aware tokens (--ink / --paper) defined in the
+   :root and .dark blocks above, so these same rules drive both looks.
+   ================================================================ */
+
+/* --- Modular Typography: type is the hero --- */
+
+/* Hero display gets a modular bump — larger, tighter, type-first */
+#hero h1 {
+  font-size: clamp(2.6rem, 7.5vw, 6.4rem);
+  letter-spacing: -0.035em;
+}
+section h2 { letter-spacing: -0.03em; }
+
+/* Dotted blueprint field behind the hero headline (light only) — a modular grid
+   that anchors the display type. Masked to fade out toward the portrait. */
+:root:not(.dark) .hero-dots {
+  pointer-events: none;
+  background-image: radial-gradient(rgb(var(--primary) / 0.38) 1.5px, transparent 1.6px);
+  background-size: 24px 24px;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 60% 65% at 32% 40%, #000 0%, transparent 74%);
+  mask-image: radial-gradient(ellipse 60% 65% at 32% 40%, #000 0%, transparent 74%);
+  opacity: 0.55;
+}
+/* Mobile: the copy is centered, so recenter the dot field behind it */
+@media (max-width: 1023px) {
+  :root:not(.dark) .hero-dots {
+    -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 40%, #000 0%, transparent 74%);
+    mask-image: radial-gradient(ellipse 65% 60% at 50% 40%, #000 0%, transparent 74%);
+  }
+}
+
+/* Ghost letters become hollow modular outlines (instead of a faint fill) */
+.ghost-letter {
+  color: transparent;
+  -webkit-text-stroke: 2.5px rgb(var(--ink) / 0.42);
+  font-weight: 700;
+}
+
+/* Editorial kickers flip to ink with a chunky rule */
+.section-kicker { color: rgb(var(--ink)); }
+.section-kicker::before {
+  height: 3px;
+  width: 2.8rem;
+  background: rgb(var(--ink));
+}
+
+/* --- Neo-Brutalist surfaces --- */
+
+/* All section cards: paper fill, thick ink border, hard offset shadow */
+/* :not(a):not(button) keeps interactive elements (CTAs, buttons) out of the generic card
+   treatment — they have their own dedicated neo rules below. */
+section .rounded-2xl:not(a):not(button),
+section .rounded-xl:not(a):not(button) {
+  background: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  border-radius: 14px;
+  box-shadow: 6px 6px 0 rgb(var(--ink));
+}
+
+/* Contact panel + hero portrait get the same sticker treatment */
+#contact > div {
+  background: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  box-shadow: 8px 8px 0 rgb(var(--ink));
+}
+#hero-portrait .rounded-3xl {
+  border: 2px solid rgb(var(--ink));
+  box-shadow: 10px 10px 0 rgb(var(--ink));
+}
+
+/* Modal panel: it's a body-level <div>, so the section card rule never reaches it —
+   keep it in the neo family so dialogs match the theme too */
+#project-modal-content {
+  border: 2px solid rgb(var(--ink));
+  box-shadow: 8px 8px 0 rgb(var(--ink));
+}
+
+/* Nav: solid paper pill, ink frame, hard shadow.
+   (#navbar #navbar-inner keeps beating the .scrolled compact rule, which has the same
+   ID specificity but appears earlier in the file.) */
+#navbar #navbar-inner {
+  background: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  box-shadow: 5px 5px 0 rgb(var(--ink));
+}
+
+/* --- Neo buttons / chips / pills --- */
+
+/* Primary hero CTA: solid ink slab with indigo offset */
+#magnetic-cta {
+  background: rgb(var(--ink));
+  color: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 rgb(var(--primary));
+}
+#magnetic-cta:hover {
+  box-shadow: 3px 3px 0 rgb(var(--primary));
+  transform: translate(2px, 2px);
+}
+#magnetic-cta:active {
+  box-shadow: 0 0 0 rgb(var(--primary));
+  transform: translate(5px, 5px);
+}
+
+/* Nav "Hire Me" CTA: same language, smaller offset */
+.nb-cta {
+  background: rgb(var(--ink));
+  color: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 rgb(var(--primary));
+}
+.nb-cta:hover {
+  box-shadow: 2px 2px 0 rgb(var(--primary));
+  transform: translate(2px, 2px);
+}
+
+/* Download Resume: outlined sticker */
+.nb-outline-btn {
+  background: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 rgb(var(--secondary));
+}
+.nb-outline-btn:hover {
+  box-shadow: 3px 3px 0 rgb(var(--secondary));
+  transform: translate(2px, 2px);
+}
+
+/* Hero availability pill: bordered sticker */
+.nb-pill {
+  background: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  box-shadow: 3px 3px 0 rgb(var(--ink));
+}
+
+/* Spec chips + floating tech chips: sticker chips.
+   spec-chip--invert stays dark-on-dark: it sits over imagery and must keep its white text. */
+.spec-chip:not(.spec-chip--invert),
+.tech-chip {
+  background: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgb(var(--ink));
+}
+
+/* Marquee pills: printed sticker strip */
+.marquee-item {
+  background: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  box-shadow: 3px 3px 0 rgb(var(--ink));
+}
+
+/* Filter pills: bordered; active = solid ink slab */
+.filter-btn {
+  border: 2px solid rgb(var(--ink));
+  border-radius: 9999px;
+  background: rgb(var(--paper));
+}
+.filter-btn.active {
+  background: rgb(var(--ink));
+  color: rgb(var(--paper));
+  box-shadow: 3px 3px 0 rgb(var(--primary));
+}
+/* Keep the active pill's hard shadow visible inside the overflow-x-auto filter bar */
+#project-filters { padding-bottom: 0.45rem; }
+
+/* Submit button: ink slab with indigo offset */
+#contact-form button[type="submit"] {
+  background: rgb(var(--ink));
+  color: rgb(var(--paper));
+  border: 2px solid rgb(var(--ink));
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 rgb(var(--primary));
+}
+#contact-form button[type="submit"]:hover {
+  box-shadow: 3px 3px 0 rgb(var(--primary));
+  transform: translate(2px, 2px);
+}
+
+/* Form underlines read thicker */
+input[type="text"],
+input[type="email"],
+textarea { border-bottom-width: 3px; }
+
+/* About "Download Resume": neo ink slab (it's an <a>, so the generic card rule skips it
+   — without this it floats as a borderless gradient among the sticker cards). */
+#about a[download] {
+  background: rgb(var(--ink));
+  border: 2px solid rgb(var(--ink));
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 rgb(var(--primary));
+  color: rgb(var(--paper));
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+#about a[download]:hover {
+  box-shadow: 3px 3px 0 rgb(var(--primary));
+  transform: translate(2px, 2px);
+}
+
+/* The sliding gradient indicator no longer fits the neo pills — hide it */
+.filter-indicator { display: none; }
+
+/* Grain reads a touch stronger on paper (light only — dark keeps its subtle base) */
+:root:not(.dark) .media-grain { opacity: 0.09; }
 
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {

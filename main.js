@@ -447,12 +447,12 @@ function renderProjects(filter = 'all') {
                 <div class="card-tilt-inner">
                    <div class="flex flex-wrap gap-2 mb-4">
                       <span class="px-3 py-1 bg-primary text-on-primary backdrop-blur-md border border-primary/40 rounded-md text-[9px] font-mono font-bold tracking-widest uppercase">CASE STUDY</span>
-                      ${p.categories.slice(0,2).map(c => `<span class="px-3 py-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-md text-[9px] font-mono font-bold tracking-widest uppercase text-on-surface/80">${c}</span>`).join('')}
+                      ${p.categories.slice(0,2).map(c => `<span class="px-3 py-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-md text-[9px] font-mono font-bold tracking-widest uppercase text-white/80">${c}</span>`).join('')}
                    </div>
                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-headline font-extrabold mb-3 leading-tight text-white group-hover:text-primary transition-colors">${p.title}</h3>
-                   <p class="text-on-surface-variant text-sm md:text-base line-clamp-2 max-w-xl mb-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">${p.description || (p.sections && p.sections[0] ? p.sections[0].shortSummary : 'Detailed Case Study')}</p>
+                   <p class="text-white/70 text-sm md:text-base line-clamp-2 max-w-xl mb-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">${p.description || (p.sections && p.sections[0] ? p.sections[0].shortSummary : 'Detailed Case Study')}</p>
                    ${metricChips ? `<div class="hidden md:flex flex-wrap gap-2 mb-5">${metricChips}</div>` : ''}
-                   <div class="flex items-center gap-3 font-headline font-bold text-tertiary transition-transform group-hover:translate-x-2">
+                   <div class="flex items-center gap-3 font-headline font-bold text-[#4CD7F6] transition-transform group-hover:translate-x-2">
                       <span class="text-xs uppercase tracking-widest">Explore Discovery</span>
                       <span class="material-symbols-outlined text-[20px]">north_east</span>
                    </div>
@@ -494,7 +494,7 @@ function renderProjects(filter = 'all') {
                  <div class="flex gap-2">
                     ${p.categories.slice(0,1).map(c => `<span class="text-[10px] font-label font-bold text-on-surface-variant/60 uppercase tracking-widest">${c}</span>`)}
                  </div>
-                 <a href="${p.websiteUrl}" target="_blank" class="text-tertiary hover:text-white transition-colors">
+                 <a href="${p.websiteUrl}" target="_blank" class="text-tertiary hover:text-primary transition-colors">
                     <span class="material-symbols-outlined text-[20px]">open_in_new</span>
                  </a>
               </div>
