@@ -739,7 +739,7 @@ sections: [
         fullDescription: "The challenge was to transition a high-touch clinical practice into a high-performance digital asset. Fistech intervened to eliminate the disconnect between patient needs and digital accessibility. We bypassed generic medical templates to build a custom Next.js architecture that prioritizes load velocity, clinical authority, and user retention.",
         servicesProvided: [
           "Next.js Server-Side Rendering (SSR)",
-          "Parametric UI/UX Design",
+          "Parametric Responsive UI",
           "Technical SEO Audit & Implementation",
           "Modular Frontend Architecture",
           "Conversion Rate Optimization (CRO)"

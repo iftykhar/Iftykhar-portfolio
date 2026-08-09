@@ -1,6 +1,6 @@
 # Iftykhar Alam — Portfolio
 
-Welcome to my personal portfolio! I'm **S M Iftykhar Ul Alam**, a Full-Stack Developer and UI/UI Designer based in Dhaka, Bangladesh, specializing in high-performance **React / Next.js** frontends and **Laravel**-backed backends.
+Welcome to my personal portfolio! I'm **S M Iftykhar Ul Alam**, a Full-Stack Developer based in Dhaka, Bangladesh, specializing in high-performance **React / Next.js** frontends and **Laravel**-backed backends.
 
 ## 🚀 Live Site
 

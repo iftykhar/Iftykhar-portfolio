@@ -804,7 +804,7 @@ function renderFilterCounts() {
 // Rotating hero roles (skipped for reduced-motion users)
 const roleRotator = document.getElementById('role-rotator');
 if (roleRotator && !prefersReducedMotion) {
-  const roles = ['Full-Stack Developer', 'React Engineer', 'Next.js Specialist', 'Laravel Developer', 'Performance Engineer', 'UI Designer'];
+  const roles = ['Full-Stack Developer', 'React Engineer', 'Next.js Specialist', 'Laravel Developer', 'Performance Engineer', 'Software Engineer'];
   let roleIdx = 0;
   setInterval(() => {
     roleRotator.classList.add('role-fade');
@@ -844,3 +844,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if(activeFilter) updateFilterIndicator(activeFilter);
     }, 100);
 });
+
+

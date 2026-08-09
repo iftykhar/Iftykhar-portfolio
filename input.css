@@ -26,6 +26,14 @@
   font-display: swap;
   src: url('./fonts/material-symbols-outlined.woff2') format('woff2');
 }
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('./fonts/space-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
   /* Light Mode Palette */
@@ -105,9 +113,10 @@
   --nav-bg: 19 19 19;
 }
 
-body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-family:'Inter',sans-serif; overflow-x:hidden; transition: background 0.4s ease, color 0.4s ease; }
+body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-family:'Inter',sans-serif; letter-spacing:-0.011em; overflow-x:hidden; transition: background 0.4s ease, color 0.4s ease; }
 .font-headline { font-family:'Plus Jakarta Sans',sans-serif; }
 .font-label { font-family:'Plus Jakarta Sans',sans-serif; }
+.font-display { font-family:'Space Grotesk',sans-serif; }
 .glass-nav { background:rgb(var(--nav-bg) / 0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
 
 .hero-gradient { background:radial-gradient(circle at 50% 50%,rgba(99,102,241,0.15) 0%,rgba(168,85,247,0.1) 25%,transparent 70%); }
@@ -167,8 +176,7 @@ canvas#particles { position:absolute; inset:0; pointer-events:none; transform: t
 .nav-link:hover::after, .nav-link.active::after { width:100%; left:0; }
 #mobile-menu { transform:translateX(100%); transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); }
 #mobile-menu.open { transform:translateX(0); }
-.hobby-card img { filter:grayscale(80%); transition:filter 0.6s, transform 0.6s; }
-.hobby-card:hover img { filter:grayscale(0%); transform:scale(1.08); }
+
 input[type="text"], input[type="email"], textarea {
   background:transparent; border:none; border-bottom:2px solid rgb(var(--outline)); border-radius:0;
   color:rgb(var(--on-surface)); padding:12px 0; width:100%; font-family:'Inter', sans-serif; transition:border-color 0.3s, box-shadow 0.3s;
@@ -363,21 +371,7 @@ details summary::-webkit-details-marker { display:none; }
   border-color: rgb(var(--primary) / 0.25);
 }
 
-/* Mobile menu numbered links */
-.mobile-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  margin-right: 0.75rem;
-  border-radius: 9999px;
-  background: rgb(var(--primary-container));
-  color: rgb(var(--on-primary-container));
-  font-size: 0.6rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
+/* Mobile menu links */
 .mobile-link {
   display: flex;
   align-items: center;
@@ -489,15 +483,15 @@ input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:fo
    Engineering Precision (editorial structure over decoration)
    ================================================================ */
 
-/* Numbered editorial section kicker — e.g. "01 — About" */
+/* Editorial section kicker — e.g. "About" */
 .section-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 0.7rem;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: rgb(var(--primary));
   margin-bottom: 1.25rem;
@@ -507,6 +501,213 @@ input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:fo
   width: 2.5rem;
   height: 1px;
   background: linear-gradient(90deg, #6366F1, #A855F7);
+}
+
+/* ================================================================
+   Memphis + Modular Typography accents
+   ================================================================ */
+
+/* Ghost letterform — oversized watermark behind section headings.
+   Sits behind content: parents must establish a stacking context (position:relative + z-index:0) so z-index:-1 keeps it above the section background but below the text. */
+.ghost-letter {
+  position: absolute;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight: 700;
+  font-size: clamp(4.5rem, 15vw, 13rem);
+  line-height: 1;
+  color: rgb(var(--on-surface) / 0.07);
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+  white-space: nowrap;
+}
+
+/* Base for all Memphis shapes — position with utilities in markup */
+.mem-shape {
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+
+/* Wavy squiggle line */
+.mem-squiggle {
+  width: 96px;
+  height: 28px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='28' viewBox='0 0 96 28' fill='none'%3E%3Cpath d='M2 14 Q 12 2 22 14 T 42 14 T 62 14 T 82 14 T 94 14' stroke='%23A855F7' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* Zigzag line */
+.mem-zigzag {
+  width: 80px;
+  height: 30px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30' fill='none'%3E%3Cpolyline points='2,26 14,4 26,26 38,4 50,26 62,4 74,26 78,18' stroke='%236366F1' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* Dot field */
+.mem-dots {
+  background-image: radial-gradient(rgb(var(--primary) / 0.5) 2px, transparent 2.6px);
+  background-size: 16px 16px;
+  opacity: 0.55;
+}
+
+/* Diagonal stripes */
+.mem-stripes {
+  background-image: repeating-linear-gradient(-45deg, rgb(var(--secondary) / 0.45) 0 6px, transparent 6px 14px);
+}
+
+/* Dashed offset frame */
+.mem-frame {
+  border: 3px dashed rgb(var(--tertiary) / 0.45);
+  border-radius: 1.25rem;
+  transform: rotate(-4deg);
+}
+
+/* Half-circle arc */
+.mem-arc {
+  width: 120px;
+  height: 60px;
+  border-radius: 120px 120px 0 0;
+  border: 5px solid rgb(var(--primary) / 0.5);
+  border-bottom: 0;
+}
+
+/* Triangle */
+.mem-tri {
+  width: 0;
+  height: 0;
+  border-left: 26px solid transparent;
+  border-right: 26px solid transparent;
+  border-bottom: 44px solid rgb(var(--secondary) / 0.55);
+}
+
+/* Solid Memphis pop blocks */
+.mem-pop { border-radius: 6px; }
+.mem-pop-pink { background: #FF5CA8; }
+.mem-pop-yellow { background: #FFD166; }
+.mem-pop-cyan { background: #4CD7F6; }
+
+/* Gentle bobbing — automatically disabled by the reduced-motion block.
+   Preserves an optional tilt via the --mem-rotate custom property (used instead of Tailwind rotate utilities, which the animated transform would override). */
+.mem-float { animation: mem-float 5s ease-in-out infinite; }
+@keyframes mem-float {
+  0%, 100% { transform: translateY(0) rotate(var(--mem-rotate, 0deg)); }
+  50% { transform: translateY(-8px) rotate(var(--mem-rotate, 0deg)); }
+}
+
+/* ================================================================
+   Mixed Media — grain, halftone, polaroids, hand-drawn marks
+   ================================================================ */
+
+/* Film grain / paper texture overlay (fixed, sits above content, below modals) */
+.media-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.055;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Print / comic halftone dot screens (theme-aware via on-surface) */
+.halftone {
+  background-image: radial-gradient(rgb(var(--on-surface) / 0.08) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+.halftone-lg {
+  background-image: radial-gradient(rgb(var(--on-surface) / 0.06) 2px, transparent 2px);
+  background-size: 26px 26px;
+}
+
+/* Polaroid instant-photo card — white frame, tape, caption */
+.polaroid {
+  position: relative;
+  background: #faf9f7;
+  padding: 10px 10px 0;
+  border-radius: 3px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s;
+  z-index: 1;
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+}
+.polaroid-img {
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: #ece9e4;
+}
+.polaroid-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(75%);
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+.polaroid:hover .polaroid-img img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+.polaroid figcaption {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3d3a35;
+  text-align: center;
+  padding: 10px 4px 12px;
+}
+.polaroid-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 92px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255, 214, 102, 0.38);
+  border-left: 1px dashed rgba(0, 0, 0, 0.08);
+  border-right: 1px dashed rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  opacity: 0.9;
+}
+
+/* Hand-drawn scribble SVGs (stroke draws in, disabled by reduced-motion).
+   Uses pathLength="1" in markup so the dash draw-in works for any path length. */
+.scribble path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: scribble-draw 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes scribble-draw { to { stroke-dashoffset: 0; } }
+.scribble-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.42em;
+  width: 100%;
+  height: 0.5em;
+  pointer-events: none;
+}
+.scribble-circle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Logo chips for the hero (replaces text chips around the portrait) */
+.tech-chip-logo {
+  padding: 0.42rem;
+}
+.tech-chip-logo img {
+  width: 1.55rem;
+  height: 1.55rem;
+  display: block;
+  object-fit: contain;
 }
 
 /* Monospace spec chip — small "technical proof" label */
