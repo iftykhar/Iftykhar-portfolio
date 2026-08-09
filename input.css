@@ -118,6 +118,42 @@
 }
 
 body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-family:'Inter',sans-serif; letter-spacing:-0.011em; overflow-x:hidden; transition: background 0.4s ease, color 0.4s ease; }
+
+/* Ambient site-wide background: soft theme-tuned glows + a faint dot texture.
+   Fixed at z-0 and first in the DOM, so every section (positioned, z-0, later in
+   DOM order) paints above it. Static — no animation, so it respects reduced motion
+   by construction and costs nothing while scrolling. */
+#ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 58% 46% at 16% 10%, rgb(var(--primary) / 0.10), transparent 62%),
+    radial-gradient(ellipse 46% 40% at 86% 20%, rgb(var(--secondary) / 0.09), transparent 60%),
+    radial-gradient(ellipse 52% 46% at 72% 84%, rgb(var(--tertiary) / 0.08), transparent 62%),
+    radial-gradient(ellipse 40% 34% at 20% 66%, rgb(var(--secondary) / 0.06), transparent 60%);
+}
+#ambient-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgb(var(--on-surface) / 0.055) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.35) 45%, #000 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.35) 45%, #000 100%);
+}
+/* Dark mode: glows read softer on near-black, so lift the alphas a touch */
+.dark #ambient-bg {
+  background-image:
+    radial-gradient(ellipse 58% 46% at 16% 10%, rgb(var(--primary) / 0.13), transparent 62%),
+    radial-gradient(ellipse 46% 40% at 86% 20%, rgb(var(--secondary) / 0.11), transparent 60%),
+    radial-gradient(ellipse 52% 46% at 72% 84%, rgb(var(--tertiary) / 0.10), transparent 62%),
+    radial-gradient(ellipse 40% 34% at 20% 66%, rgb(var(--secondary) / 0.07), transparent 60%);
+}
+.dark #ambient-bg::before {
+  background-image: radial-gradient(rgb(var(--on-surface) / 0.05) 1px, transparent 1px);
+}
 .font-headline { font-family:'Plus Jakarta Sans',sans-serif; }
 .font-label { font-family:'Plus Jakarta Sans',sans-serif; }
 .font-display { font-family:'Space Grotesk',sans-serif; }
@@ -713,6 +749,12 @@ input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:fo
   display: block;
   object-fit: contain;
 }
+
+/* Theme-aware skill logos.
+   External logos (skillicons / simpleicons) receive their light/dark variant via JS
+   (data-icon-base src swap on theme toggle). Local logos with dark glyphs would
+   vanish on dark cards; simpleicons ones use their official brand color in light
+   mode and flip to white in dark mode (handled in main.js, not CSS). */
 
 /* Monospace spec chip — small "technical proof" label */
 .spec-chip {
