@@ -74,6 +74,7 @@
 <script src="./main.js" defer></script>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<div id="ambient-bg" aria-hidden="true"></div>
 <a href="#projects" class="skip-link">Skip to content</a>
 <div id="custom-cursor"></div>
 <div class="media-grain" aria-hidden="true"></div>
@@ -254,10 +255,10 @@
       </div>
     </div>
     <!-- Floating tech logo chips -->
-    <div class="tech-chip tech-chip-logo absolute -top-5 -left-4 sm:-left-8" title="React.js"><img src="./image/react-logo.webp" alt="React.js" loading="lazy"/></div>
-    <div class="tech-chip tech-chip-logo absolute top-1/3 -right-3 sm:-right-9" style="animation-delay:-2.5s" title="Next.js"><img src="https://skillicons.dev/icons?i=nextjs&theme=dark" alt="Next.js" loading="lazy"/></div>
-    <div class="tech-chip tech-chip-logo absolute -bottom-5 -left-3 sm:-left-10" style="animation-delay:-5s" title="Laravel"><img src="./image/Laravel.webp" alt="Laravel" loading="lazy"/></div>
-    <div class="tech-chip tech-chip-logo absolute bottom-1/4 -right-2 sm:-right-7" style="animation-delay:-7.5s" title="TypeScript"><img src="https://skillicons.dev/icons?i=ts&theme=dark" alt="TypeScript" loading="lazy"/></div>
+    <div class="tech-chip tech-chip-logo absolute -top-5 -left-4 sm:-left-8" title="React.js"><img src="./image/react-logo.webp" alt="React.js" loading="lazy" class="skill-icon"/></div>
+    <div class="tech-chip tech-chip-logo absolute top-1/3 -right-3 sm:-right-9" style="animation-delay:-2.5s" title="Next.js"><img src="https://skillicons.dev/icons?i=nextjs" alt="Next.js" loading="lazy" class="skill-icon" data-icon-base="https://skillicons.dev/icons?i=nextjs"/></div>
+    <div class="tech-chip tech-chip-logo absolute -bottom-5 -left-3 sm:-left-10" style="animation-delay:-5s" title="Laravel"><img src="https://cdn.simpleicons.org/laravel" alt="Laravel" loading="lazy" class="skill-icon" data-icon-base="https://cdn.simpleicons.org/laravel" data-icon-color="FF2D20"/></div>
+    <div class="tech-chip tech-chip-logo absolute bottom-1/4 -right-2 sm:-right-7" style="animation-delay:-7.5s" title="TypeScript"><img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" loading="lazy" class="skill-icon" data-icon-base="https://skillicons.dev/icons?i=ts"/></div>
   </div>
 </div>
 <!-- Scroll cue -->
@@ -268,9 +269,9 @@
 </section>
 
 <!-- Tech Marquee -->
-<section class="py-10 md:py-16 px-6 md:px-8 relative z-0 overflow-hidden" aria-label="Technologies I work with">
+<section class="py-10 md:py-16 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" aria-label="Technologies I work with">
 <div class="mem-shape mem-dots absolute -top-8 right-10 w-24 h-24" aria-hidden="true"></div>
-<div class="max-w-7xl mx-auto">
+<div class="max-w-7xl mx-auto px-6 md:px-8">
   <p class="text-center text-xs font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 mb-10 fade-up">The stack I build with</p>
   <div class="marquee fade-up stagger-2">
     <div class="marquee-track" id="marquee-track"></div>
@@ -311,16 +312,18 @@
 </section>
 
 <!-- Technical Proficiency -->
-<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto relative z-0 overflow-hidden" id="skills">
-<div class="mem-shape mem-dots absolute -bottom-6 -left-10 w-40 h-40" aria-hidden="true"></div>
-<div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
-  <span class="ghost-letter -top-8 right-2" aria-hidden="true">T</span>
-  <p class="section-kicker fade-up">Toolkit</p>
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Technical <span class="text-tertiary">Proficiency</span></h2>
-  <p class="text-on-surface-variant font-body max-w-md">Modern tools for modern problems. I specialize in building scalable, accessible, and fast web applications.</p>
-</div>
-<div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 md:gap-6">
-  <!-- Rendered via JS -->
+<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="skills">
+<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+  <div class="mem-shape mem-dots absolute -bottom-6 -left-10 w-40 h-40" aria-hidden="true"></div>
+  <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+    <span class="ghost-letter -top-8 right-2" aria-hidden="true">T</span>
+    <p class="section-kicker fade-up">Toolkit</p>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Technical <span class="text-tertiary">Proficiency</span></h2>
+    <p class="text-on-surface-variant font-body max-w-md">Modern tools for modern problems. I specialize in building scalable, accessible, and fast web applications.</p>
+  </div>
+  <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 md:gap-6">
+    <!-- Rendered via JS -->
+  </div>
 </div>
 </section>
 
@@ -336,7 +339,8 @@
 
 
 <!-- Professional Experience -->
-<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto relative z-0 overflow-hidden" id="experience">
+<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="experience">
+<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
   <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
     <span class="ghost-letter -top-8 right-0 sm:-right-4" aria-hidden="true">E</span>
     <p class="section-kicker fade-up">Experience</p>
@@ -406,10 +410,12 @@
        </ul>
     </div>
   </div>
+</div>
 </section>
 
 <!-- Communication -->
-<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto relative z-0 overflow-hidden" id="communication">
+<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="communication">
+<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
   <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
     <span class="ghost-letter -top-8 right-0" aria-hidden="true">C</span>
     <p class="section-kicker fade-up">Communication</p>
@@ -435,12 +441,14 @@
       <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Coordinated with international stakeholders across time zones at Refuel Forecourts (Remote, UK) — led product discussions that improved report-generation efficiency by 30%.</p>
     </div>
   </div>
+</div>
 </section>
 
 <!-- Hobbies -->
-<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto relative z-0 overflow-hidden" id="hobbies">
-<div class="mem-shape mem-stripes absolute top-20 -right-8 w-32 h-6 opacity-80 rotate-12" aria-hidden="true"></div>
-<div class="fade-up mb-16">
+<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="hobbies">
+<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+  <div class="mem-shape mem-stripes absolute top-20 -right-8 w-32 h-6 opacity-80 rotate-12" aria-hidden="true"></div>
+  <div class="fade-up mb-16">
   <span class="ghost-letter -top-6 right-0 sm:-right-8" aria-hidden="true">B</span>
   <p class="section-kicker fade-up">Beyond the Code</p>
   <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface mb-4">Beyond <span class="text-secondary">The Code</span></h2>
@@ -469,10 +477,12 @@
     <figcaption>Traveling · Exploring New Places</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
 <!-- About (Bento) -->
-<section class="py-28 md:py-32 px-6 md:px-8 max-w-7xl mx-auto relative z-0 overflow-hidden" id="about">
+<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="about">
+<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
   <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
     <span class="ghost-letter -top-8 right-0 sm:-right-4" aria-hidden="true">A</span>
     <p class="section-kicker fade-up">About</p>
@@ -560,10 +570,11 @@
       </a>
     </div>
   </div>
+</div>
 </section>
 
 <!-- Contact -->
-<section class="py-28 md:py-32 px-6 md:px-8" id="contact">
+<section class="py-28 md:py-32 px-6 md:px-8 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="contact">
 <div class="max-w-7xl mx-auto rounded-3xl bg-surface-container-low dark:bg-white/[0.03] backdrop-blur-xl border border-outline-variant dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] relative z-0 overflow-hidden">
   <span class="ghost-letter -top-6 right-4 sm:right-10" aria-hidden="true">L</span>
   <div class="halftone-lg absolute bottom-16 right-8 w-56 h-56 opacity-40 pointer-events-none" aria-hidden="true"></div>
@@ -617,7 +628,7 @@
 </button>
 
 <!-- Footer -->
-<footer class="py-10 px-6 md:px-8 mt-24 bg-surface-container-lowest border-t border-outline-variant/40 dark:border-white/5 relative z-0 overflow-hidden">
+<footer class="py-10 px-6 md:px-8 mt-24 bg-surface-container-low/70 dark:bg-white/[0.035] border-t border-outline-variant/40 dark:border-white/5 relative z-0 overflow-hidden">
 <div class="mem-shape mem-tri absolute -bottom-1 right-16 opacity-50" aria-hidden="true"></div>
 <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
   <p class="text-on-surface-variant">© <span id="current-year">2025</span> Iftykhar Alam. All rights reserved.</p>
