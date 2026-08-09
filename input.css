@@ -816,6 +816,11 @@ section h2 { letter-spacing: -0.03em; }
   -webkit-text-stroke: 2.5px rgb(var(--ink) / 0.42);
   font-weight: 700;
 }
+/* Dark theme: a light stroke needs more alpha than a dark one to read at the same
+   perceived weight — keep the hollow outline crisp on dark surfaces. */
+.dark .ghost-letter {
+  -webkit-text-stroke: 2.5px rgb(var(--ink) / 0.62);
+}
 
 /* Editorial kickers flip to ink with a chunky rule */
 .section-kicker { color: rgb(var(--ink)); }
