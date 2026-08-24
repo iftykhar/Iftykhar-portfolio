@@ -13,6 +13,7 @@ window.projectData = [
   date: "2026-04-06",
   websiteUrl: "https://elitestonebuildersaz.vercel.app/",
   type: "case-study",
+  featured: true,
 
   // --- 2. MEDIA ASSETS ---
   heroImage: "./images/projects/elitestonebuildersaz.webp",
@@ -539,6 +540,7 @@ sections: [
     websiteUrl: "https://sktchlabs.com/",
     heroImage: "./images/projects/sktchlabs.webp",
     type: "case-study",
+    featured: true,
     sections: [
       {
         id: "section-vision",
@@ -729,6 +731,7 @@ sections: [
     date: "2026-03-29",
     websiteUrl: "https://www.lolophysicaltherapy.com/",
     type: "case-study",
+    featured: true,
     heroImage: "./images/projects/lolophysicaltherapy.webp",
     sections: [
       {
@@ -795,6 +798,7 @@ sections: [
     websiteUrl: "https://hierroamedida.com/",
     heroImage: "./images/projects/hierroamedida.webp",
     type: "case-study",
+    featured: true,
     sections: [
       {
         id: "section-vision",

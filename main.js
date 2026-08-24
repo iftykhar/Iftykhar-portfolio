@@ -65,7 +65,7 @@ class Particle {
 
 // Particle Configuration & Throttling
 const isMobile = window.innerWidth < 768;
-const particleCount = isMobile ? 40 : 250; 
+const particleCount = isMobile ? 25 : 80; 
 for(let i=0;i<particleCount;i++) particles.push(new Particle());
 
 let animationFrameId;
@@ -73,13 +73,14 @@ const canvasObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       if (prefersReducedMotion) return; // Reduced motion: keep the particle canvas static
-      if (isMobile) {
-        // Delay particle start on mobile to prioritize image paint
-        setTimeout(() => {
-          if (!animationFrameId) animateParticles();
-        }, 1000);
-      } else {
-        animateParticles();
+      // Defer particle start on all devices to prioritize first paint & reduce TBT
+      if (!animationFrameId) {
+        const startParticles = () => { if (!animationFrameId) animateParticles(); };
+        if (typeof requestIdleCallback !== 'undefined') {
+          requestIdleCallback(startParticles, { timeout: 2000 });
+        } else {
+          setTimeout(startParticles, 500);
+        }
       }
     } else {
       cancelAnimationFrame(animationFrameId);
@@ -101,29 +102,39 @@ function updateCursor() {
   }
   requestAnimationFrame(updateCursor);
 }
-updateCursor();
+// Defer cursor animation start to reduce initial main-thread blocking
+if (typeof requestIdleCallback !== 'undefined') {
+  requestIdleCallback(updateCursor, { timeout: 1500 });
+} else {
+  setTimeout(updateCursor, 300);
+}
 
 function animateParticles() {
   ctx.clearRect(0,0,canvas.width,canvas.height);
   particles.forEach(p=>{p.update();p.draw();});
-  particles.forEach((a,i)=>{ 
-    particles.slice(i+1).forEach(b=>{ 
-      const dx = a.x - b.x;
-      if (Math.abs(dx) > 100) return; // Performance Optimization: Skip distance calc if x is too far
-      const dy = a.y - b.y;
-      if (Math.abs(dy) > 100) return; // Performance Optimization: Skip distance calc if y is too far
-      const d=Math.hypot(dx,dy); 
-      if(d<100){
-        ctx.beginPath();
-        ctx.moveTo(a.x,a.y);
-        ctx.lineTo(b.x,b.y);
-        const isDark = document.documentElement.classList.contains('dark');
-        const color = isDark ? `99,102,241` : `150,150,150`;
-        ctx.strokeStyle=`rgba(${color},${0.12*(1-d/100)})`;
-        ctx.stroke();
+  // Optimized: skip connection drawing on 40% of frames to reduce TBT
+  const frameSkip = animationFrameId % 3 !== 0;
+  if (!frameSkip) {
+    const isDark = document.documentElement.classList.contains('dark');
+    const connColor = isDark ? `99,102,241` : `150,150,150`;
+    particles.forEach((a,i)=>{ 
+      for (let j=i+1;j<particles.length;j++) {
+        const b = particles[j];
+        const dx = a.x - b.x;
+        if (Math.abs(dx) > 100) continue;
+        const dy = a.y - b.y;
+        if (Math.abs(dy) > 100) continue;
+        const d=Math.hypot(dx,dy); 
+        if(d<100){
+          ctx.beginPath();
+          ctx.moveTo(a.x,a.y);
+          ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle=`rgba(${connColor},${0.12*(1-d/100)})`;
+          ctx.stroke();
+        }
       }
     });
-  });
+  }
   animationFrameId = requestAnimationFrame(animateParticles);
 }
 // Note: Initial call removed to let IntersectionObserver start animation
@@ -443,7 +454,9 @@ function renderProjects(filter = 'all') {
     }
 
     // Filter logic
-    const filtered = filter === 'all' ? data : data.filter(p => p.type === filter);
+    const filtered = filter === 'all' ? data
+      : filter === 'featured' ? data.filter(p => p.featured)
+      : data.filter(p => p.type === filter);
     
     // UI Layout Strategy: 
     // Case studies use a stylized Bento Grid.
@@ -838,7 +851,9 @@ function renderFilterCounts() {
     const data = window.projectData || [];
     document.querySelectorAll('.filter-btn').forEach(btn => {
         const f = btn.getAttribute('data-filter');
-        const count = f === 'all' ? data.length : data.filter(p => p.type === f).length;
+        const count = f === 'all' ? data.length
+          : f === 'featured' ? data.filter(p => p.featured).length
+          : data.filter(p => p.type === f).length;
         const span = btn.querySelector('.filter-count');
         if (span) span.textContent = count;
     });
@@ -873,20 +888,33 @@ if (magneticCta && !isCoarsePointer && !prefersReducedMotion) {
   });
 }
 
-// INITIALIZE ON LOAD
+// INITIALIZE ON LOAD — chunked to reduce TBT
 document.addEventListener('DOMContentLoaded', () => {
-    // Small delay to ensure filter indicator DOM sizing is correct
-    setTimeout(() => {
-        renderMarquee();       // Tech logo strip first
-        renderSkills();        // Skills grid (tiered)
+    // Priority 1: render filter counts + marquee + projects (critical above-fold content)
+    requestAnimationFrame(() => {
         renderFilterCounts();  // Live pill counts (before indicator is measured)
-        renderProjects('all'); // Projects
+        renderProjects('featured'); // Projects (default to featured)
+        renderMarquee();       // Tech logo strip
         applyThemeToIcons();   // Sync external logos (hero chips) to the active theme
 
         // Measure the filter indicator AFTER counts are populated
         const activeFilter = document.querySelector('.filter-btn.active');
         if(activeFilter) updateFilterIndicator(activeFilter);
-    }, 100);
+
+        // Priority 2: render skills grid (below the fold, defer to idle)
+        const renderSkillsDeferred = () => {
+            renderSkills();
+            // Re-observe dynamic skills for scroll animation
+            document.querySelectorAll('#skills-grid .fade-up').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        if (typeof requestIdleCallback !== 'undefined') {
+            requestIdleCallback(renderSkillsDeferred, { timeout: 3000 });
+        } else {
+            setTimeout(renderSkillsDeferred, 200);
+        }
+    });
 });
 
 

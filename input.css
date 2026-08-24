@@ -25,6 +25,7 @@
   font-weight: 100 700;
   font-display: swap;
   src: url('./fonts/material-symbols-outlined.woff2') format('woff2');
+  unicode-range: U+5f, U+61-69, U+6b-70, U+72-79;
 }
 @font-face {
   font-family: 'Space Grotesk';
@@ -185,6 +186,8 @@ body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-fam
   transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); 
 }
 .fade-up.visible { opacity:1; transform:translate3d(0, 0, 0); }
+/* Hero above-the-fold: render immediately, no fade-in delay */
+.hero-immediate { opacity:1; transform:none; }
 .stagger-1 { transition-delay:0.1s; } .stagger-2 { transition-delay:0.2s; }
 .stagger-3 { transition-delay:0.3s; } .stagger-4 { transition-delay:0.4s; }
 .stagger-5 { transition-delay:0.5s; } .stagger-6 { transition-delay:0.6s; }

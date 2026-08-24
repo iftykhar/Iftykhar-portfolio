@@ -1,0 +1,21 @@
+{
+  "name": "S M Iftykhar Ul Alam — Portfolio",
+  "short_name": "Iftykhar",
+  "description": "Full-Stack Developer from Dhaka specializing in React, Next.js, and Laravel.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#131313",
+  "theme_color": "#6366F1",
+  "icons": [
+    {
+      "src": "./image/favicon/android-chrome-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./image/favicon/android-chrome-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
