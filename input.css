@@ -37,88 +37,88 @@
 }
 
 :root {
-  /* Light Mode Palette — warm paper + ink, tuned for a Modular-Typography / Neo-Brutalist reading */
-  --background: 250 246 240;
-  --on-background: 26 23 20;
-  --surface: 250 246 240;
-  --on-surface: 26 23 20;
-  --surface-variant: 228 220 208;
-  --on-surface-variant: 88 79 68;
-  --surface-container-lowest: 255 252 245;
-  --surface-container-low: 246 241 232;
-  --surface-container: 240 234 224;
-  --surface-container-high: 233 225 214;
-  --surface-container-highest: 221 212 199;
-  --surface-bright: 250 246 240;
-  --surface-dim: 226 218 207;
-  --inverse-surface: 43 38 33;
-  --inverse-on-surface: 244 239 233;
-  --primary: 79 70 229;
-  --on-primary: 255 255 255;
-  --primary-container: 224 224 255;
-  --on-primary-container: 0 0 110;
-  --secondary: 168 85 247;
-  --on-secondary: 255 255 255;
-  --secondary-container: 246 217 255;
-  --on-secondary-container: 44 0 81;
-  --tertiary: 0 110 118;
-  --on-tertiary: 255 255 255;
-  --tertiary-container: 172 237 255;
-  --on-tertiary-container: 0 31 36;
+  /* Light Mode Palette — Mystical Western / Art Deco */
+  --background: 255 255 240;
+  --on-background: 28 25 23;
+  --surface: 255 255 240;
+  --on-surface: 28 25 23;
+  --surface-variant: 243 234 219;
+  --on-surface-variant: 92 84 75;
+  --surface-container-lowest: 255 255 255;
+  --surface-container-low: 250 248 245;
+  --surface-container: 245 242 235;
+  --surface-container-high: 235 230 220;
+  --surface-container-highest: 220 215 205;
+  --surface-bright: 255 255 240;
+  --surface-dim: 225 220 210;
+  --inverse-surface: 26 26 46;
+  --inverse-on-surface: 255 255 240;
+  --primary: 212 175 55;
+  --on-primary: 26 26 46;
+  --primary-container: 181 166 66;
+  --on-primary-container: 255 255 240;
+  --secondary: 224 122 95;
+  --on-secondary: 255 255 240;
+  --secondary-container: 245 190 175;
+  --on-secondary-container: 80 30 15;
+  --tertiary: 6 78 59;
+  --on-tertiary: 255 255 240;
+  --tertiary-container: 16 128 100;
+  --on-tertiary-container: 255 255 240;
   --error: 186 26 26;
   --on-error: 255 255 255;
   --error-container: 255 218 214;
   --on-error-container: 65 0 2;
-  --outline: 83 75 64;
-  --outline-variant: 222 213 198;
-  --surface-tint: 79 70 229;
-  --nav-bg: 250 246 240;
-  --ink: 24 21 17;                  /* neo ink — warm near-black (light theme) */
+  --outline: 181 166 66;
+  --outline-variant: 212 175 55;
+  --surface-tint: 212 175 55;
+  --nav-bg: 255 255 240;
+  --ink: 28 25 23;                  /* neo ink — warm near-black (light theme) */
   --paper: var(--surface-container-lowest); /* neo paper — card fill (light theme) */
 }
 
 .dark {
-  /* Dark Mode Palette - Original */
-  --background: 19 19 19;
-  --on-background: 229 226 225;
-  --surface: 19 19 19;
-  --on-surface: 229 226 225;
-  --surface-variant: 53 53 52;
-  --on-surface-variant: 199 196 215;
-  --surface-container-lowest: 14 14 14;
-  --surface-container-low: 28 27 27;
-  --surface-container: 32 31 31;
-  --surface-container-high: 42 42 42;
-  --surface-container-highest: 53 53 52;
-  --surface-bright: 58 57 57;
-  --surface-dim: 19 19 19;
-  --inverse-surface: 229 226 225;
-  --inverse-on-surface: 49 48 48;
-  --primary: 192 193 255;
-  --on-primary: 16 0 169;
-  --primary-container: 128 131 255;
-  --on-primary-container: 13 0 150;
-  --secondary: 221 183 255;
-  --on-secondary: 73 0 128;
-  --secondary-container: 111 0 190;
-  --on-secondary-container: 214 169 255;
-  --tertiary: 76 215 246;
-  --on-tertiary: 0 54 64;
-  --tertiary-container: 0 158 185;
-  --on-tertiary-container: 0 47 56;
+  /* Dark Mode Palette - Mystical Western / Art Deco */
+  --background: 26 26 46;
+  --on-background: 255 255 240;
+  --surface: 26 26 46;
+  --on-surface: 255 255 240;
+  --surface-variant: 45 45 70;
+  --on-surface-variant: 200 200 220;
+  --surface-container-lowest: 15 15 25;
+  --surface-container-low: 20 20 35;
+  --surface-container: 26 26 46;
+  --surface-container-high: 35 35 60;
+  --surface-container-highest: 45 45 75;
+  --surface-bright: 55 55 85;
+  --surface-dim: 26 26 46;
+  --inverse-surface: 255 255 240;
+  --inverse-on-surface: 26 26 46;
+  --primary: 212 175 55;
+  --on-primary: 26 26 46;
+  --primary-container: 181 166 66;
+  --on-primary-container: 255 255 240;
+  --secondary: 224 122 95;
+  --on-secondary: 26 26 46;
+  --secondary-container: 150 50 30;
+  --on-secondary-container: 255 255 240;
+  --tertiary: 6 78 59;
+  --on-tertiary: 255 255 240;
+  --tertiary-container: 10 90 70;
+  --on-tertiary-container: 255 255 240;
   --error: 255 180 171;
   --on-error: 105 0 5;
   --error-container: 147 0 10;
   --on-error-container: 255 218 212;
-  --outline: 144 143 160;
-  --outline-variant: 70 69 84;
-  --surface-tint: 192 193 255;
-  --nav-bg: 19 19 19;
-  --ink: 229 226 225;               /* neo ink — light (dark theme) */
+  --outline: 212 175 55;
+  --outline-variant: 181 166 66;
+  --surface-tint: 212 175 55;
+  --nav-bg: 26 26 46;
+  --ink: 212 175 55;               /* neo ink — light (dark theme) */
   --paper: var(--surface-container-high); /* neo paper — card fill (dark theme) */
 }
 
-body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-family:'Inter',sans-serif; letter-spacing:-0.011em; overflow-x:hidden; transition: background 0.4s ease, color 0.4s ease; }
+body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-family:'Inter',sans-serif; letter-spacing:-0.011em; overflow-x:hidden; transition: background 1.5s ease-in-out, color 0.8s ease; }
 
 /* Ambient site-wide background: soft theme-tuned glows + a faint dot texture.
    Fixed at z-0 and first in the DOM, so every section (positioned, z-0, later in
@@ -129,6 +129,7 @@ body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-fam
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  transition: background-image 1.5s ease-in-out;
   background-image:
     radial-gradient(ellipse 58% 46% at 16% 10%, rgb(var(--primary) / 0.10), transparent 62%),
     radial-gradient(ellipse 46% 40% at 86% 20%, rgb(var(--secondary) / 0.09), transparent 60%),
@@ -154,6 +155,121 @@ body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-fam
 }
 .dark #ambient-bg::before {
   background-image: radial-gradient(rgb(var(--on-surface) / 0.05) 1px, transparent 1px);
+}
+
+/* Mystical Western Starfield */
+#ambient-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(white 1px, transparent 1px), radial-gradient(white 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px;
+  background-position: 0 0, 40px 40px;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.dark #ambient-bg::after {
+  opacity: 0.25;
+}
+
+/* Celestial Sunrise/Sunset Animation */
+#celestial-sun, #celestial-moon {
+  position: absolute;
+  border-radius: 50%;
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#celestial-sun {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at center, #FFD700 0%, #E07A5F 70%, transparent 100%);
+  box-shadow: 
+    0 0 40px #FFD700, 
+    0 0 100px 50px rgba(224, 122, 95, 0.4),
+    inset 0 0 40px rgba(255, 255, 255, 0.8);
+  top: 15%;
+  right: 15%;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Art Deco Rotating Sunburst Rays */
+#celestial-sun::before {
+  content: '';
+  position: absolute;
+  width: 250%;
+  height: 250%;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 215, 0, 0.25) 0deg 8deg, transparent 8deg 16deg);
+  border-radius: 50%;
+  animation: slow-spin 60s linear infinite;
+  z-index: -1;
+  mask-image: radial-gradient(circle, black 20%, transparent 60%);
+  -webkit-mask-image: radial-gradient(circle, black 20%, transparent 60%);
+}
+
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#celestial-moon {
+  width: 120px;
+  height: 120px;
+  background: transparent;
+  /* Crescent Moon Effect using box-shadow inset */
+  box-shadow: inset -20px -10px 0 5px #FFFFF0, 0 0 60px 20px rgba(255, 255, 240, 0.1);
+  top: 110%;
+  right: 20%;
+  opacity: 0;
+  transform: rotate(-20deg);
+}
+
+.dark #celestial-sun {
+  top: 110%;
+  background: radial-gradient(circle at center, #9A3412 0%, #631C04 70%, transparent 100%);
+  opacity: 0;
+  box-shadow: 0 0 100px 50px rgba(154, 52, 18, 0.4);
+}
+.dark #celestial-sun::before {
+  background: repeating-conic-gradient(from 0deg, rgba(224, 122, 95, 0.2) 0deg 8deg, transparent 8deg 16deg);
+}
+
+.dark #celestial-moon {
+  top: 20%;
+  opacity: 1;
+}
+
+/* Nav Link Animations (Phase 3) */
+@keyframes golden-aura {
+  0% { box-shadow: 0 0 0 0 rgb(var(--primary) / 0); border-color: transparent; }
+  30% { box-shadow: 0 0 40px 10px rgb(var(--primary) / 0.4); border-color: rgb(var(--primary) / 0.8); }
+  100% { box-shadow: 0 0 0 0 rgb(var(--primary) / 0); border-color: transparent; }
+}
+.summon-aura {
+  animation: golden-aura 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border: 1px solid transparent;
+  border-radius: 1.5rem;
+}
+
+@keyframes tarot-deal-trick {
+  0% { 
+    opacity: 0; 
+    transform: translateY(60px) rotateY(90deg) rotateZ(-10deg) scale(0.8); 
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) rotateY(-10deg) rotateZ(2deg) scale(1.05);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) rotateY(0deg) rotateZ(0deg) scale(1); 
+  }
+}
+.tarot-deal {
+  animation: tarot-deal-trick 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  opacity: 0;
 }
 .font-headline { font-family:'Plus Jakarta Sans',sans-serif; }
 .font-label { font-family:'Plus Jakarta Sans',sans-serif; }
@@ -186,6 +302,28 @@ body { background:rgb(var(--background)); color:rgb(var(--on-surface)); font-fam
   transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); 
 }
 .fade-up.visible { opacity:1; transform:translate3d(0, 0, 0); }
+
+/* Tarot Deal Entrance */
+.tarot-deal-card {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(-20deg) rotateY(10deg) translate3d(0, 60px, -50px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.tarot-deal-card.visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0);
+}
+
+/* Golden Thread Scroll */
+.golden-thread {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.golden-thread.visible {
+  transform: scaleY(1);
+}
 /* Hero above-the-fold: render immediately, no fade-in delay */
 .hero-immediate { opacity:1; transform:none; }
 .stagger-1 { transition-delay:0.1s; } .stagger-2 { transition-delay:0.2s; }
@@ -473,19 +611,25 @@ details summary::-webkit-details-marker { display:none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 4px 14px rgba(var(--primary), 0.25);
+  transition: all 0.4s ease-out;
 }
 .timeline-item .timeline-dot::after {
   content: '';
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #6366F1, #A855F7);
+  background: linear-gradient(135deg, rgb(var(--primary)), rgb(var(--secondary)));
+  transition: all 0.4s ease-out;
 }
 .timeline-item:hover .timeline-dot {
   background: rgb(var(--primary-container));
-  transform: scale(1.1);
-  transition: background 0.4s, transform 0.4s;
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgb(var(--primary));
+  border-color: rgb(var(--secondary));
+}
+.timeline-item:hover .timeline-dot::after {
+  background: rgb(var(--on-primary-container));
 }
 
 /* ================================================================
@@ -830,7 +974,7 @@ input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:fo
 /* --- Modular Typography: type is the hero --- */
 
 /* Hero display gets a modular bump — larger, tighter, type-first */
-#hero h1 {
+#hero h2 {
   font-size: clamp(2.6rem, 7.5vw, 6.4rem);
   letter-spacing: -0.035em;
 }
