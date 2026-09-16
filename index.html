@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script>
-  // Apply theme before first paint to avoid a flash of the wrong theme.
-  // Saved preference wins; otherwise follow the OS preference (dark default fallback).
-  (function () {
-    try {
-      var saved = localStorage.getItem('theme');
-      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (dark) document.documentElement.classList.add('dark');
-    } catch (e) {
-      document.documentElement.classList.add('dark');
-    }
-  })();
-</script>
-<meta name="description" content="S M Iftykhar Ul Alam — Full-Stack Developer from Dhaka, Bangladesh. I build fast, accessible web applications with React, Next.js, TypeScript, and Laravel. View case studies and get in touch."/>
-<link rel="canonical" href="https://iftykhar-portfolio.vercel.app/" />
-<!-- Paste your Google Search Console verification tag below when you have it -->
-<meta name="author" content="S M Iftykhar Ul Alam"/>
-<meta name="robots" content="index, follow"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script>
+    // Apply theme before first paint to avoid a flash of the wrong theme.
+    // Saved preference wins; otherwise follow the OS preference (dark default fallback).
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <meta name="description"
+    content="S M Iftykhar Ul Alam — Full-Stack Developer from Dhaka. I build fast React, Next.js, and Laravel web applications. View case studies, skills, and experience." />
+  <link rel="canonical" href="https://iftykhar-portfolio.vercel.app/" />
+  <!-- Paste your Google Search Console verification tag below when you have it -->
+  <meta name="author" content="S M Iftykhar Ul Alam" />
+  <meta name="robots" content="index, follow" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://iftykhar-portfolio.vercel.app/"/>
-<meta property="og:site_name" content="S M Iftykhar Ul Alam — Portfolio"/>
-<meta property="og:title" content="S M Iftykhar Ul Alam — Full-Stack Developer | React, Next.js, Laravel"/>
-<meta property="og:description" content="Full-Stack Developer from Dhaka specializing in React, Next.js, and Laravel. Explore case studies, skills, and experience."/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:image" content="https://iftykhar-portfolio.vercel.app/image/og-image.webp"/>
-<meta property="og:image:type" content="image/webp"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="S M Iftykhar Ul Alam — Full-Stack Developer Portfolio"/>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iftykhar-portfolio.vercel.app/" />
+  <meta property="og:site_name" content="S M Iftykhar Ul Alam — Portfolio" />
+  <meta property="og:title" content="S M Iftykhar Ul Alam — Full-Stack Developer | Portfolio" />
+  <meta property="og:description"
+    content="S M Iftykhar Ul Alam — Full-Stack Developer from Dhaka. I build fast React, Next.js, and Laravel web applications. View case studies, skills, and experience." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://iftykhar-portfolio.vercel.app/image/og-image.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="S M Iftykhar Ul Alam — Full-Stack Developer Portfolio" />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="S M Iftykhar Ul Alam — Full-Stack Developer"/>
-<meta property="twitter:description" content="Full-Stack Developer from Dhaka. I build fast React, Next.js, and Laravel applications with a focus on performance and accessibility."/>
-<meta property="twitter:image" content="https://iftykhar-portfolio.vercel.app/image/og-image.webp"/>
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="S M Iftykhar Ul Alam — Full-Stack Developer | Portfolio" />
+  <meta property="twitter:description"
+    content="S M Iftykhar Ul Alam — Full-Stack Developer from Dhaka. I build fast React, Next.js, and Laravel web applications. View case studies, skills, and experience." />
+  <meta property="twitter:image" content="https://iftykhar-portfolio.vercel.app/image/og-image.webp" />
 
-<!-- Structured Data (JSON-LD) for SEO -->
-<script type="application/ld+json">
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -71,584 +75,884 @@
 }
 </script>
 
-<title>S M Iftykhar Ul Alam — Full-Stack Developer | React, Next.js, Laravel</title>
-<link rel="icon" type="image/webp" class="object-cover rounded-full" href="./image/iftykhar.webp"/>
-<link rel="manifest" href="./site.webmanifest"/>
-<link rel="stylesheet" href="./output.css"/>
-<link rel="preload" href="./fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin/>
-<link rel="preload" href="./fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
-<link rel="preload" href="./fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin/>
-<script src="./portfolio-data.js" defer></script>
-<script src="./skills-data.js" defer></script>
-<script src="./main.js" defer></script>
+  <title>S M Iftykhar Ul Alam — Full-Stack Developer | Portfolio</title>
+  <link rel="icon" type="image/webp" class="object-cover rounded-full" href="./image/iftykhar.webp" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./image/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./site.webmanifest" />
+  <link rel="stylesheet" href="./output.css" />
+  <link rel="preload" href="./fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <script src="./portfolio-data.js" defer></script>
+  <script src="./skills-data.js" defer></script>
+  <script src="./main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@400;500;600;700&family=Rye&display=swap"
+    rel="stylesheet">
 </head>
+
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-<div id="ambient-bg" aria-hidden="true"></div>
-<a href="#projects" class="skip-link">Skip to content</a>
-<div id="custom-cursor"></div>
-<div class="media-grain" aria-hidden="true"></div>
-<div id="scroll-progress" class="fixed top-0 inset-x-0 h-[3px] z-[70] origin-left scale-x-0 bg-gradient-to-r from-[#6366F1] to-[#A855F7] pointer-events-none" aria-hidden="true"></div>
-
-<!-- Navbar (floating glass pill) -->
-<nav id="navbar" class="fixed top-0 inset-x-0 z-50 px-4 pt-3 sm:px-6" aria-label="Main navigation">
-  <div id="navbar-inner" class="glass-nav rounded-2xl border border-outline-variant/40 dark:border-white/5 shadow-xl shadow-black/10 dark:shadow-black/40 flex items-center justify-between px-4 sm:px-6 py-3 max-w-7xl mx-auto">
-    <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tighter text-on-surface font-headline group" aria-label="Iftykhar Alam — back to top">
-      <img src="./image/iftykhar.webp" alt="Iftykhar Logo" fetchpriority="high" decoding="async" width="256" height="253" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30 group-hover:ring-primary/70 transition-all"/>
-      Iftykhar<span class="text-gradient">.</span>
-    </a>
-    <div class="hidden md:flex items-center gap-8">
-      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#projects">Projects</a>
-      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#skills">Skills</a>
-      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#about">About</a>
-      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#experience">Experience</a>
-      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#communication">Communication</a>
-      <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors" href="#hobbies">Hobbies</a>
-    </div>
-    <div class="flex items-center gap-4">
-      <!-- Theme Toggle -->
-      <button id="theme-toggle" class="p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all duration-300" aria-label="Toggle Theme">
-        <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
-      </button>
-      <a href="#contact" class="nb-cta hidden sm:inline-flex items-center gap-1.5 bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-5 py-2.5 rounded-xl font-headline font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#6366F1]/25">
-        Hire Me <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-      </a>
-      <button id="menu-toggle" class="md:hidden p-2 rounded-xl bg-surface-container-high text-on-surface" aria-label="Open menu">
-        <span class="material-symbols-outlined text-2xl">menu</span>
-      </button>
-    </div>
+  <div id="ambient-bg" aria-hidden="true">
+    <div id="celestial-sun"></div>
+    <div id="celestial-moon"></div>
   </div>
-</nav>
+  <a href="#projects" class="skip-link">Skip to content</a>
+  <div id="custom-cursor"></div>
+  <div class="media-grain" aria-hidden="true"></div>
+  <div id="scroll-progress"
+    class="fixed top-0 inset-x-0 h-[3px] z-[70] origin-left scale-x-0 bg-gradient-to-r from-primary to-secondary pointer-events-none"
+    aria-hidden="true"></div>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-y-0 right-0 w-80 z-[60] bg-surface-container-high/95 backdrop-blur-xl p-8 flex flex-col shadow-2xl overflow-y-auto">
-<div class="flex justify-between items-center mb-8">
-    <a href="#" onclick="closeMobileMenu()" class="flex items-center gap-2.5 font-headline font-bold text-lg text-on-surface">
-      <img src="./image/iftykhar.webp" alt="Iftykhar Logo" width="256" height="253" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30"/>
-      Iftykhar<span class="text-gradient">.</span>
-    </a>
-    <div class="flex items-center gap-2">
-      <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-surface-container text-on-surface" aria-label="Toggle theme">
+  <!-- Navbar (floating glass pill) -->
+  <nav id="navbar" class="fixed top-0 inset-x-0 z-50 px-4 pt-3 sm:px-6" aria-label="Main navigation">
+    <div id="navbar-inner"
+      class="glass-nav rounded-2xl border border-outline-variant/40 dark:border-white/5 shadow-xl shadow-black/10 dark:shadow-black/40 flex items-center justify-between px-4 sm:px-6 py-3 max-w-7xl mx-auto">
+      <a href="#"
+        class="flex items-center gap-2.5 text-lg font-bold tracking-tighter text-on-surface font-headline group"
+        aria-label="Iftykhar Alam — back to top">
+        <img src="./image/iftykhar.webp" alt="Iftykhar Logo" fetchpriority="high" decoding="async" width="256"
+          height="253"
+          class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30 group-hover:ring-primary/70 transition-all" />
+        Iftykhar<span class="text-gradient">.</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors"
+          href="#projects">Projects</a>
+        <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors"
+          href="#skills">Skills</a>
+        <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors"
+          href="#about">About</a>
+        <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors"
+          href="#experience">Experience</a>
+        <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors"
+          href="#communication">Communication</a>
+        <a class="nav-link text-on-surface-variant hover:text-on-surface font-headline font-bold text-sm tracking-tight transition-colors"
+          href="#hobbies">Hobbies</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle"
+          class="p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all duration-300"
+          aria-label="Toggle Theme">
           <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
-      </button>
-      <button id="menu-close" class="p-2 rounded-lg bg-surface-container text-on-surface" aria-label="Close menu">
-        <span class="material-symbols-outlined text-2xl">close</span>
-      </button>
+        </button>
+        <a href="#contact"
+          class="nb-cta hidden sm:inline-flex items-center gap-1.5 bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-5 py-2.5 rounded-xl font-headline font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#6366F1]/25">
+          Hire Me <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+        <button id="menu-toggle" class="md:hidden p-2 rounded-xl bg-surface-container-high text-on-surface"
+          aria-label="Open menu">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
     </div>
-</div>
-<nav class="flex flex-col gap-1" aria-label="Mobile navigation">
-  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#projects" onclick="closeMobileMenu()">Projects</a>
-  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#skills" onclick="closeMobileMenu()">Skills</a>
-  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#about" onclick="closeMobileMenu()">About</a>
-  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#experience" onclick="closeMobileMenu()">Experience</a>
-  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#communication" onclick="closeMobileMenu()">Communication</a>
-  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5" href="#hobbies" onclick="closeMobileMenu()">Hobbies</a>
-  <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5" href="#contact" onclick="closeMobileMenu()">Contact</a>
-</nav>
-<div class="mt-auto pt-8 border-t border-outline-variant/30 dark:border-white/5">
-  <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant/60 mb-4">Let's connect</p>
-  <div class="flex gap-3">
-    <a href="mailto:s.m.ifty49@gmail.com" aria-label="Email" class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
-      <span class="material-symbols-outlined text-[20px]">mail</span>
-    </a>
-    <a href="https://github.com/iftykhar" target="_blank" aria-label="GitHub" class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
-      <span class="material-symbols-outlined text-[20px]">code</span>
-    </a>
-    <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" aria-label="LinkedIn" class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
-      <span class="material-symbols-outlined text-[20px]">link</span>
-    </a>
-  </div>
-</div>
-</div>
-<div id="menu-overlay" class="fixed inset-0 z-[55] bg-black/60 hidden" onclick="closeMobileMenu()" aria-hidden="true"></div>
+  </nav>
 
-<!-- Hero -->
-<section id="hero" class="relative z-0 min-h-screen flex items-center px-6 md:px-8 pt-28 pb-24 overflow-hidden">
-<canvas id="particles"></canvas>
-<div class="hero-gradient absolute inset-0 pointer-events-none"></div>
-<div class="hero-aurora absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-<div class="eng-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-<div class="hero-dots absolute inset-0 pointer-events-none dark:hidden" aria-hidden="true"></div>
-<div class="halftone absolute inset-0 pointer-events-none opacity-40" aria-hidden="true"></div>
-<div class="orb w-96 h-96 bg-[#6366F1] top-1/4 -left-20" style="animation-delay:-5s;opacity:0.12"></div>
-<div class="orb w-80 h-80 bg-[#A855F7] bottom-1/4 -right-20" style="animation-delay:-10s;opacity:0.1"></div>
-<div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-12 items-center">
-  <!-- Left: Copy -->
-  <div class="relative text-center lg:text-left space-y-6">
-    <span class="ghost-letter -top-6 -left-2 sm:-left-4" aria-hidden="true">I</span>
-    <span class="nb-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-tertiary text-[0.7rem] font-label font-medium tracking-[0.2em] uppercase hero-immediate">
-      <span class="status-dot" aria-hidden="true"></span> Available for new projects
-    </span>
-    <p class="font-label font-bold uppercase tracking-[0.24em] text-on-surface-variant/70 text-xs sm:text-sm hero-immediate">Hi, I'm <span class="text-on-surface">S M Iftykhar Ul Alam</span></p>
-    <h1 class="text-4xl sm:text-6xl xl:text-7xl font-display font-extrabold tracking-tighter text-on-surface leading-[1.04] hero-immediate">
-      I build <span class="relative inline-block text-gradient">fast, human-centered
-        <svg class="scribble scribble-underline" viewBox="0 0 300 20" fill="none" aria-hidden="true"><path pathLength="1" d="M4 14 C 60 4, 150 20, 296 8" stroke="#A855F7" stroke-width="3" stroke-linecap="round"/></svg>
-      </span> web products.
-    </h1>
-    <span class="mem-shape mem-squiggle hidden sm:block opacity-80 -mt-1" aria-hidden="true"></span>
-    <p class="text-sm md:text-base font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant/70 hero-immediate">
-      <span id="role-rotator" class="text-primary">Full-Stack Developer</span> <span class="mx-2 opacity-30">•</span> Digital Architect
-    </p>
-    <p class="text-lg sm:text-xl font-headline text-on-surface-variant max-w-xl mx-auto lg:mx-0 leading-relaxed hero-immediate">
-      From pixel-perfect <span class="text-primary font-bold">React</span> frontends to scalable <span class="text-primary font-bold">Laravel</span> APIs — engineered with an explorer's eye for performance and detail.
-    </p>
-    <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-2 hero-immediate">
-      <a id="magnetic-cta" class="magnetic px-9 py-4 bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white rounded-xl font-headline font-bold shadow-xl shadow-[#6366F1]/25 hover:shadow-[#6366F1]/40 active:scale-95 transition-all duration-300" href="#projects">View My Work</a>
-      <a class="nb-outline-btn px-9 py-4 border-gradient rounded-xl font-headline font-bold text-on-surface hover:scale-105 transition-transform" href="./Iftykhar_alam_Full_stack_developer.pdf" download="Iftykhar_alam_Full_stack_developer.pdf">Download Resume</a>
-      <a class="inline-flex items-center gap-2 font-headline font-bold text-tertiary hover:text-primary transition-colors underline-offset-4 hover:underline pt-2" href="#contact">
-        Let's talk <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="fixed inset-y-0 right-0 w-80 z-[60] bg-surface-container-high/95 backdrop-blur-xl p-8 flex flex-col shadow-2xl overflow-y-auto">
+    <div class="flex justify-between items-center mb-8">
+      <a href="#" onclick="closeMobileMenu()"
+        class="flex items-center gap-2.5 font-headline font-bold text-lg text-on-surface">
+        <img src="./image/iftykhar.webp" alt="Iftykhar Logo" width="256" height="253"
+          class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30" />
+        Iftykhar<span class="text-gradient">.</span>
       </a>
-    </div>
-    <!-- Core stack (engineering spec strip) -->
-    <div class="flex flex-wrap items-center gap-2 pt-8 hero-immediate max-w-xl mx-auto lg:mx-0">
-      <span class="font-label text-[0.6rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 mr-1">// stack</span>
-      <span class="spec-chip">React.js</span>
-      <span class="spec-chip">Next.js</span>
-      <span class="spec-chip">Laravel</span>
-      <span class="spec-chip">TypeScript</span>
-      <span class="spec-chip">AWS</span>
-    </div>
-    <!-- Quick Stats -->
-    <div class="flex items-center gap-3 pt-8 max-w-xl mx-auto lg:mx-0 hero-immediate">
-      <span class="font-label text-[0.6rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 whitespace-nowrap">// Key Metrics</span>
-      <div class="h-px flex-1 bg-outline-variant/50"></div>
-    </div>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-5 hero-immediate max-w-xl mx-auto lg:mx-0">
-      <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">10+</div>
-        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Projects Built</div>
-      </div>
-      <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">10+</div>
-        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Global Clients</div>
-      </div>
-      <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">98</div>
-        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Lighthouse Score</div>
-      </div>
-      <div class="text-center lg:text-left">
-        <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">3+</div>
-        <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Years Coding</div>
+      <div class="flex items-center gap-2">
+        <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-surface-container text-on-surface"
+          aria-label="Toggle theme">
+          <span class="material-symbols-outlined theme-toggle-icon">light_mode</span>
+        </button>
+        <button id="menu-close" class="p-2 rounded-lg bg-surface-container text-on-surface" aria-label="Close menu">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
       </div>
     </div>
-    <div class="flex items-center justify-center lg:justify-start gap-7 pt-6 text-on-surface-variant hero-immediate">
-      <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank">
-        <span class="material-symbols-outlined text-[20px]">link</span>
-        <span class="font-label text-xs tracking-widest uppercase">LinkedIn</span>
-      </a>
-      <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://github.com/iftykhar" target="_blank">
-        <span class="material-symbols-outlined text-[20px]">code</span>
-        <span class="font-label text-xs tracking-widest uppercase">GitHub</span>
-      </a>
-      <a class="hover:text-primary transition-colors flex items-center gap-2" href="mailto:s.m.ifty49@gmail.com">
-        <span class="material-symbols-outlined text-[20px]">mail</span>
-        <span class="font-label text-xs tracking-widest uppercase">Email</span>
-      </a>
+    <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
+      <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5"
+        href="#projects" onclick="closeMobileMenu()">Projects</a>
+      <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5"
+        href="#skills" onclick="closeMobileMenu()">Skills</a>
+      <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5"
+        href="#about" onclick="closeMobileMenu()">About</a>
+      <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5"
+        href="#experience" onclick="closeMobileMenu()">Experience</a>
+      <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5"
+        href="#communication" onclick="closeMobileMenu()">Communication</a>
+      <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5 border-b border-outline-variant/20 dark:border-white/5"
+        href="#hobbies" onclick="closeMobileMenu()">Hobbies</a>
+      <a class="mobile-link text-on-surface font-headline font-bold text-lg py-2.5" href="#contact"
+        onclick="closeMobileMenu()">Contact</a>
+    </nav>
+    <div class="mt-auto pt-8 border-t border-outline-variant/30 dark:border-white/5">
+      <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant/60 mb-4">Let's connect</p>
+      <div class="flex gap-3">
+        <a href="mailto:s.m.ifty49@gmail.com" aria-label="Email"
+          class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
+          <span class="material-symbols-outlined text-[20px]">mail</span>
+        </a>
+        <a href="https://github.com/iftykhar" target="_blank" aria-label="GitHub"
+          class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
+          <span class="material-symbols-outlined text-[20px]">code</span>
+        </a>
+        <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" aria-label="LinkedIn"
+          class="w-11 h-11 rounded-xl bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:-translate-y-0.5 transition-all">
+          <span class="material-symbols-outlined text-[20px]">link</span>
+        </a>
+      </div>
     </div>
   </div>
-  <!-- Right: Portrait card -->
-  <div class="relative mx-auto w-full max-w-xs sm:max-w-sm hero-immediate" id="hero-portrait">
-    <svg class="scribble scribble-arrow absolute -top-10 -left-12 sm:-left-20 w-24 h-20 hidden sm:block" viewBox="0 0 96 80" fill="none" aria-hidden="true"><path pathLength="1" d="M8 72 C 30 46, 52 26, 84 8" stroke="#4CD7F6" stroke-width="2.5" stroke-linecap="round"/><path pathLength="1" d="M66 6 L 86 6 L 80 22" stroke="#4CD7F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div class="mem-shape mem-pop mem-pop-yellow mem-float absolute -top-6 -right-4 sm:-right-10 w-8 h-8" style="--mem-rotate:12deg" aria-hidden="true"></div>
-    <div class="mem-shape mem-pop mem-pop-pink mem-float absolute -bottom-4 -left-3 sm:-left-8 w-6 h-6" style="animation-delay:-2.5s;--mem-rotate:-12deg" aria-hidden="true"></div>
-    <div class="absolute -inset-8 bg-gradient-to-tr from-[#6366F1]/30 via-[#A855F7]/20 to-transparent blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
-    <div class="relative rounded-3xl overflow-hidden border border-outline-variant dark:border-white/10 shadow-2xl shadow-black/40 bg-surface-container-low">
-      <img src="./image/iftykharalam.webp" alt="S M Iftykhar Ul Alam" class="w-full aspect-[4/5] object-cover" decoding="async" width="500" height="500"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#131313]/70 via-transparent to-transparent" aria-hidden="true"></div>
-      <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.6rem] font-label font-bold uppercase tracking-widest text-white bg-black/40 backdrop-blur-md border border-white/10">
-          <span class="status-dot" aria-hidden="true"></span> Open to work
+  <div id="menu-overlay" class="fixed inset-0 z-[55] bg-black/60 hidden" onclick="closeMobileMenu()" aria-hidden="true">
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" class="relative z-0 min-h-screen flex items-center px-6 md:px-8 pt-28 pb-24 overflow-hidden">
+    <canvas id="particles"></canvas>
+    <div class="hero-gradient absolute inset-0 pointer-events-none"></div>
+    <div class="hero-aurora absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="eng-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="hero-dots absolute inset-0 pointer-events-none dark:hidden" aria-hidden="true"></div>
+    <div class="halftone absolute inset-0 pointer-events-none opacity-40" aria-hidden="true"></div>
+    <div class="orb w-96 h-96 bg-[#6366F1] top-1/4 -left-20" style="animation-delay:-5s;opacity:0.12"></div>
+    <div class="orb w-80 h-80 bg-[#A855F7] bottom-1/4 -right-20" style="animation-delay:-10s;opacity:0.1"></div>
+    <div
+      class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-12 items-center">
+      <!-- Left: Copy -->
+      <div class="relative text-center lg:text-left space-y-6">
+        <span class="ghost-letter -top-6 -left-2 sm:-left-4" aria-hidden="true">I</span>
+        <span
+          class="nb-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-tertiary dark:text-white text-[0.7rem] font-label font-medium tracking-[0.2em] uppercase hero-immediate">
+          <span class="status-dot" aria-hidden="true"></span> Available for new projects
         </span>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.6rem] font-label font-bold uppercase tracking-widest text-white bg-black/40 backdrop-blur-md border border-white/10">
-          <span class="material-symbols-outlined text-[14px]">location_on</span> Dhaka, BD
-        </span>
-      </div>
-    </div>
-    <!-- Floating tech logo chips -->
-    <div class="tech-chip tech-chip-logo absolute -top-5 -left-4 sm:-left-8" title="React.js"><img src="./image/react-logo.webp" alt="React.js" loading="lazy" class="skill-icon"/></div>
-    <div class="tech-chip tech-chip-logo absolute top-1/3 -right-3 sm:-right-9" style="animation-delay:-2.5s" title="Next.js"><img src="https://skillicons.dev/icons?i=nextjs" alt="Next.js" loading="lazy" class="skill-icon" data-icon-base="https://skillicons.dev/icons?i=nextjs"/></div>
-    <div class="tech-chip tech-chip-logo absolute -bottom-5 -left-3 sm:-left-10" style="animation-delay:-5s" title="Laravel"><img src="https://cdn.simpleicons.org/laravel" alt="Laravel" loading="lazy" class="skill-icon" data-icon-base="https://cdn.simpleicons.org/laravel" data-icon-color="FF2D20"/></div>
-    <div class="tech-chip tech-chip-logo absolute bottom-1/4 -right-2 sm:-right-7" style="animation-delay:-7.5s" title="TypeScript"><img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" loading="lazy" class="skill-icon" data-icon-base="https://skillicons.dev/icons?i=ts"/></div>
-  </div>
-</div>
-<!-- Scroll cue -->  <div class="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40 hero-immediate" aria-hidden="true">
-  <span class="font-label text-[0.6rem] uppercase tracking-[0.2em]">Scroll to explore</span>
-  <span class="material-symbols-outlined text-2xl animate-bounce">expand_more</span>
-</div>
-</section>
-
-<!-- Tech Marquee -->
-<section class="py-10 md:py-16 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" aria-label="Technologies I work with">
-<div class="mem-shape mem-dots absolute -top-8 right-10 w-24 h-24" aria-hidden="true"></div>
-<div class="max-w-7xl mx-auto px-6 md:px-8">
-  <p class="text-center text-xs font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 mb-10 fade-up">The stack I build with</p>
-  <div class="marquee fade-up stagger-2">
-    <div class="marquee-track" id="marquee-track"></div>
-  </div>
-</div>
-</section>
-
-<!-- Projects -->
-<section class="py-28 md:py-32 bg-surface-container-low dark:bg-surface-container-lowest border-y border-outline-variant/40 dark:border-white/5 relative z-0 overflow-hidden" id="projects" tabindex="-1">
-<div class="max-w-7xl mx-auto px-6 md:px-8">
-  <div class="relative flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 md:mb-16 fade-up">
-    <span class="ghost-letter -top-10 right-0 sm:-right-4" aria-hidden="true">S</span>
-    <p class="section-kicker fade-up">Selected Work</p>
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold tracking-tight text-on-surface">Selected <br/> <span class="text-gradient">Creations</span></h2>
-    <a href="https://github.com/iftykhar" target="_blank" class="self-start sm:self-auto inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">
-      All on GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
-    </a>
-  </div>
-  
-  <!-- Project Filter Bar -->
-  <div class="relative mb-8 md:mb-12 fade-up" id="project-filters-container">
-    <span class="mem-shape mem-squiggle absolute -bottom-5 right-6 opacity-70 hidden md:block" aria-hidden="true"></span>
-    <div class="flex overflow-x-auto no-scrollbar items-center gap-2 pb-4 md:pb-0 md:flex-wrap" id="project-filters">
-       <button class="filter-btn active whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-white z-10" data-filter="featured">Featured <span class="filter-count opacity-60">0</span></button>
-       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="all">All <span class="filter-count opacity-60">0</span></button>
-       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="case-study">Case Studies <span class="filter-count opacity-60">0</span></button>
-       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="personal">Personal <span class="filter-count opacity-60">0</span></button>
-       <button class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10" data-filter="mini-project">Mini Projects <span class="filter-count opacity-60">0</span></button>
-       
-       <div class="filter-indicator absolute h-10 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] shadow-lg transition-all duration-300 ease-out z-0 pointer-events-none hidden md:block"></div>
-    </div>
-  </div>
-
-  <!-- Dynamic Grids Container -->
-  <div id="projects-container" class="transition-opacity duration-300">
-    <!-- Rendered via JS -->
-  </div>
-</div>
-</section>
-
-<!-- Technical Proficiency -->
-<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="skills">
-<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
-  <div class="mem-shape mem-dots absolute -bottom-6 -left-10 w-40 h-40" aria-hidden="true"></div>
-  <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
-    <span class="ghost-letter -top-8 right-2" aria-hidden="true">T</span>
-    <p class="section-kicker fade-up">Toolkit</p>
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Technical <span class="text-tertiary">Proficiency</span></h2>
-    <p class="text-on-surface-variant font-body max-w-md">Modern tools for modern problems. I specialize in building scalable, accessible, and fast web applications.</p>
-  </div>
-  <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 md:gap-6">
-    <!-- Rendered via JS -->
-  </div>
-</div>
-</section>
-
-
-
-<!-- Project Modal -->
-<div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 pointer-events-none" role="dialog" aria-modal="true">
-  <div id="project-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-auto"></div>
-  <div id="project-modal-content" class="relative w-full max-w-5xl max-h-[90vh] bg-surface-container-lowest rounded-2xl shadow-2xl overflow-y-auto transform scale-95 opacity-0 transition-all duration-400 ease-out pointer-events-auto flex flex-col border border-outline-variant dark:border-white/5">
-    <!-- Rendered via JS -->
-  </div>
-</div>
-
-
-<!-- Professional Experience -->
-<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="experience">
-<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
-  <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
-    <span class="ghost-letter -top-8 right-0 sm:-right-4" aria-hidden="true">E</span>
-    <p class="section-kicker fade-up">Experience</p>
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Professional <span class="text-primary">Experience</span></h2>
-    <p class="text-on-surface-variant font-body max-w-md">My journey in engineering high-performance web applications and digital systems.</p>
-  </div>
-  
-  <div class="mem-shape mem-zigzag mem-float absolute top-1/2 -right-4 hidden lg:block" aria-hidden="true"></div>
-  
-  <div class="relative space-y-8">
-    <div class="absolute left-4 top-8 bottom-8 w-px bg-gradient-to-b from-primary via-secondary to-transparent" aria-hidden="true"></div>
-    <!-- Item 1 -->
-    <div class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
-       <span class="timeline-dot" aria-hidden="true"></span>
-       <div class="flex flex-col md:flex-row justify-between mb-6">
-          <div>
-             <h3 class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">Scaleup IT Limited</h3>
-             <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Dhaka, Bangladesh</p>
+        <h1
+          class="font-label font-bold uppercase tracking-[0.24em] text-on-surface-variant/70 text-xs sm:text-sm hero-immediate">
+          Hi, I'm <span class="text-on-surface">Iftykhar Alam</span></h1>
+        <h2
+          class="text-4xl sm:text-6xl xl:text-7xl font-display font-extrabold tracking-tighter text-on-surface leading-[1.04] hero-immediate">
+          I build <span class="relative inline-block text-gradient">fast, human-centered
+            <svg class="scribble scribble-underline" viewBox="0 0 300 20" fill="none" aria-hidden="true">
+              <path pathLength="1" d="M4 14 C 60 4, 150 20, 296 8" stroke="#A855F7" stroke-width="3"
+                stroke-linecap="round" />
+            </svg>
+          </span> web products.
+        </h2>
+        <span class="mem-shape mem-squiggle hidden sm:block opacity-80 -mt-1" aria-hidden="true"></span>
+        <p
+          class="text-sm md:text-base font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant/70 hero-immediate">
+          <span id="role-rotator" class="text-primary">Technical Solution Architect</span> <span
+            class="mx-2 opacity-30">-&gt;</span> Sales Executive
+        </p>
+        <p
+          class="text-lg sm:text-xl font-headline text-on-surface-variant max-w-xl mx-auto lg:mx-0 leading-relaxed hero-immediate">
+          From pixel-perfect <span class="text-primary font-bold">React</span> frontends to scalable <span
+            class="text-primary font-bold">Laravel</span> APIs — engineered with an explorer's eye for performance and
+          detail.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-2 hero-immediate">
+          <a id="magnetic-cta"
+            class="magnetic px-9 py-4 bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white rounded-xl font-headline font-bold shadow-xl shadow-[#6366F1]/25 hover:shadow-[#6366F1]/40 active:scale-95 transition-all duration-300"
+            href="#projects">View My Work</a>
+          <a class="nb-outline-btn px-9 py-4 border-gradient rounded-xl font-headline font-bold text-on-surface hover:scale-105 transition-transform"
+            href="./Iftykhar_alam_Full_stack_developer.pdf" download="Iftykhar_alam_Full_stack_developer.pdf">Download
+            Resume</a>
+          <a class="inline-flex items-center gap-2 font-headline font-bold text-tertiary dark:text-[#4CD7F6] hover:text-primary transition-colors underline-offset-4 hover:underline pt-2"
+            href="#contact">
+            Let's talk <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </a>
+        </div>
+        <!-- Core stack (engineering spec strip) -->
+        <div class="flex flex-wrap items-center gap-2 pt-8 hero-immediate max-w-xl mx-auto lg:mx-0">
+          <span class="font-label text-[0.6rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 mr-1">//
+            stack</span>
+          <span class="spec-chip">React.js</span>
+          <span class="spec-chip">Next.js</span>
+          <span class="spec-chip">Laravel</span>
+          <span class="spec-chip">TypeScript</span>
+          <span class="spec-chip">AWS</span>
+        </div>
+        <!-- Quick Stats -->
+        <div class="flex items-center gap-3 pt-8 max-w-xl mx-auto lg:mx-0 hero-immediate">
+          <span
+            class="font-label text-[0.6rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 whitespace-nowrap">//
+            Key Metrics</span>
+          <div class="h-px flex-1 bg-outline-variant/50"></div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-5 hero-immediate max-w-xl mx-auto lg:mx-0">
+          <div class="text-center lg:text-left">
+            <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">10+</div>
+            <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Projects Built
+            </div>
           </div>
-          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
-             <span class="material-symbols-outlined text-[18px]">calendar_month</span>
-             Aug 2025 – March 2026
+          <div class="text-center lg:text-left">
+            <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">10+</div>
+            <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Global Clients
+            </div>
           </div>
-       </div>
-       <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
-          <li class="flex gap-4">
-            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-            <span>Architecting and maintaining React/Next.js applications with a focus on reusable component libraries.</span>
-          </li>
-          <li class="flex gap-4">
-            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-            <span>Integrating backends and third-party services, ensuring seamless data sync and optimized API performance.</span>
-          </li>
-          <li class="flex gap-4">
-            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-            <span>Collaborating via Agile methodologies, participating in daily standups and technical documentation.</span>
-          </li>
-          <li class="flex gap-4">
-            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-            <span>Optimizing applications for mobile responsiveness and cross-browser compatibility.</span>
-          </li>
-       </ul>
-    </div>
-
-    <!-- Item 2 -->
-    <div class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
-       <span class="timeline-dot" aria-hidden="true"></span>
-       <div class="flex flex-col md:flex-row justify-between mb-6">
-          <div>
-             <h3 class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">Refuel Forecourts Limited</h3>
-             <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Remote, UK</p>
+          <div class="text-center lg:text-left">
+            <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">98</div>
+            <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Lighthouse
+              Score</div>
           </div>
-          <div class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
-             <span class="material-symbols-outlined text-[18px]">calendar_month</span>
-             Nov 2023 – Apr 2024
+          <div class="text-center lg:text-left">
+            <div class="text-2xl md:text-3xl font-headline font-extrabold text-gradient metric-value">3+</div>
+            <div class="text-[0.65rem] font-label uppercase tracking-widest text-on-surface-variant mt-1">Years Coding
+            </div>
           </div>
-       </div>
-       <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
-          <li class="flex gap-4">
-            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-            <span>Engineered data-driven React dashboards for real-time monitoring and internal automation tools.</span>
-          </li>
-          <li class="flex gap-4">
-            <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-            <span>Streamlined frontend workflows to improve application loading speeds and SEO performance.</span>
-          </li>
-       </ul>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- Communication -->
-<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="communication">
-<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
-  <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
-    <span class="ghost-letter -top-8 right-0" aria-hidden="true">C</span>
-    <p class="section-kicker fade-up">Communication</p>
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Clear <span class="text-primary">Communication</span></h2>
-    <p class="text-on-surface-variant font-body max-w-md">Fluent English that bridges technical complexity and business value — from client presentations to delivery.</p>
-  </div>
-  <div class="mem-shape mem-pop mem-pop-cyan mem-float absolute top-16 -left-3 w-6 h-6" style="--mem-rotate:45deg" aria-hidden="true"></div>
-  <div class="mem-shape mem-pop mem-pop-pink mem-float absolute bottom-24 -right-3 w-5 h-5" style="animation-delay:-3s;--mem-rotate:-12deg" aria-hidden="true"></div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
-      <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">record_voice_over</span>
-      <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-primary transition-colors">Fluent Written &amp; Spoken English</h3>
-      <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">English at professional working proficiency — persuasive communicator with clear documentation, confident product walk-throughs, and stakeholder conversations in English.</p>
-    </div>
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-tertiary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
-      <span class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">support_agent</span>
-      <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-tertiary transition-colors">Client-Facing Communication</h3>
-      <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Bridging technical complexity and business value at Scaleup IT — direct client communication, technical solution presentations, product demos, and requirement analysis that kept stakeholders aligned.</p>
-    </div>
-    <div class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-secondary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-3">
-      <span class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">public</span>
-      <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-secondary transition-colors">Remote &amp; International Collaboration</h3>
-      <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Coordinated with international stakeholders across time zones at Refuel Forecourts (Remote, UK) — led product discussions that improved report-generation efficiency by 30%.</p>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- Hobbies -->
-<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="hobbies">
-<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
-  <div class="mem-shape mem-stripes absolute top-20 -right-8 w-32 h-6 opacity-80 rotate-12" aria-hidden="true"></div>
-  <div class="fade-up mb-16">
-  <span class="ghost-letter -top-6 right-0 sm:-right-8" aria-hidden="true">B</span>
-  <p class="section-kicker fade-up">Beyond the Code</p>
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface mb-4">Beyond <span class="text-secondary">The Code</span></h2>
-  <p class="text-on-surface-variant font-body max-w-lg">What fuels my creativity outside of development.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-2">
-  <figure class="polaroid fade-up stagger-3" style="--rot:-3deg">
-    <span class="polaroid-tape" aria-hidden="true"></span>
-    <div class="polaroid-img">
-      <img src="./image/photo.webp" alt="Creative Snapshots" loading="lazy"/>
-    </div>
-    <figcaption>Photography · Visual Storytelling</figcaption>
-  </figure>
-  <figure class="polaroid fade-up stagger-4" style="--rot:2deg">
-    <span class="polaroid-tape" style="transform:translateX(-50%) rotate(4deg);background:rgba(120,190,255,0.32)" aria-hidden="true"></span>
-    <div class="polaroid-img">
-      <img src="./image/cycle01.webp" alt="Cycling" loading="lazy"/>
-    </div>
-    <figcaption>Cycling · Adventures</figcaption>
-  </figure>
-  <figure class="polaroid fade-up stagger-5" style="--rot:-1.5deg">
-    <span class="polaroid-tape" style="transform:translateX(-50%) rotate(-5deg);background:rgba(255,160,190,0.3)" aria-hidden="true"></span>
-    <div class="polaroid-img">
-      <img src="./image/buffalos.webp" alt="Traveling" loading="lazy"/>
-    </div>
-    <figcaption>Traveling · Exploring New Places</figcaption>
-  </figure>
-</div>
-</div>
-</section>
-
-<!-- About (Bento) -->
-<section class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="about">
-<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
-  <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
-    <span class="ghost-letter -top-8 right-0 sm:-right-4" aria-hidden="true">A</span>
-    <p class="section-kicker fade-up">About</p>
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Building <span class="text-primary">Human-Centric</span> Experiences</h2>
-  </div>
-  <div class="mem-shape mem-frame absolute -top-2 right-24 w-24 h-24 opacity-60 hidden md:block" aria-hidden="true"></div>
-  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-    <!-- Intro Block -->
-    <div class="md:col-span-2 lg:col-span-2 p-8 md:p-10 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 fade-up stagger-1">
-      <p class="text-lg md:text-xl text-on-surface-variant font-body leading-relaxed mb-6">
-        Hello! I'm S M Iftykhar Ul Alam, a Full-Stack Developer passionate about creating efficient and scalable web applications — from pixel-perfect React frontends to Laravel-backed backends. My journey is driven by a love for solving complex problems and building functional, user-friendly designs.
-      </p>        <p class="text-on-surface-variant font-body leading-relaxed mb-6">
-        Beyond the code, I'm an explorer always searching for the next breakthrough in performance, accessibility, and user interaction. I believe every pixel should serve a purpose and every interaction should feel seamless.
-      </p>
-      <p class="text-on-surface-variant font-body leading-relaxed mb-6">
-        On the engineering side, I focus on <span class="text-primary font-bold">React</span> and <span class="text-primary font-bold">Next.js</span> for the frontend and <span class="text-primary font-bold">Laravel</span> on the backend — owning everything from API design and database modeling to deployment and performance tuning.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
-          <span class="material-symbols-outlined text-[16px] text-primary">location_on</span> Dhaka, Bangladesh
-        </span>
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
-          <span class="material-symbols-outlined text-[16px] text-primary">code</span> Full-Stack Engineer
-        </span>
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
-          <span class="material-symbols-outlined text-[16px] text-primary">schedule</span> 3+ Years Experience
-        </span>
+        </div>
+        <div
+          class="flex items-center justify-center lg:justify-start gap-7 pt-6 text-on-surface-variant hero-immediate">
+          <a class="hover:text-[#0A66C2] transition-colors flex items-center gap-2 group"
+            href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" aria-label="LinkedIn">
+            <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-[#0A66C2] transition-colors" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span class="font-label text-xs tracking-widest uppercase">LinkedIn</span>
+          </a>
+          <a class="hover:text-black dark:hover:text-white transition-colors flex items-center gap-2 group" href="https://github.com/iftykhar"
+            target="_blank" aria-label="GitHub">
+            <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-black dark:group-hover:text-white transition-colors" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span class="font-label text-xs tracking-widest uppercase">GitHub</span>
+          </a>
+          <a class="hover:text-[#EA4335] transition-colors flex items-center gap-2 group" href="mailto:s.m.ifty49@gmail.com" aria-label="Email">
+            <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-[#EA4335] transition-colors" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+            <span class="font-label text-xs tracking-widest uppercase">Email</span>
+          </a>
+        </div>
       </div>
-      <div class="flex flex-wrap items-start gap-6 mt-8">
-        <figure class="polaroid fade-up stagger-3" style="--rot:-2.5deg;max-width:150px">
+      <!-- Right: Portrait card -->
+      <div class="relative mx-auto w-full max-w-xs sm:max-w-sm hero-immediate" id="hero-portrait">
+        <svg class="scribble scribble-arrow absolute -top-10 -left-12 sm:-left-20 w-24 h-20 hidden sm:block"
+          viewBox="0 0 96 80" fill="none" aria-hidden="true">
+          <path pathLength="1" d="M8 72 C 30 46, 52 26, 84 8" stroke="#4CD7F6" stroke-width="2.5"
+            stroke-linecap="round" />
+          <path pathLength="1" d="M66 6 L 86 6 L 80 22" stroke="#4CD7F6" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <div class="mem-shape mem-pop mem-pop-yellow mem-float absolute -top-6 -right-4 sm:-right-10 w-8 h-8"
+          style="--mem-rotate:12deg" aria-hidden="true"></div>
+        <div class="mem-shape mem-pop mem-pop-pink mem-float absolute -bottom-4 -left-3 sm:-left-8 w-6 h-6"
+          style="animation-delay:-2.5s;--mem-rotate:-12deg" aria-hidden="true"></div>
+        <div
+          class="absolute -inset-8 bg-gradient-to-tr from-[#6366F1]/30 via-[#A855F7]/20 to-transparent blur-3xl rounded-full pointer-events-none"
+          aria-hidden="true"></div>
+        <div
+          class="relative rounded-3xl overflow-hidden border border-outline-variant dark:border-white/10 shadow-2xl shadow-black/40 bg-surface-container-low">
+          <img src="./image/iftykharalam.webp" alt="S M Iftykhar Ul Alam" class="w-full aspect-[4/5] object-cover"
+            decoding="async" width="500" height="500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#131313]/70 via-transparent to-transparent"
+            aria-hidden="true"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2">
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.6rem] font-label font-bold uppercase tracking-widest text-white bg-black/40 backdrop-blur-md border border-white/10">
+              <span class="status-dot" aria-hidden="true"></span> Open to work
+            </span>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.6rem] font-label font-bold uppercase tracking-widest text-white bg-black/40 backdrop-blur-md border border-white/10">
+              <span class="material-symbols-outlined text-[14px]">location_on</span> Dhaka, BD
+            </span>
+          </div>
+        </div>
+        <!-- Floating tech logo chips -->
+        <div class="tech-chip tech-chip-logo absolute -top-5 -left-4 sm:-left-8" title="React.js"><img
+            src="./image/react-logo.webp" alt="React.js" loading="lazy" class="skill-icon" /></div>
+        <div class="tech-chip tech-chip-logo absolute top-1/3 -right-3 sm:-right-9" style="animation-delay:-2.5s"
+          title="Next.js"><img src="https://skillicons.dev/icons?i=nextjs" alt="Next.js" loading="lazy"
+            class="skill-icon" data-icon-base="https://skillicons.dev/icons?i=nextjs" /></div>
+        <div class="tech-chip tech-chip-logo absolute -bottom-5 -left-3 sm:-left-10" style="animation-delay:-5s"
+          title="Laravel"><img src="https://cdn.simpleicons.org/laravel" alt="Laravel" loading="lazy" class="skill-icon"
+            data-icon-base="https://cdn.simpleicons.org/laravel" data-icon-color="FF2D20" /></div>
+        <div class="tech-chip tech-chip-logo absolute bottom-1/4 -right-2 sm:-right-7" style="animation-delay:-7.5s"
+          title="TypeScript"><img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" loading="lazy"
+            class="skill-icon" data-icon-base="https://skillicons.dev/icons?i=ts" /></div>
+      </div>
+    </div>
+    <!-- Scroll cue -->
+    <div class="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40 hero-immediate"
+      aria-hidden="true">
+      <span class="font-label text-[0.6rem] uppercase tracking-[0.2em]">Scroll to explore</span>
+      <span class="material-symbols-outlined text-2xl animate-bounce">expand_more</span>
+    </div>
+  </section>
+
+  <!-- Tech Marquee -->
+  <section
+    class="py-10 md:py-16 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5"
+    aria-label="Technologies I work with">
+    <div class="mem-shape mem-dots absolute -top-8 right-10 w-24 h-24" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <p
+        class="text-center text-xs font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 mb-10 fade-up">
+        The stack I build with</p>
+      <div class="marquee fade-up stagger-2">
+        <div class="marquee-track" id="marquee-track"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section
+    class="py-28 md:py-32 bg-surface-container-low dark:bg-surface-container-lowest border-y border-outline-variant/40 dark:border-white/5 relative z-0 overflow-hidden"
+    id="projects" tabindex="-1">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="relative flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 md:mb-16 fade-up">
+        <span class="ghost-letter -top-10 right-0 sm:-right-4" aria-hidden="true">S</span>
+        <p class="section-kicker fade-up">Selected Work</p>
+        <h2 class="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold tracking-tight text-on-surface">Selected
+          <br /> <span class="text-gradient">Creations</span></h2>
+        <a href="https://github.com/iftykhar" target="_blank"
+          class="self-start sm:self-auto inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">
+          All on GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+        </a>
+      </div>
+
+      <!-- Project Filter Bar -->
+      <div class="relative mb-8 md:mb-12 fade-up" id="project-filters-container">
+        <span class="mem-shape mem-squiggle absolute -bottom-5 right-6 opacity-70 hidden md:block"
+          aria-hidden="true"></span>
+        <div class="flex overflow-x-auto no-scrollbar items-center gap-2 pb-4 md:pb-0 md:flex-wrap"
+          id="project-filters">
+          <button
+            class="filter-btn active whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-white z-10"
+            data-filter="featured">Featured <span class="filter-count opacity-60">0</span></button>
+          <button
+            class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10"
+            data-filter="all">All <span class="filter-count opacity-60">0</span></button>
+          <button
+            class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10"
+            data-filter="case-study">Case Studies <span class="filter-count opacity-60">0</span></button>
+          <button
+            class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10"
+            data-filter="personal">Personal <span class="filter-count opacity-60">0</span></button>
+          <button
+            class="filter-btn whitespace-nowrap px-6 py-3 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase transition-colors text-on-surface-variant hover:text-on-surface z-10"
+            data-filter="mini-project">Mini Projects <span class="filter-count opacity-60">0</span></button>
+
+          <div
+            class="filter-indicator absolute h-10 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] shadow-lg transition-all duration-300 ease-out z-0 pointer-events-none hidden md:block">
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Grids Container -->
+      <div id="projects-container" class="transition-opacity duration-300">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Proficiency -->
+  <section
+    class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5"
+    id="skills">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+      <div class="mem-shape mem-dots absolute -bottom-6 -left-10 w-40 h-40" aria-hidden="true"></div>
+      <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+        <span class="ghost-letter -top-8 right-2" aria-hidden="true">T</span>
+        <p class="section-kicker fade-up">Toolkit</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Technical
+          <span class="text-tertiary">Proficiency</span></h2>
+        <p class="text-on-surface-variant font-body max-w-md">Modern tools for modern problems. I specialize in building
+          scalable, accessible, and fast web applications.</p>
+      </div>
+      <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 md:gap-6">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Project Modal -->
+  <div id="project-modal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 pointer-events-none" role="dialog"
+    aria-modal="true">
+    <div id="project-modal-backdrop"
+      class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-auto">
+    </div>
+    <div id="project-modal-content"
+      class="relative w-full max-w-5xl max-h-[90vh] bg-surface-container-lowest rounded-2xl shadow-2xl overflow-y-auto transform scale-95 opacity-0 transition-all duration-400 ease-out pointer-events-auto flex flex-col border border-outline-variant dark:border-white/5">
+      <!-- Rendered via JS -->
+    </div>
+  </div>
+
+
+  <!-- Professional Experience -->
+  <section
+    class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5"
+    id="experience">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+      <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+        <span class="ghost-letter -top-8 right-0 sm:-right-4" aria-hidden="true">E</span>
+        <p class="section-kicker fade-up">Experience</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Professional
+          <span class="text-primary">Experience</span></h2>
+        <p class="text-on-surface-variant font-body max-w-md">My journey in engineering high-performance web
+          applications and digital systems.</p>
+      </div>
+
+      <div class="mem-shape mem-zigzag mem-float absolute top-1/2 -right-4 hidden lg:block" aria-hidden="true"></div>
+
+      <div class="relative space-y-8">
+        <div class="golden-thread fade-up absolute left-4 top-8 bottom-8 w-px bg-gradient-to-b from-primary via-secondary to-transparent"
+          aria-hidden="true"></div>
+
+        <!-- Item 1 -->
+        <div
+          class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:bg-surface-bright transition-all duration-500 tarot-deal-card stagger-1">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="flex flex-col md:flex-row justify-between mb-6">
+            <div>
+              <h3
+                class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">
+                Roxnor</h3>
+              <p class="text-primary font-bold text-sm tracking-wide uppercase">Sales Executive • Dhaka, Bangladesh</p>
+            </div>
+            <div
+              class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
+              <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+              Sept 2026 – Present
+            </div>
+          </div>
+          <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Working in software sales, identifying technology solutions that align with business needs and
+                goals.</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Leveraging frontend development background to bridge technical understanding and business-focused
+                communication.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Item 2 -->
+        <div
+          class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:bg-surface-bright transition-all duration-500 tarot-deal-card stagger-2">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="flex flex-col md:flex-row justify-between mb-6">
+            <div>
+              <h3
+                class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">
+                Betopia Group</h3>
+              <p class="text-primary font-bold text-sm tracking-wide uppercase">Junior Frontend Developer • Dhaka,
+                Bangladesh</p>
+            </div>
+            <div
+              class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
+              <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+              Aug 2025 – March 2026
+            </div>
+          </div>
+          <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Developed and maintained responsive web applications, ensuring high performance and SEO
+                rankings.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Item 3 -->
+        <div
+          class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:bg-surface-bright transition-all duration-500 tarot-deal-card stagger-3">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="flex flex-col md:flex-row justify-between mb-6">
+            <div>
+              <h3
+                class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">
+                Scaleup IT Limited</h3>
+              <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Dhaka, Bangladesh
+              </p>
+            </div>
+            <div
+              class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
+              <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+              Aug 2025 – March 2026
+            </div>
+          </div>
+          <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Architecting and maintaining React/Next.js applications with a focus on reusable component
+                libraries.</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Integrating backends and third-party services, ensuring seamless data sync and optimized API
+                performance.</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Collaborating via Agile methodologies, participating in daily standups and technical
+                documentation.</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Optimizing applications for mobile responsiveness and cross-browser compatibility.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Item 4 -->
+        <div
+          class="timeline-item group relative pl-14 p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:bg-surface-bright transition-all duration-500 tarot-deal-card stagger-4">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="flex flex-col md:flex-row justify-between mb-6">
+            <div>
+              <h3
+                class="font-headline font-bold text-xl text-on-surface mb-1 group-hover:text-primary transition-colors">
+                Refuel Forecourts Limited</h3>
+              <p class="text-primary font-bold text-sm tracking-wide uppercase">Frontend Developer • Remote, UK</p>
+            </div>
+            <div
+              class="mt-4 md:mt-0 text-on-surface-variant text-sm font-label flex items-center gap-2 bg-surface-container-high dark:bg-white/5 px-4 py-2 rounded-full border border-outline-variant dark:border-white/5">
+              <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+              Nov 2023 – Apr 2024
+            </div>
+          </div>
+          <ul class="space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed max-w-4xl">
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Engineered data-driven React dashboards for real-time monitoring and internal automation
+                tools.</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+              <span>Streamlined frontend workflows to improve application loading speeds and SEO performance.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Communication -->
+  <section
+    class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5"
+    id="communication">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+      <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+        <span class="ghost-letter -top-8 right-0" aria-hidden="true">C</span>
+        <p class="section-kicker fade-up">Communication</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Clear <span
+            class="text-primary">Communication</span></h2>
+        <p class="text-on-surface-variant font-body max-w-md">Fluent English that bridges technical complexity and
+          business value — from client presentations to delivery.</p>
+      </div>
+      <div class="mem-shape mem-pop mem-pop-cyan mem-float absolute top-16 -left-3 w-6 h-6" style="--mem-rotate:45deg"
+        aria-hidden="true"></div>
+      <div class="mem-shape mem-pop mem-pop-pink mem-float absolute bottom-24 -right-3 w-5 h-5"
+        style="animation-delay:-3s;--mem-rotate:-12deg" aria-hidden="true"></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div
+          class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-primary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-1">
+          <span
+            class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">record_voice_over</span>
+          <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-primary transition-colors">
+            Fluent Written &amp; Spoken English</h3>
+          <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">English at professional working
+            proficiency — persuasive communicator with clear documentation, confident product walk-throughs, and
+            stakeholder conversations in English.</p>
+        </div>
+        <div
+          class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-tertiary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-2">
+          <span
+            class="material-symbols-outlined text-tertiary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">support_agent</span>
+          <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-tertiary transition-colors">
+            Client-Facing Communication</h3>
+          <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Bridging technical complexity and
+            business value at Scaleup IT — direct client communication, technical solution presentations, product demos,
+            and requirement analysis that kept stakeholders aligned.</p>
+        </div>
+        <div
+          class="group p-8 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 hover:border-secondary/20 hover:bg-surface-bright transition-all duration-500 fade-up stagger-3">
+          <span
+            class="material-symbols-outlined text-secondary text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">public</span>
+          <h3 class="font-headline font-bold text-lg text-on-surface mb-2 group-hover:text-secondary transition-colors">
+            Remote &amp; International Collaboration</h3>
+          <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Coordinated with international
+            stakeholders across time zones at Refuel Forecourts (Remote, UK) — led product discussions that improved
+            report-generation efficiency by 30%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section
+    class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5"
+    id="hobbies">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+      <div class="mem-shape mem-stripes absolute top-20 -right-8 w-32 h-6 opacity-80 rotate-12" aria-hidden="true">
+      </div>
+      <div class="fade-up mb-16">
+        <span class="ghost-letter -top-6 right-0 sm:-right-8" aria-hidden="true">B</span>
+        <p class="section-kicker fade-up">Beyond the Code</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface mb-4">Beyond
+          <span class="text-secondary">The Code</span></h2>
+        <p class="text-on-surface-variant font-body max-w-lg">What fuels my creativity outside of development.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-2">
+        <figure class="polaroid fade-up stagger-3" style="--rot:-3deg">
           <span class="polaroid-tape" aria-hidden="true"></span>
-          <div class="polaroid-img" style="aspect-ratio:3/4">
-            <img src="./images/projects/elitestonebuildersaz.webp" alt="EliteStone Builders AZ project" loading="lazy"/>
+          <div class="polaroid-img">
+            <img src="./image/photo.webp" alt="Creative Snapshots" loading="lazy" />
           </div>
-          <figcaption>EliteStone Builders</figcaption>
+          <figcaption>Photography · Visual Storytelling</figcaption>
         </figure>
-        <figure class="polaroid fade-up stagger-4 hidden sm:block" style="--rot:2deg;max-width:140px">
-          <span class="polaroid-tape" style="transform:translateX(-50%) rotate(3deg);background:rgba(120,190,255,0.32)" aria-hidden="true"></span>
-          <div class="polaroid-img" style="aspect-ratio:3/4">
-            <img src="./images/projects/witklipfarm.webp" alt="Witklip Farm project" loading="lazy"/>
+        <figure class="polaroid fade-up stagger-4" style="--rot:2deg">
+          <span class="polaroid-tape" style="transform:translateX(-50%) rotate(4deg);background:rgba(120,190,255,0.32)"
+            aria-hidden="true"></span>
+          <div class="polaroid-img">
+            <img src="./image/cycle01.webp" alt="Cycling" loading="lazy" />
           </div>
-          <figcaption>Witklip Farm</figcaption>
+          <figcaption>Cycling · Adventures</figcaption>
+        </figure>
+        <figure class="polaroid fade-up stagger-5" style="--rot:-1.5deg">
+          <span class="polaroid-tape" style="transform:translateX(-50%) rotate(-5deg);background:rgba(255,160,190,0.3)"
+            aria-hidden="true"></span>
+          <div class="polaroid-img">
+            <img src="./image/buffalos.webp" alt="Traveling" loading="lazy" />
+          </div>
+          <figcaption>Traveling · Exploring New Places</figcaption>
         </figure>
       </div>
     </div>
-    
-    <!-- Quick Facts -->
-    <div class="flex flex-col gap-5 fade-up stagger-2">
-      <div class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
-        <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">location_on</span>
-        <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">Location</h3>
-        <p class="font-headline font-bold text-lg">Dhaka, Bangladesh</p>
+  </section>
+
+  <!-- About (Bento) -->
+  <section
+    class="py-28 md:py-32 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5"
+    id="about">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 relative">
+      <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-16 fade-up">
+        <span class="ghost-letter -top-8 right-0 sm:-right-4" aria-hidden="true">A</span>
+        <p class="section-kicker fade-up">About</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-on-surface">Building
+          <span class="text-primary">Human-Centric</span> Experiences</h2>
       </div>
-      <div class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
-        <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">code</span>
-        <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">Role</h3>
-        <p class="font-headline font-bold text-lg">Full-Stack Engineer</p>
+      <div class="mem-shape mem-frame absolute -top-2 right-24 w-24 h-24 opacity-60 hidden md:block" aria-hidden="true">
       </div>
-      <div class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
-        <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">schedule</span>
-        <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">Experience</h3>
-        <p class="font-headline font-bold text-lg">3+ Years</p>
-      </div>
-      <div class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
-        <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">rocket_launch</span>
-        <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">Availability</h3>
-        <p class="font-headline font-bold text-lg">Open to full-time &amp; freelance roles</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <!-- Intro Block -->
+        <div
+          class="md:col-span-2 lg:col-span-2 p-8 md:p-10 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5 fade-up stagger-1">
+          <p class="text-lg md:text-xl text-on-surface-variant font-body leading-relaxed mb-6">
+            Hello! I'm Iftykhar Alam. Professionally, I drive Business Development and architect technical solutions that align complex engineering systems with strategic commercial goals. I specialize in identifying market opportunities, negotiating technical requirements, and bridging the gap between stakeholders and delivery teams to ensure digital products solve real business problems and generate revenue.
+          </p>
+          <p class="text-on-surface-variant font-body leading-relaxed mb-6">
+            My day-to-day is focused on the entire sales cycle and solution architecture—from initial client discovery and technical consulting to closing deals and overseeing successful implementation strategies. I believe that the best technical solutions are those that are commercially viable and directly impact the bottom line.
+          </p>
+          <p class="text-on-surface-variant font-body leading-relaxed mb-6">
+            While my focus is firmly on business growth, my roots are deeply embedded in engineering. In my free time, I maintain a hands-on approach as a Full-Stack Developer, experimenting with <span class="text-primary font-bold">React</span>, <span class="text-primary font-bold">Next.js</span>, and <span class="text-primary font-bold">Laravel</span>. This active engineering mindset gives me a unique, practical edge when architecting enterprise solutions and communicating with technical teams.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
+              <span class="material-symbols-outlined text-[16px] text-primary">location_on</span> Dhaka, Bangladesh
+            </span>
+            <span
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
+              <span class="material-symbols-outlined text-[16px] text-primary">account_tree</span> Solution Architect
+            </span>
+            <span
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant">
+              <span class="material-symbols-outlined text-[16px] text-primary">schedule</span> 3+ Years Experience
+            </span>
+          </div>
+          <div class="flex flex-wrap items-start gap-6 mt-8">
+            <figure class="polaroid fade-up stagger-3" style="--rot:-2.5deg;max-width:150px">
+              <span class="polaroid-tape" aria-hidden="true"></span>
+              <div class="polaroid-img" style="aspect-ratio:3/4">
+                <img src="./images/projects/elitestonebuildersaz.webp" alt="EliteStone Builders AZ project"
+                  loading="lazy" />
+              </div>
+              <figcaption>EliteStone Builders</figcaption>
+            </figure>
+            <figure class="polaroid fade-up stagger-4 hidden sm:block" style="--rot:2deg;max-width:140px">
+              <span class="polaroid-tape"
+                style="transform:translateX(-50%) rotate(3deg);background:rgba(120,190,255,0.32)"
+                aria-hidden="true"></span>
+              <div class="polaroid-img" style="aspect-ratio:3/4">
+                <img src="./images/projects/witklipfarm.webp" alt="Witklip Farm project" loading="lazy" />
+              </div>
+              <figcaption>Witklip Farm</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Quick Facts -->
+        <div class="flex flex-col gap-5 fade-up stagger-2">
+          <div
+            class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
+            <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">location_on</span>
+            <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">Location
+            </h3>
+            <p class="font-headline font-bold text-lg">Dhaka, Bangladesh</p>
+          </div>
+          <div
+            class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
+            <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">code</span>
+            <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">Role</h3>
+            <p class="font-headline font-bold text-lg">Full-Stack Engineer</p>
+          </div>
+          <div
+            class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
+            <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">schedule</span>
+            <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">
+              Experience</h3>
+            <p class="font-headline font-bold text-lg">3+ Years</p>
+          </div>
+          <div
+            class="flex-1 p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
+            <span class="material-symbols-outlined text-[28px] text-primary mb-3 block">rocket_launch</span>
+            <h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-1">
+              Availability</h3>
+            <p class="font-headline font-bold text-lg">Open to full-time &amp; freelance roles</p>
+          </div>
+        </div>
+
+        <!-- Strategy & Execution -->
+        <div class="grid grid-cols-1 gap-5 fade-up stagger-3">
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
+            <span class="material-symbols-outlined text-[28px] text-tertiary mb-3 block">lightbulb</span>
+            <h3 class="font-headline font-bold mb-2">Strategy</h3>
+            <p class="text-sm text-on-surface-variant">System design, architecture planning, and technical research.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
+            <span class="material-symbols-outlined text-[28px] text-tertiary mb-3 block">terminal</span>
+            <h3 class="font-headline font-bold mb-2">Execution</h3>
+            <p class="text-sm text-on-surface-variant">High-fidelity development, performance tuning, and animation.</p>
+          </div>
+          <a href="./Iftykhar_alam_Full_stack_developer.pdf" download="Iftykhar_alam_Full_stack_developer.pdf"
+            class="flex items-center justify-center gap-2 p-6 rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-headline font-bold hover:scale-[1.02] transition-transform">
+            <span class="material-symbols-outlined text-[20px]">download</span> Download Resume
+          </a>
+        </div>
       </div>
     </div>
-    
-    <!-- Strategy & Execution -->
-    <div class="grid grid-cols-1 gap-5 fade-up stagger-3">
-      <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
-        <span class="material-symbols-outlined text-[28px] text-tertiary mb-3 block">lightbulb</span>
-        <h3 class="font-headline font-bold mb-2">Strategy</h3>
-        <p class="text-sm text-on-surface-variant">System design, architecture planning, and technical research.</p>
+  </section>
+
+  <!-- Contact -->
+  <section
+    class="py-28 md:py-32 px-6 md:px-8 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5"
+    id="contact">
+    <div
+      class="max-w-7xl mx-auto rounded-3xl bg-surface-container-low dark:bg-white/[0.03] backdrop-blur-xl border border-outline-variant dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] relative z-0 overflow-hidden">
+      <span class="ghost-letter -top-6 right-4 sm:right-10" aria-hidden="true">L</span>
+      <div class="halftone-lg absolute bottom-16 right-8 w-56 h-56 opacity-40 pointer-events-none" aria-hidden="true">
       </div>
-      <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant dark:border-white/5">
-        <span class="material-symbols-outlined text-[28px] text-tertiary mb-3 block">terminal</span>
-        <h3 class="font-headline font-bold mb-2">Execution</h3>
-        <p class="text-sm text-on-surface-variant">High-fidelity development, performance tuning, and animation.</p>
+      <div class="mem-shape mem-arc absolute -bottom-10 -left-8 opacity-60" aria-hidden="true"></div>
+      <div class="mem-shape mem-squiggle absolute top-10 left-8 opacity-70 hidden md:block" aria-hidden="true"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#6366F1]/25 blur-[150px] -mr-48 -mt-48 pointer-events-none">
       </div>
-      <a href="./Iftykhar_alam_Full_stack_developer.pdf" download="Iftykhar_alam_Full_stack_developer.pdf" class="flex items-center justify-center gap-2 p-6 rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-headline font-bold hover:scale-[1.02] transition-transform">
-        <span class="material-symbols-outlined text-[20px]">download</span> Download Resume
-      </a>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#4cd7f6]/20 blur-[150px] -ml-48 -mb-48 pointer-events-none">
+      </div>
+      <div class="relative z-10 p-8 md:p-16 lg:p-24">
+        <div class="text-center mb-16 fade-up">
+          <p class="section-kicker fade-up">Contact</p>
+          <h2 class="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold mb-6">Let's build something <br />
+            <span class="text-gradient">exceptional together.</span></h2>
+          <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Currently seeking new opportunities and creative
+            collaborations. My inbox is always open.</p>
+          <div class="flex flex-wrap justify-center gap-3 mt-8">
+            <a href="mailto:s.m.ifty49@gmail.com"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
+              <span class="material-symbols-outlined text-[16px] text-primary">mail</span> Email me
+            </a>
+            <a href="https://github.com/iftykhar" target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
+              <span class="material-symbols-outlined text-[16px] text-primary">code</span> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
+              <span class="material-symbols-outlined text-[16px] text-primary">link</span> LinkedIn
+            </a>
+          </div>
+          <p class="relative inline-block text-xs font-label uppercase tracking-widest text-on-surface-variant/60 mt-8">
+            Average response time — under 24 hours
+            <svg class="scribble scribble-underline" viewBox="0 0 300 16" fill="none" aria-hidden="true">
+              <path pathLength="1" d="M4 12 C 80 4, 200 14, 296 7" stroke="#A855F7" stroke-width="2.5"
+                stroke-linecap="round" />
+            </svg>
+          </p>
+        </div>
+        <form action="https://formspree.io/f/mrbknqal" method="POST" id="contact-form"
+          class="max-w-2xl mx-auto space-y-8 fade-up stagger-2">
+          <div><label for="name"
+              class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Name</label><input
+              id="name" type="text" name="name" required placeholder="Your name" /></div>
+          <div><label for="email"
+              class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Email</label><input
+              id="email" type="email" name="email" required placeholder="you@example.com" /></div>
+          <div><label for="message"
+              class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Message</label><textarea
+              id="message" class="text-gray-800 dark:text-white" name="message" required
+              placeholder="Tell me about your project..."></textarea></div>
+          <div class="text-center pt-4">
+            <button type="submit"
+              class="inline-flex items-center gap-3 px-10 py-4 bg-on-surface text-background font-headline font-bold rounded-xl hover:scale-105 transition-transform shadow-xl">Send
+              Message <span class="material-symbols-outlined">send</span></button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section class="py-28 md:py-32 px-6 md:px-8 relative z-0 overflow-hidden bg-surface-container-low/70 dark:bg-white/[0.035] border-y border-outline-variant/40 dark:border-white/5" id="contact">
-<div class="max-w-7xl mx-auto rounded-3xl bg-surface-container-low dark:bg-white/[0.03] backdrop-blur-xl border border-outline-variant dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] relative z-0 overflow-hidden">
-  <span class="ghost-letter -top-6 right-4 sm:right-10" aria-hidden="true">L</span>
-  <div class="halftone-lg absolute bottom-16 right-8 w-56 h-56 opacity-40 pointer-events-none" aria-hidden="true"></div>
-  <div class="mem-shape mem-arc absolute -bottom-10 -left-8 opacity-60" aria-hidden="true"></div>
-  <div class="mem-shape mem-squiggle absolute top-10 left-8 opacity-70 hidden md:block" aria-hidden="true"></div>
-  <div class="absolute top-0 right-0 w-96 h-96 bg-[#6366F1]/25 blur-[150px] -mr-48 -mt-48 pointer-events-none"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#4cd7f6]/20 blur-[150px] -ml-48 -mb-48 pointer-events-none"></div>
-  <div class="relative z-10 p-8 md:p-16 lg:p-24">
-    <div class="text-center mb-16 fade-up">
-      <p class="section-kicker fade-up">Contact</p>
-      <h2 class="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold mb-6">Let's build something <br/> <span class="text-gradient">exceptional together.</span></h2>
-      <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Currently seeking new opportunities and creative collaborations. My inbox is always open.</p>
-      <div class="flex flex-wrap justify-center gap-3 mt-8">
-        <a href="mailto:s.m.ifty49@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
-          <span class="material-symbols-outlined text-[16px] text-primary">mail</span> Email me
+  <div id="toast-container"></div>
+
+  <!-- Floating CTA -->
+  <a id="floating-cta" href="#contact"
+    class="fixed bottom-32 right-6 z-[90] inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-headline font-bold text-sm shadow-xl shadow-[#6366F1]/30 translate-y-24 opacity-0 pointer-events-none transition-all duration-500 hover:scale-105 active:scale-95"
+    aria-label="Contact me">
+    <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+    Let's talk
+  </a>
+
+  <!-- Go To Top Button with Scroll Progress -->
+  <button id="go-to-top" onclick="scrollToTop()"
+    class="fixed bottom-8 right-8 z-[100] p-5 rounded-full shadow-xl hover:scale-110 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 flex items-center justify-center group"
+    aria-label="Go to top">
+    <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 100 100">
+      <!-- Solid base in brand color -->
+      <circle class="fill-primary" cx="50" cy="50" r="46"></circle>
+      <!-- Background track for the ring (slightly darker/transparent) -->
+      <circle class="stroke-black/20" stroke-width="8" cx="50" cy="50" r="46" fill="transparent"></circle>
+      <!-- Active scroll progress ring in white -->
+      <circle id="scroll-progress-ring" class="text-white stroke-current transition-[stroke-dashoffset] duration-150 ease-out" stroke-width="8" stroke-linecap="round" cx="50" cy="50" r="46" fill="transparent" stroke-dasharray="289" stroke-dashoffset="289"></circle>
+    </svg>
+    <span class="material-symbols-outlined text-white text-xl font-bold group-hover:-translate-y-1 transition-transform relative z-10">arrow_upward</span>
+  </button>
+
+  <!-- Footer -->
+  <footer
+    class="py-10 px-6 md:px-8 mt-24 bg-surface-container-low/70 dark:bg-white/[0.035] border-t border-outline-variant/40 dark:border-white/5 relative z-0 overflow-hidden">
+    <div class="mem-shape mem-tri absolute -bottom-1 right-16 opacity-50" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+      <p class="text-on-surface-variant">© <span id="current-year">2025</span> S M Iftykhar Ul Alam. All rights
+        reserved.</p>
+      <div class="flex items-center gap-7">
+        <a class="hover:text-[#0A66C2] transition-colors flex items-center gap-2 group"
+          href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" aria-label="LinkedIn">
+          <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-[#0A66C2] transition-colors" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span class="font-label text-xs tracking-widest uppercase text-on-surface-variant group-hover:text-[#0A66C2] transition-colors hidden sm:inline">LinkedIn</span>
         </a>
-        <a href="https://github.com/iftykhar" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
-          <span class="material-symbols-outlined text-[16px] text-primary">code</span> GitHub
+        <a class="hover:text-black dark:hover:text-white transition-colors flex items-center gap-2 group" href="https://github.com/iftykhar"
+          target="_blank" aria-label="GitHub">
+          <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-black dark:group-hover:text-white transition-colors" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <span class="font-label text-xs tracking-widest uppercase text-on-surface-variant group-hover:text-black dark:group-hover:text-white transition-colors hidden sm:inline">GitHub</span>
         </a>
-        <a href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant dark:border-white/5 text-xs font-label font-bold text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all">
-          <span class="material-symbols-outlined text-[16px] text-primary">link</span> LinkedIn
+        <a class="hover:text-[#EA4335] transition-colors flex items-center gap-2 group" href="mailto:s.m.ifty49@gmail.com" aria-label="Email">
+          <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-[#EA4335] transition-colors" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+          <span class="font-label text-xs tracking-widest uppercase text-on-surface-variant group-hover:text-[#EA4335] transition-colors hidden sm:inline">Email</span>
         </a>
       </div>
-      <p class="relative inline-block text-xs font-label uppercase tracking-widest text-on-surface-variant/60 mt-8">Average response time — under 24 hours
-        <svg class="scribble scribble-underline" viewBox="0 0 300 16" fill="none" aria-hidden="true"><path pathLength="1" d="M4 12 C 80 4, 200 14, 296 7" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/></svg>
-      </p>
     </div>
-    <form action="https://formspree.io/f/mrbknqal" method="POST" id="contact-form" class="max-w-2xl mx-auto space-y-8 fade-up stagger-2">
-      <div><label for="name" class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Name</label><input id="name" type="text" name="name" required placeholder="Your name"/></div>
-      <div><label for="email" class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Email</label><input id="email" type="email" name="email" required placeholder="you@example.com"/></div>
-      <div><label for="message" class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2 block">Message</label><textarea id="message" class="text-gray-800 dark:text-white" name="message" required placeholder="Tell me about your project..."></textarea></div>
-      <div class="text-center pt-4">
-        <button type="submit" class="inline-flex items-center gap-3 px-10 py-4 bg-on-surface text-background font-headline font-bold rounded-xl hover:scale-105 transition-transform shadow-xl">Send Message <span class="material-symbols-outlined">send</span></button>
-      </div>
-    </form>
-  </div>
-</div>
-</section>
-
-<div id="toast-container"></div>
-
-<!-- Floating CTA -->
-<a id="floating-cta" href="#contact" class="fixed bottom-32 right-6 z-[90] inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-headline font-bold text-sm shadow-xl shadow-[#6366F1]/30 translate-y-24 opacity-0 pointer-events-none transition-all duration-500 hover:scale-105 active:scale-95" aria-label="Contact me">
-  <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
-  Let's talk
-</a>
-
-<!-- Go To Top Button -->
-<button id="go-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 z-[100] p-3 rounded-full bg-primary text-white shadow-xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 flex items-center justify-center group" aria-label="Go to top">
-  <span class="material-symbols-outlined text-2xl group-hover:text-white transition-colors animate-bounce">arrow_upward</span>
-</button>
-
-<!-- Footer -->
-<footer class="py-10 px-6 md:px-8 mt-24 bg-surface-container-low/70 dark:bg-white/[0.035] border-t border-outline-variant/40 dark:border-white/5 relative z-0 overflow-hidden">
-<div class="mem-shape mem-tri absolute -bottom-1 right-16 opacity-50" aria-hidden="true"></div>
-<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
-  <p class="text-on-surface-variant">© <span id="current-year">2025</span> S M Iftykhar Ul Alam. All rights reserved.</p>
-  <div class="flex items-center gap-5">
-    <a class="text-on-surface-variant hover:text-primary transition-colors" href="mailto:s.m.ifty49@gmail.com">Email</a>
-    <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://github.com/iftykhar" target="_blank" rel="noopener">GitHub</a>
-    <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.linkedin.com/in/iftykhar-alam/" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</div>
-</footer>
+  </footer>
 
 </body>
-</html>
 
+</html>

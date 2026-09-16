@@ -162,7 +162,7 @@ if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
 // Scroll Reveal
 const observer = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+document.querySelectorAll('.fade-up, .tarot-deal-card').forEach(el=>observer.observe(el));
 
 // Mobile Menu
 const menuToggle=document.getElementById('menu-toggle'), mobileMenu=document.getElementById('mobile-menu'), menuOverlay=document.getElementById('menu-overlay'), menuClose=document.getElementById('menu-close');
@@ -181,7 +181,41 @@ window.addEventListener('keydown', (e) => {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
 }
-document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const href=this.getAttribute('href');if(href==='#'){scrollToTop();return;}const t=document.querySelector(href);if(t)t.scrollIntoView({behavior: prefersReducedMotion ? 'auto' : 'smooth', block:'start'});});});
+document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const href=this.getAttribute('href');
+    if(href==='#'){scrollToTop();return;}
+    const t=document.querySelector(href);
+    if(t){
+      t.scrollIntoView({behavior: prefersReducedMotion ? 'auto' : 'smooth', block:'start'});
+      
+      if (!prefersReducedMotion) {
+        // 1. Golden Aura Pulse
+        t.classList.remove('summon-aura');
+        void t.offsetWidth; // trigger reflow
+        t.classList.add('summon-aura');
+        
+        // 2. Tarot Deal & Card Tricks for elements inside
+        // Target anything that looks like a "card" in the section
+        const cards = t.querySelectorAll('.group, .skill-card, .p-5');
+        cards.forEach((card, index) => {
+          card.classList.remove('tarot-deal');
+          void card.offsetWidth;
+          // Stagger the deal
+          card.style.animationDelay = `${index * 0.12}s`;
+          card.classList.add('tarot-deal');
+          
+          // Remove the class after animation completes so hover effects still work
+          setTimeout(() => {
+            card.classList.remove('tarot-deal');
+            card.style.animationDelay = '';
+          }, 1000 + (index * 120));
+        });
+      }
+    }
+  });
+});
 
 // Skip-to-content: scroll AND move sequential focus to the target for screen readers
 const skipLink = document.querySelector('.skip-link');
@@ -225,6 +259,14 @@ window.addEventListener('scroll',()=>{
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
     scrollProgress.style.transform = `scaleX(${progress})`;
+  }
+  
+  // Scroll progress ring (Back to Top button)
+  const progressRing = document.getElementById('scroll-progress-ring');
+  if (progressRing) {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+    progressRing.style.strokeDashoffset = 289 - (289 * progress);
   }
 
   // Floating "Let's talk" pill after ~1.5 viewport heights
@@ -573,8 +615,11 @@ function renderProjects(filter = 'all') {
           observer.observe(el);
        });
        
-       // Init effects
-       initCardEffects();
+       // Init effects on next frame to avoid forced reflow
+       // (style writes above must complete before getBoundingClientRect reads below)
+       requestAnimationFrame(() => {
+          initCardEffects();
+       });
     });
   }, 300);
 }
