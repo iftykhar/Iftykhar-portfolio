@@ -3,6 +3,59 @@ window.projectData = [
   // 🔥 CASE STUDIES (p16 → p1)
   // =========================
 {
+  id: "p18",
+  slug: "the-art-of-war-strategy-platform",
+  title: "The Art of War Strategy Platform",
+  categories: ["Strategy", "Platform"],
+  location: "Global",
+  client: "Confidential",
+  date: "2026-09-29",
+  websiteUrl: "https://the-art-of-war.vercel.app/",
+  type: "case-study",
+  featured: true,
+  heroImage: "./images/projects/the-art-of-war/the-art-of-war.png",
+  sections: [
+    {
+      id: "section-vision",
+      type: "vision",
+      header: "Strategic Platform Architecture",
+      shortSummary: "A scalable, strategic platform inspired by The Art of War.",
+      fullDescription: "To capture high-intent users, we architected a digital platform rooted in strategic planning and tactical execution. The system acts as a high-fidelity proxy for professional excellence, ensuring that complex data is handled seamlessly without losing performance.",
+      servicesProvided: [
+        "Digital Transformation Strategy",
+        "Next.js High-Performance Frontend",
+        "Conversion Funnel Engineering"
+      ]
+    },
+    {
+      id: "section-solution",
+      type: "solution",
+      header: "The Fistech Engineering Solution",
+      bodyText: "Our objective was to solve for both operational complexity and user friction, engineering a scalable strategic backbone.",
+      features: [
+        {
+          title: "Parametric Growth Modules",
+          desc: "Engineered custom logic to visualize strategic models dynamically."
+        },
+        {
+          title: "Next.js SSR Optimization",
+          desc: "Implemented Server-Side Rendering to ensure near-zero latency and instant SEO indexing."
+        }
+      ]
+    },
+    {
+      id: "section-metrics",
+      type: "metrics",
+      header: "Strategic ROI & Results",
+      bodyText: "By delivering a high-performance digital hub, we successfully positioned the platform as a primary authority for strategic planning.",
+      stats: [
+        { label: "Performance", value: "98/100 Lighthouse" },
+        { label: "Load Velocity", value: "< 1s LCP" }
+      ]
+    }
+  ]
+},
+{
   // --- 1. CORE IDENTITY ---
   id: "p17", // Sequential ID following Witklip
   slug: "elitestone-builders-transformation",
